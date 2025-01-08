@@ -30,11 +30,12 @@ EXECUTABLE=matmult_c.gcc
 
 # define the mkn values in the MKN variable
 #
-MKN="1000 1000 1000"
+MKN="5000 5000 5000"
+SIZES="10 100 300 500 800 1000 2000 3000 4000 5000"
 
 # define the permutation type in PERM
 #
-PERMS_LIST="nat mkn mnk nkm nmk kmn knm lib"
+PERM="blk"
 
 # uncomment and set a reasonable BLKSIZE for the blk version
 #
@@ -63,12 +64,12 @@ EXPOUT="$LSB_JOBNAME.${JID}.er"
 HWCOUNT="-h dch,on,dcm,on,l2h,on,l2m,on"
 
 # start the collect command with the above settings
-for PERM in $PERMS_LIST
+for BLKSIZE in $SIZES
 do
   gprofng collect app -o $EXPOUT $HWCOUNT ./$EXECUTABLE $PERM $MKN $BLKSIZE
 
   echo "BLKSIZE = $BLKSIZE"
-  echo "BLKSIZE = $BLKSIZE" >> gprofng_results.dat
+  echo "BLKSIZE = $BLKSIZE" >> gprofng_blk_results.dat
   gprofng display text --functions $EXPOUT
 done
 
