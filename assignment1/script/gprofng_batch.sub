@@ -51,8 +51,8 @@ export MATMULT_COMPARE=0
 
 # experiment name 
 #
-JID=${LSB_JOBID}
-EXPOUT="$LSB_JOBNAME.${JID}.er"
+JID=$(date "+%s.%N")
+EXPOUT="GPROFNG.${JID}.er"
 
 # uncomment the HWCOUNT line, if you want to use hardware counters
 # define an option string for the harwdware counters (see output of
