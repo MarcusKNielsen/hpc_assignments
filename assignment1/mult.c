@@ -11,7 +11,7 @@ void matmult_lib(int m,int n,int k,double *A,double *B,double *C){
     cblas_dgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans,m, n, k, alpha, A, k, B, n, beta, C, n);
 }
 
-inline void matmult_nat(int m,int n,int k,double *A,double *B,double *C){
+void matmult_nat(int m,int n,int k,double *A,double *B,double *C){
 
     // These two loops iterates over indexes of C: C[i,j]
     for (int i=0; i<m; i++){
