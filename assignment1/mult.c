@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void matmult_nat(int m,int n,int k,double *A,double *B,double *C){
+inline void matmult_nat(int m,int n,int k,double *A,double *B,double *C){
 
     // These two loops iterates over indexes of C: C[i,j]
     for (int i=0; i<m; i++){
