@@ -5,8 +5,8 @@ void matmult_nat(int m,int n,int k,double *A,double *B,double *C){
     // These two loops iterates over indexes of C: C[i,j]
     for (int i=0; i<m; i++){
         for (int j=0; j<n; j++){
-
             int c_idx = i*n+j; // row-major indexing: "C[i,j] = C[c_idx]"
+            C[c_idx] = 0;
 
             // This loop computes: C[i,j] = sum_l A[i,l]*B[l,j]
             for (int l=0; l<k; l++){
