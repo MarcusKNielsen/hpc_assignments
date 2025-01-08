@@ -70,7 +70,7 @@ do
 
   echo "BLKSIZE = $BLKSIZE"
   echo "BLKSIZE = $BLKSIZE" >> gprofng_blk_results.dat
-  gprofng display text --functions $EXPOUT
+  gprofng display text --functions $EXPOUT >> gprofng_blk_results.dat
 done
 
 echo "End of test!"
