@@ -1,4 +1,15 @@
 #include <stdio.h>
+#include <cblas.h>
+
+// Function to compute product C=A*B using cblas
+void matmult_lib(int m,int n,int k,double *A,double *B,double *C){
+
+    // Parameters for cblas_dgemm
+    double alpha = 1.0;
+    double  beta = 0.0;
+
+    cblas_dgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans,m, n, k, alpha, A, k, B, n, beta, C, n);
+}
 
 void matmult_nat(int m, int n, int k, double *A, double *B, double *C) {
 

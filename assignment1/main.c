@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <cblas.h>
 #include "mult.h"
 
 
@@ -23,15 +22,6 @@ void print_matrix(double *matrix, int num_rows, int num_cols) {
     }
 }
 
-// Function to compute product C=A*B using cblas
-void matmult_lib(int m,int n,int k,double *A,double *B,double *C){
-
-    // Parameters for cblas_dgemm
-    double alpha = 1.0;
-    double  beta = 0.0;
-
-    cblas_dgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans,m, n, k, alpha, A, k, B, n, beta, C, n);
-}
 
 int main() {
 
