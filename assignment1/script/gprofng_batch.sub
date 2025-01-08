@@ -49,10 +49,6 @@ PERMS_LIST="nat mkn mnk nkm nmk kmn knm lib"
 export MFLOPS_MAX_IT=1000
 export MATMULT_COMPARE=0
 
-# experiment name 
-#
-JID=$(date "+%s.%N")
-EXPOUT="GPROFNG.${JID}.er"
 
 # uncomment the HWCOUNT line, if you want to use hardware counters
 # define an option string for the harwdware counters (see output of
@@ -66,6 +62,10 @@ HWCOUNT="-h dch,on,dcm,on,l2h,on,l2m,on"
 # start the collect command with the above settings
 for PERM in $PERMS_LIST
 do
+  # experiment name
+  JID=$(date "+%s.%N")
+  EXPOUT="GPROFNG.${JID}.er"
+
   gprofng collect app -o $EXPOUT $HWCOUNT ./$EXECUTABLE $PERM $MKN $BLKSIZE
 
   echo "PERM = $PERM"
