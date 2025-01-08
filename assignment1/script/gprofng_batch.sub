@@ -67,8 +67,8 @@ for PERM in $PERMS_LIST
 do
   gprofng collect app -o $EXPOUT $HWCOUNT ./$EXECUTABLE $PERM $MKN $BLKSIZE
 
-  echo "BLKSIZE = $BLKSIZE"
-  echo "BLKSIZE = $BLKSIZE" >> gprofng_results.dat
+  echo "PERM = $PERM"
+  echo "PERM = $PERM" >> gprofng_results.dat
   gprofng display text --functions $EXPOUT
 done
 
