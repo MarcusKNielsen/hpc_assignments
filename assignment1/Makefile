@@ -1,5 +1,5 @@
 TARGET	= libmatmult.so
-LIBSRCS	= 
+LIBSRCS	= mult.c
 LIBOBJS	= $(LIBSRCS:.c=.o)
 
 OPT     = -g
@@ -9,7 +9,7 @@ CC      = gcc
 CFLAGS  = $(OPT) $(PIC) $(XOPTS)
 
 SOFLAGS = -shared 
-XLIBS	= 
+XLIBS	= -lopenblas
 
 $(TARGET): $(LIBOBJS)
 	$(CC) -o $@ $(SOFLAGS) $(LIBOBJS) $(XLIBS)
