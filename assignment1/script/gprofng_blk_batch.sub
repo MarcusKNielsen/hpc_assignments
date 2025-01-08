@@ -18,6 +18,7 @@
 # #BSUB -R "span[hosts=1] affinity[socket(1)]"
 
 lscpu
+lscpu -C
 
 # needed for the collect tool
 module load gprofng
