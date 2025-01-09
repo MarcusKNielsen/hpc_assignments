@@ -47,6 +47,7 @@ export MATMULT_COMPARE=0
 
 
 lscpu
+lscpu -C
 for PERM in $PERMS
 do
 for S in $SIZES

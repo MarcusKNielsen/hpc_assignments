@@ -9,6 +9,7 @@
 #BSUB -W 60
 
 lscpu
+lscpu -C
 
 export MATMULT_RESULTS=0
 export MATMULT_COMPARE=1

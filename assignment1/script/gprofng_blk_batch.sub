@@ -15,9 +15,10 @@
 #BSUB -R "select[model==XeonE5_2650v4]"
 # uncomment the following line, if you want to assure that your job has
 # a whole CPU for itself (shared L3 cache)
-# #BSUB -R "span[hosts=1] affinity[socket(1)]"
+#BSUB -R "span[hosts=1] affinity[socket(1)]"
 
 lscpu
+lscpu -C
 
 # needed for the collect tool
 module load gprofng
@@ -26,7 +27,7 @@ module load gprofng
 # valid values: matmult_c.studio, matmult_f.studio, matmult_c.gcc or
 # matmult_f.gcc
 #
-EXECUTABLE=matmult_c.gcc
+EXECUTABLE=matmult_f.gcc
 
 # define the mkn values in the MKN variable
 #
@@ -51,8 +52,8 @@ export MATMULT_COMPARE=0
 
 # experiment name 
 #
-JID=${LSB_JOBID}
-EXPOUT="$LSB_JOBNAME.${JID}.er"
+JID=$(date "+%s.%N")
+EXPOUT="GPROFNG_BLK.${JID}.er"
 
 # uncomment the HWCOUNT line, if you want to use hardware counters
 # define an option string for the harwdware counters (see output of
