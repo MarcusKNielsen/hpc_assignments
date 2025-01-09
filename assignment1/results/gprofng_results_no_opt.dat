@@ -1,0 +1,26 @@
+PERM = nat
+Functions sorted by metric: Exclusive Total CPU Time
+
+Excl. Total     Incl. Total     Excl. L1 D-cache     Excl. L1 D-cache   Excl. L2 Cache    Excl. L2 Cache      Name
+CPU             CPU             Hits                 Misses             Hits              Misses
+   sec.      %     sec.      %                    %                  %                 %                  %
+117.892 100.00  117.892 100.00  310801382704 100.00  2410353756 100.00  476949149 100.00  1934934936 100.00   <Total>
+117.882  99.99  117.882  99.99  310801382704 100.00  2410353756 100.00  476949149 100.00  1934934936 100.00   matmult_nat
+  0.010   0.01    0.010   0.01             0   0.             0   0.            0   0.             0   0.     getrusage
+  0.      0.    117.892 100.00             0   0.             0   0.            0   0.             0   0.     __libc_start_call_main
+  0.      0.    117.892 100.00             0   0.             0   0.            0   0.             0   0.     main
+  0.      0.    117.892 100.00             0   0.             0   0.            0   0.             0   0.     mflops
+  0.      0.      0.010   0.01             0   0.             0   0.            0   0.             0   0.     xtime
+
+PERM = mkn
+Functions sorted by metric: Exclusive Total CPU Time
+
+Excl. Total    Incl. Total    Excl. L1 D-cache     Excl. L1         Excl. L2 Cache   Excl. L2 Cache   Name
+CPU            CPU            Hits                 D-cache Misses   Hits             Misses
+  sec.      %    sec.      %                    %                %                %               %
+96.157 100.00  96.157 100.00  313363950007 100.00  86427030 100.00  76824024 100.00  7007008 100.00   <Total>
+96.157 100.00  96.157 100.00  313363950007 100.00  86427030 100.00  76824024 100.00  7007008 100.00   matmult_mkn
+ 0.      0.    96.157 100.00             0   0.           0   0.           0   0.          0   0.     __libc_start_call_main
+ 0.      0.    96.157 100.00             0   0.           0   0.           0   0.          0   0.     main
+ 0.      0.    96.157 100.00             0   0.           0   0.           0   0.          0   0.     mflops
+
