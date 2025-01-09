@@ -1,0 +1,99 @@
+BLKSIZE = 20
+Functions sorted by metric: Exclusive Total CPU Time
+
+Excl. Total     Incl. Total     Excl. L1 D-cache      Excl. L1 D-cache   Excl. L2 Cache     Excl. L2 Cache      Name
+CPU             CPU             Hits                  Misses             Hits               Misses
+   sec.      %     sec.      %                     %                  %                  %                  %
+547.903 100.00  547.903 100.00  1156158320618 100.00  9292505907 100.00  2003826628 100.00  7287287284 100.00   <Total>
+547.463  99.92  547.893 100.00  1156158320618 100.00  9292505907 100.00  2003826628 100.00  7287287284 100.00   matmult_blk
+  0.430   0.08    0.430   0.08              0   0.             0   0.             0   0.             0   0.     __memset_avx2_unaligned_erms_rtm
+  0.010   0.00    0.010   0.00              0   0.             0   0.             0   0.             0   0.     getrusage
+  0.      0.    547.903 100.00              0   0.             0   0.             0   0.             0   0.     __libc_start_call_main
+  0.      0.    547.903 100.00              0   0.             0   0.             0   0.             0   0.     main
+  0.      0.    547.903 100.00              0   0.             0   0.             0   0.             0   0.     mflops
+  0.      0.      0.010   0.00              0   0.             0   0.             0   0.             0   0.     xtime
+
+BLKSIZE = 40
+Functions sorted by metric: Exclusive Total CPU Time
+
+Excl. Total     Incl. Total     Excl. L1 D-cache      Excl. L1 D-cache   Excl. L2 Cache     Excl. L2 Cache      Name
+CPU             CPU             Hits                  Misses             Hits               Misses
+   sec.      %     sec.      %                     %                  %                  %                  %
+456.709 100.00  456.709 100.00  1061223207948 100.00  6837338142 100.00  2301519719 100.00  4534534533 100.00   <Total>
+456.219  99.89  456.699 100.00  1061223207948 100.00  6837338142 100.00  2301519719 100.00  4534534533 100.00   matmult_blk
+  0.480   0.11    0.480   0.11              0   0.             0   0.             0   0.             0   0.     __memset_avx2_unaligned_erms_rtm
+  0.010   0.00    0.010   0.00              0   0.             0   0.             0   0.             0   0.     getrusage
+  0.      0.    456.709 100.00              0   0.             0   0.             0   0.             0   0.     __libc_start_call_main
+  0.      0.    456.709 100.00              0   0.             0   0.             0   0.             0   0.     main
+  0.      0.    456.709 100.00              0   0.             0   0.             0   0.             0   0.     mflops
+  0.      0.      0.010   0.00              0   0.             0   0.             0   0.             0   0.     xtime
+
+BLKSIZE = 70
+Functions sorted by metric: Exclusive Total CPU Time
+
+Excl. Total     Incl. Total     Excl. L1 D-cache     Excl. L1 D-cache     Excl. L2 Cache Hits  Excl. L2 Cache      Name
+CPU             CPU             Hits                 Misses                                    Misses
+   sec.      %     sec.      %                    %                    %                    %                  %
+460.202 100.00  460.202 100.00  641982590608 100.00  109134928098 100.00  107438397565 100.00  1696696698 100.00   <Total>
+459.802  99.91  460.202 100.00  641982590608 100.00  109134928098 100.00  107438397565 100.00  1696696698 100.00   matmult_blk
+  0.400   0.09    0.400   0.09             0   0.               0   0.               0   0.             0   0.     __memset_avx2_unaligned_erms_rtm
+  0.      0.    460.202 100.00             0   0.               0   0.               0   0.             0   0.     __libc_start_call_main
+  0.      0.    460.202 100.00             0   0.               0   0.               0   0.             0   0.     main
+  0.      0.    460.202 100.00             0   0.               0   0.               0   0.             0   0.     mflops
+
+BLKSIZE = 100
+Functions sorted by metric: Exclusive Total CPU Time
+
+Excl. Total     Incl. Total     Excl. L1 D-cache     Excl. L1 D-cache     Excl. L2 Cache Hits  Excl. L2 Cache      Name
+CPU             CPU             Hits                 Misses                                    Misses
+   sec.      %     sec.      %                    %                    %                    %                  %
+443.410 100.00  443.410 100.00  614154736387 100.00  112707245216 100.00  111068332699 100.00  1639639643 100.00   <Total>
+442.910  99.89  443.380  99.99  614154736387 100.00  112707245216 100.00  111068332699 100.00  1639639643 100.00   matmult_blk
+  0.470   0.11    0.470   0.11             0   0.               0   0.               0   0.             0   0.     __memset_avx2_unaligned_erms_rtm
+  0.020   0.00    0.030   0.01             0   0.               0   0.               0   0.             0   0.     xtime
+  0.010   0.00    0.010   0.00             0   0.               0   0.               0   0.             0   0.     getrusage
+  0.      0.    443.410 100.00             0   0.               0   0.               0   0.             0   0.     __libc_start_call_main
+  0.      0.    443.410 100.00             0   0.               0   0.               0   0.             0   0.     main
+  0.      0.    443.410 100.00             0   0.               0   0.               0   0.             0   0.     mflops
+
+BLKSIZE = 120
+Functions sorted by metric: Exclusive Total CPU Time
+
+Excl. Total     Incl. Total     Excl. L1 D-cache     Excl. L1 D-cache     Excl. L2 Cache Hits  Excl. L2 Cache      Name
+CPU             CPU             Hits                 Misses                                    Misses
+   sec.      %     sec.      %                    %                    %                    %                  %
+443.220 100.00  443.220 100.00  641942550521 100.00  113926826596 100.00  111871783951 100.00  2053053054 100.00   <Total>
+442.860  99.92  443.220 100.00  641942550521 100.00  113926826596 100.00  111871783951 100.00  2053053054 100.00   matmult_blk
+  0.360   0.08    0.360   0.08             0   0.               0   0.               0   0.             0   0.     __memset_avx2_unaligned_erms_rtm
+  0.      0.    443.220 100.00             0   0.               0   0.               0   0.             0   0.     __libc_start_call_main
+  0.      0.    443.220 100.00             0   0.               0   0.               0   0.             0   0.     main
+  0.      0.    443.220 100.00             0   0.               0   0.               0   0.             0   0.     mflops
+
+BLKSIZE = 150
+Functions sorted by metric: Exclusive Total CPU Time
+
+Excl. Total     Incl. Total     Excl. L1 D-cache     Excl. L1 D-cache    Excl. L2 Cache      Excl. L2 Cache       Name
+CPU             CPU             Hits                 Misses              Hits                Misses
+   sec.      %     sec.      %                    %                   %                   %                   %
+530.321 100.00  530.321 100.00  600370939515 100.00  75265136518 100.00  53738404790 100.00  21525525507 100.00   <Total>
+529.801  99.90  530.311 100.00  600370939515 100.00  75265136518 100.00  53738404790 100.00  21525525507 100.00   matmult_blk
+  0.510   0.10    0.510   0.10             0   0.              0   0.              0   0.              0   0.     __memset_avx2_unaligned_erms_rtm
+  0.010   0.00    0.010   0.00             0   0.              0   0.              0   0.              0   0.     getrusage
+  0.      0.    530.321 100.00             0   0.              0   0.              0   0.              0   0.     __libc_start_call_main
+  0.      0.    530.321 100.00             0   0.              0   0.              0   0.              0   0.     main
+  0.      0.    530.321 100.00             0   0.              0   0.              0   0.              0   0.     mflops
+  0.      0.      0.010   0.00             0   0.              0   0.              0   0.              0   0.     xtime
+
+BLKSIZE = 200
+Functions sorted by metric: Exclusive Total CPU Time
+
+Excl. Total     Incl. Total     Excl. L1 D-cache     Excl. L1 D-cache    Excl. L2 Cache      Excl. L2 Cache       Name
+CPU             CPU             Hits                 Misses              Hits                Misses
+   sec.      %     sec.      %                    %                   %                   %                   %
+520.854 100.00  520.854 100.00  594204767510 100.00  77774721303 100.00  56945807792 100.00  20827827810 100.00   <Total>
+520.514  99.93  520.854 100.00  594204767510 100.00  77774721303 100.00  56945807792 100.00  20827827810 100.00   matmult_blk
+  0.340   0.07    0.340   0.07             0   0.              0   0.              0   0.              0   0.     __memset_avx2_unaligned_erms_rtm
+  0.      0.    520.854 100.00             0   0.              0   0.              0   0.              0   0.     __libc_start_call_main
+  0.      0.    520.854 100.00             0   0.              0   0.              0   0.              0   0.     main
+  0.      0.    520.854 100.00             0   0.              0   0.              0   0.              0   0.     mflops
+
