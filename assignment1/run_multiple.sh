@@ -28,7 +28,7 @@
 EXECUTABLE=matmult_f.gcc
 
 # define the mkn values in the MKN variable
-SIZES="10 20 40 80 160 200 220 240 320 480 640 1280 2560 3200"
+SIZES="10 20 43 50 100 120 150 200 400 800 1300 1500 2000"
 
 
 
