@@ -50,11 +50,6 @@ PERM="blk"
 export MFLOPS_MAX_IT=1000
 export MATMULT_COMPARE=0
 
-# experiment name 
-#
-JID=$(date "+%s.%N")
-EXPOUT="GPROFNG_BLK.${JID}.er"
-
 # uncomment the HWCOUNT line, if you want to use hardware counters
 # define an option string for the harwdware counters (see output of
 # 'collect -h' for valid values.  The format is:
@@ -67,6 +62,10 @@ HWCOUNT="-h dch,on,dcm,on,l2h,on,l2m,on"
 # start the collect command with the above settings
 for BLKSIZE in $SIZES
 do
+
+  JID=$(date "+%s.%N")
+  EXPOUT="GPROFNG_BLK.${JID}.er"
+  
   gprofng collect app -o $EXPOUT $HWCOUNT ./$EXECUTABLE $PERM $MKN $BLKSIZE
 
   echo "BLKSIZE = $BLKSIZE"
