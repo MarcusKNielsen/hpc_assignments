@@ -16,7 +16,7 @@ matmult_blk_df = df[df["Name"] == "matmult_blk"]
 fig = plt.figure()
 for block_size in matmult_blk_df['Block Size'].unique():
     subset = matmult_blk_df[matmult_blk_df['Block Size'] == block_size]
-    plt.semilogx(subset['Memory [KiB]'], subset['Compute [Mflop/s]'], label=f"{block_size}")
+    plt.semilogx(subset['Memory [KiB]'], subset['Compute [Mflop/s]'], label=f"{block_size}", marker='o')
 plt.axvline(x=32, color='r', linestyle="dashed", label='L1d')
 plt.axvline(x=256, color='r', linestyle="dashed", label='L2')
 plt.axvline(x=30 * 1024, color='r', linestyle="dashed", label='L3')
@@ -34,7 +34,7 @@ fig = plt.figure()
 for name in matmult_goodblock_size_df['Name'].unique():
     subset = matmult_goodblock_size_df[matmult_goodblock_size_df['Name'] == name]
     plt.semilogx(subset['Memory [KiB]'], subset['Compute [Mflop/s]'],
-                 label=name if name != "matmult_blk" else "matmult_blk (bs = 100)")
+                 label=name if name != "matmult_blk" else "matmult_blk (bs = 100)", marker='o')
 plt.axvline(x=32, color='r', linestyle="dashed", label='L1d')
 plt.axvline(x=256, color='r', linestyle="dashed", label='L2')
 plt.axvline(x=30 * 1024, color='r', linestyle="dashed", label='L3')
