@@ -1,0 +1,25 @@
+PERM = nat
+Functions sorted by metric: Exclusive Total CPU Time
+
+Excl. Total    Incl. Total    Excl. L1 D-cache    Excl. L1 D-cache   Excl. L2 Cache   Excl. L2 Cache      Name
+CPU            CPU            Hits                Misses             Hits             Misses
+  sec.      %    sec.      %                   %                  %                %                  %
+22.246 100.00  22.246 100.00  29259287005 100.00  1843776580 100.00  51216016 100.00  1791791794 100.00   <Total>
+22.246 100.00  22.246 100.00  29259287005 100.00  1843776580 100.00  51216016 100.00  1791791794 100.00   matmult_nat
+ 0.      0.    22.246 100.00            0   0.             0   0.           0   0.             0   0.     __libc_start_call_main
+ 0.      0.    22.246 100.00            0   0.             0   0.           0   0.             0   0.     main
+ 0.      0.    22.246 100.00            0   0.             0   0.           0   0.             0   0.     mflops
+
+PERM = mkn
+Functions sorted by metric: Exclusive Total CPU Time
+
+Excl. Total   Incl. Total   Excl. L1 D-cache   Excl. L1 D-cache   Excl. L2 Cache     Excl. L2 Cache     Name
+CPU           CPU           Hits               Misses             Hits               Misses
+ sec.      %   sec.      %                  %                  %                  %                 %
+7.125 100.00  7.125 100.00  9179187889 100.00  1209978383 100.00  1101144345 100.00  110110113 100.00   <Total>
+7.095  99.58  7.125 100.00  9179187889 100.00  1209978383 100.00  1101144345 100.00  110110113 100.00   matmult_mkn
+0.030   0.42  0.030   0.42           0   0.             0   0.             0   0.            0   0.     __memset_avx2_unaligned_erms_rtm
+0.      0.    7.125 100.00           0   0.             0   0.             0   0.            0   0.     __libc_start_call_main
+0.      0.    7.125 100.00           0   0.             0   0.             0   0.            0   0.     main
+0.      0.    7.125 100.00           0   0.             0   0.             0   0.            0   0.     mflops
+
