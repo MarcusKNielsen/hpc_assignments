@@ -31,8 +31,8 @@ EXECUTABLE=matmult_f.gcc
 
 # define the mkn values in the MKN variable
 #
-MKN="5000 5000 5000"
-SIZES="10 100 300 500 800 1000 2000 3000 4000 5000"
+MKN="1000 1000 1000"
+SIZES="20 40 70 100 120 150 200"
 
 # define the permutation type in PERM
 #
