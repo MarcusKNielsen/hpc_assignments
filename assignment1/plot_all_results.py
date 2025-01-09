@@ -21,8 +21,14 @@ titles = {"results_Ofast_fno_unroll.dat": "-Ofast -fno_unroll-loops",
           "results_-Ofast_-funroll-all-loops.dat": "-Ofast -funroll-all-loops"
           }
 
+set_of_files = {'results_no_opt_divide_m.dat',
+        'results_no_opt_divide_k.dat',
+        'results_no_opt_divide_n.dat',
+        "results_smaller_m.dat",
+        "results_no_opt.dat"}
+
 # Create a figure with subplots
-fig, axes = plt.subplots(3, 2, figsize=(8, 8))
+fig, axes = plt.subplots(3, 2, figsize=(6, 7))
 axes = axes.flatten()  # Flatten to easily index
 
 # Plot stuff
@@ -30,7 +36,7 @@ plot_index = 0
 handles, labels = None, None  # Initialize handles and labels for the shared legend
 
 for i in range(len(files)):
-    if files[i] != "results_no_opt.dat" and files[i] != "results_smaller_m.dat":
+    if files[i] not in set_of_files:
 
         file_name = folder_path + "/" + files[i]
         data = pd.read_csv(file_name, delim_whitespace=True, header=None)
@@ -85,24 +91,24 @@ plt.figure(figsize=(7, 5.7))
 plt.vlines([L1, L2, L3], 0, 8500, linestyle="--", color="red", label="Cache Levels")
 
 for i in range(len(files)):
-
-    file_name = folder_path + "/" + files[i]
-    data = pd.read_csv(file_name, delim_whitespace=True, header=None)
-    data = data.drop(columns=[2])
-    data.columns = ['memory', 'performance', 'version']
-    versions = data['version'].unique()
-
-
+    if files[i] not in set_of_files:
+        file_name = folder_path + "/" + files[i]
+        data = pd.read_csv(file_name, delim_whitespace=True, header=None)
+        data = data.drop(columns=[2])
+        data.columns = ['memory', 'performance', 'version']
+        versions = data['version'].unique()
     
-    for v in range(len(versions)):
-        if versions[v] == 'matmult_mkn':
-            x = data[data['version'] == versions[v]]['memory']
-            y = data[data['version'] == versions[v]]['performance']
-            plt.semilogx(x, y, ".-", label=titles[files[i]])
     
-    plt.xlabel("Memory [KiB]")
-    plt.ylabel("Compute [Mflop/s]")
-    plt.title("Best Version vs. Library (mkn vs. cblas)")
+        
+        for v in range(len(versions)):
+            if versions[v] == 'matmult_mkn':
+                x = data[data['version'] == versions[v]]['memory']
+                y = data[data['version'] == versions[v]]['performance']
+                plt.semilogx(x, y, ".-", label=titles[files[i]])
+        
+        plt.xlabel("Memory [KiB]")
+        plt.ylabel("Compute [Mflop/s]")
+        plt.title("Best Version vs. Library (mkn vs. cblas)")
 
 x = data[data['version'] == 'matmult_lib']['memory']
 y = data[data['version'] == 'matmult_lib']['performance']
@@ -181,6 +187,24 @@ axes[1].legend()
 # Adjust layout
 plt.tight_layout()
 plt.show()
+
+#%%
+
+# Load and preprocess the data
+file_name = folder_path + "/" + 'results_smaller_m.dat'
+data = pd.read_csv(file_name, delim_whitespace=True, header=None)
+data = data.drop(columns=[2])
+data.columns = ['memory', 'performance', 'version']
+versions = data['version'].unique()
+
+plt.figure()
+
+for v in range(len(versions)):
+    if versions[v] != 'matmult_lib':
+        x = data[data['version'] == versions[v]]['memory']
+        y = data[data['version'] == versions[v]]['performance']
+        plt.semilogx(x, y, ".-", label=versions[v][-3:])
+
 
 
 
