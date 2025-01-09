@@ -13,11 +13,11 @@ files = os.listdir(folder_path)
 
 files = [file for file in files if file.lower().startswith('r')]
 
-titles = {"results_Ofast_fno_unroll.dat": "-Ofast -fno_unroll",
+titles = {"results_Ofast_fno_unroll.dat": "-Ofast -fno_unroll-loops",
           "results_-O3_-funroll-all-loops.dat": "-O3 -funroll-all-loops",
           "results_-O.dat": "-O",
-          "results_O3_fno_unroll.dat": "-O3 -fno_unroll",
-          "results_O3_funroll.dat": "-O3 -funroll",
+          "results_O3_fno_unroll.dat": "-O3 -fno_unroll-loops",
+          "results_O3_funroll.dat": "-O3 -funroll-loops",
           "results_-Ofast_-funroll-all-loops.dat": "-Ofast -funroll-all-loops"
           }
 
@@ -30,7 +30,7 @@ plot_index = 0
 handles, labels = None, None  # Initialize handles and labels for the shared legend
 
 for i in range(len(files)):
-    if files[i] != "results_no_opt.dat":
+    if files[i] != "results_no_opt.dat" and files[i] != "results_smaller_m.dat":
 
         file_name = folder_path + "/" + files[i]
         data = pd.read_csv(file_name, delim_whitespace=True, header=None)
@@ -71,11 +71,11 @@ plt.show()
 
 #%%
 
-titles = {"results_Ofast_fno_unroll.dat": "-Ofast -fno_unroll",
+titles = {"results_Ofast_fno_unroll.dat": "-Ofast -fno_unroll-loops",
           "results_-O3_-funroll-all-loops.dat": "-O3 -funroll-all-loops",
           "results_-O.dat": "-O",
-          "results_O3_fno_unroll.dat": "-O3 -fno_unroll",
-          "results_O3_funroll.dat": "-O3 -funroll",
+          "results_O3_fno_unroll.dat": "-O3 -fno_unroll-loops",
+          "results_O3_funroll.dat": "-O3 -funroll-loops",
           "results_-Ofast_-funroll-all-loops.dat": "-Ofast -funroll-all-loops",
           "results_no_opt.dat": "No optimization"
           }
@@ -106,7 +106,7 @@ for i in range(len(files)):
 
 x = data[data['version'] == 'matmult_lib']['memory']
 y = data[data['version'] == 'matmult_lib']['performance']
-plt.semilogx(x, y, ".-", label="lib (cblas)")
+plt.semilogx(x, y, ".-", label="dgemm (BLAS)")
 
 plt.legend()
 # Adjust layout
@@ -140,5 +140,48 @@ plt.title("Performance With No Optimization")
 plt.legend()
 plt.tight_layout()
 plt.show()
+
+#%%
+
+# Create a figure with subplots
+fig, axes = plt.subplots(1, 2, figsize=(8, 4))  # 1 row, 2 columns
+
+# Load and preprocess the data
+file_name = folder_path + "/" + "results_no_opt.dat"
+data = pd.read_csv(file_name, delim_whitespace=True, header=None)
+data = data.drop(columns=[2])
+data.columns = ['memory', 'performance', 'version']
+versions = data['version'].unique()
+
+# Shared x-axis and y-axis labels
+x_label = "Memory [KiB]"
+y_label = "Compute [Mflop/s]"
+title1 = "Performance: matmult_lib"
+title2 = "Performance: matmult_nat"
+
+# Plot for 'matmult_lib'
+axes[0].vlines([L1, L2, L3], 0, 8500, linestyle="--", color="red", label="Cache Levels")
+x = data[data['version'] == 'matmult_lib']['memory']
+y = data[data['version'] == 'matmult_lib']['performance']
+axes[0].semilogx(x, y, "o-", label='matmult_lib')
+axes[0].set_xlabel(x_label)
+axes[0].set_ylabel(y_label)
+axes[0].set_title(title1)
+axes[0].legend()
+
+# Plot for 'matmult_nat'
+axes[1].vlines([L1, L2, L3], 150, 400, linestyle="--", color="red", label="Cache Levels")
+x = data[data['version'] == 'matmult_nat']['memory']
+y = data[data['version'] == 'matmult_nat']['performance']
+axes[1].semilogx(x, y, "o-", label='matmult_nat')
+axes[1].set_xlabel(x_label)
+axes[1].set_title(title2)
+axes[1].legend()
+
+# Adjust layout
+plt.tight_layout()
+plt.show()
+
+
 
 
