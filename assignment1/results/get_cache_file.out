@@ -1,0 +1,113 @@
+Architecture:                         x86_64
+CPU op-mode(s):                       32-bit, 64-bit
+Address sizes:                        46 bits physical, 48 bits virtual
+Byte Order:                           Little Endian
+CPU(s):                               24
+On-line CPU(s) list:                  0-23
+Vendor ID:                            GenuineIntel
+Model name:                           Intel(R) Xeon(R) CPU E5-2650 v4 @ 2.20GHz
+CPU family:                           6
+Model:                                79
+Thread(s) per core:                   1
+Core(s) per socket:                   12
+Socket(s):                            2
+Stepping:                             1
+CPU(s) scaling MHz:                   76%
+CPU max MHz:                          2900.0000
+CPU min MHz:                          1200.0000
+BogoMIPS:                             4389.60
+Flags:                                fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 invpcid_single pti intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm rdt_a rdseed adx smap intel_pt xsaveopt cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts md_clear flush_l1d
+Virtualization:                       VT-x
+L1d cache:                            768 KiB (24 instances)
+L1i cache:                            768 KiB (24 instances)
+L2 cache:                             6 MiB (24 instances)
+L3 cache:                             60 MiB (2 instances)
+NUMA node(s):                         2
+NUMA node0 CPU(s):                    0-11
+NUMA node1 CPU(s):                    12-23
+Vulnerability Gather data sampling:   Not affected
+Vulnerability Itlb multihit:          KVM: Mitigation: VMX disabled
+Vulnerability L1tf:                   Mitigation; PTE Inversion; VMX conditional cache flushes, SMT disabled
+Vulnerability Mds:                    Mitigation; Clear CPU buffers; SMT disabled
+Vulnerability Meltdown:               Mitigation; PTI
+Vulnerability Mmio stale data:        Mitigation; Clear CPU buffers; SMT disabled
+Vulnerability Reg file data sampling: Not affected
+Vulnerability Retbleed:               Not affected
+Vulnerability Spec rstack overflow:   Not affected
+Vulnerability Spec store bypass:      Mitigation; Speculative Store Bypass disabled via prctl
+Vulnerability Spectre v1:             Mitigation; usercopy/swapgs barriers and __user pointer sanitization
+Vulnerability Spectre v2:             Mitigation; Retpolines; IBPB conditional; IBRS_FW; RSB filling; PBRSB-eIBRS Not affected; BHI Not affected
+Vulnerability Srbds:                  Not affected
+Vulnerability Tsx async abort:        Mitigation; Clear CPU buffers; SMT disabled
+NAME ONE-SIZE ALL-SIZE WAYS TYPE        LEVEL  SETS PHY-LINE COHERENCY-SIZE
+L1d       32K     768K    8 Data            1    64        1             64
+L1i       32K     768K    8 Instruction     1    64        1             64
+L2       256K       6M    8 Unified         2   512        1             64
+L3        30M      60M   20 Unified         3 24576        1             64
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@hpc.dtu.dk>
+Subject: Job 23605465: <mm_batch> in cluster <dcc> Done
+
+Job <mm_batch> was submitted from host <hpclogin2> by user <s232496> in cluster <dcc> at Thu Jan  9 09:18:05 2025
+Job was executed on host(s) <n-62-21-76>, in queue <hpcintro>, as user <s232496> in cluster <dcc> at Thu Jan  9 09:18:05 2025
+</zhome/3c/8/202539> was used as the home directory.
+</zhome/3c/8/202539/hpc_assignments3/assignment1> was used as the working directory.
+Started at Thu Jan  9 09:18:05 2025
+Terminated at Thu Jan  9 09:18:06 2025
+Results reported at Thu Jan  9 09:18:06 2025
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+# 02614 - High-Performance Computing, January 2022
+# 
+# batch script to run matmult on a decidated server in the hpcintro
+# queue
+#
+# Author: Bernd Dammann <bd@cc.dtu.dk>
+# Modified: Asta Rustad 08.01.25
+#
+#BSUB -J mm_batch
+# -- Output File --
+#BSUB -o output_%J.out
+# -- Error File --
+##BSUB -e job_out/Output_%J.err
+#BSUB -q hpcintro
+#BSUB -n 1
+#BSUB -R "rusage[mem=2048]"
+#BSUB -W 60
+#BSUB -R "select[model==XeonE5_2650v4]"
+# uncomment the following line, if you want to assure that your job has
+# a whole CPU for itself (shared L3 cache)
+#BSUB -R "span[hosts=1] affinity[socket(1)]"
+
+# define the driver name to use
+# valid values: matmult_c.studio, matmult_f.studio, matmult_c.gcc or
+# matmult_f.gcc
+
+
+lscpu
+lscpu -C
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   0.44 sec.
+    Max Memory :                                 -
+    Average Memory :                             -
+    Total Requested Memory :                     2048.00 MB
+    Delta Memory :                               -
+    Max Swap :                                   -
+    Max Processes :                              -
+    Max Threads :                                -
+    Run time :                                   1 sec.
+    Turnaround time :                            1 sec.
+
+The output (if any) is above this job summary.
+
