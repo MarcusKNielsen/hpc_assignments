@@ -53,13 +53,20 @@ def plot_percentage_stats(blocksize_cache_data, cache_type):
 
     x = range(len(blocksizes))
 
+    # Define font size variables
+    label_fontsize = 16
+    tick_fontsize = 14
+    title_fontsize = 18
+    marker_size = 8  # Marker size variable
+    
     # Plot for hits
     plt.figure(figsize=(6, 6))
-    plt.plot(x, hit_percentages, marker='o',color='blue', label=f'{cache_type} Hits')
-    plt.ylabel('Percentage (%)')
-    plt.xlabel('BlockSize')
-    plt.title(f'{cache_type} Hits')
-    plt.xticks(x, blocksizes, rotation=45, ha='right')
+    plt.plot(x, hit_percentages, marker='o', markersize=marker_size, color='blue', label=f'{cache_type} Hits')
+    plt.ylabel('Percentage (%)', fontsize=label_fontsize)
+    plt.xlabel('BlockSize', fontsize=label_fontsize)
+    plt.title(f'{cache_type} Hits', fontsize=title_fontsize)
+    plt.xticks(x, blocksizes, rotation=45, ha='right', fontsize=tick_fontsize)
+    plt.yticks(fontsize=tick_fontsize)
     plt.ylim(0, 100)
     plt.tight_layout()
     
@@ -68,14 +75,15 @@ def plot_percentage_stats(blocksize_cache_data, cache_type):
     plt.savefig(plot_filename)
     print(f"Plot saved as {plot_filename}")
     plt.close()
-
+    
     # Plot for misses
     plt.figure(figsize=(6, 6))
-    plt.plot(x, miss_percentages, marker='o',color='red', label=f'{cache_type} Misses')
-    plt.ylabel('Percentage (%)')
-    plt.xlabel('BlockSize')
-    plt.title(f'{cache_type} Misses')
-    plt.xticks(x, blocksizes, rotation=45, ha='right')
+    plt.plot(x, miss_percentages, marker='o', markersize=marker_size, color='red', label=f'{cache_type} Misses')
+    plt.ylabel('Percentage (%)', fontsize=label_fontsize)
+    plt.xlabel('BlockSize', fontsize=label_fontsize)
+    plt.title(f'{cache_type} Misses', fontsize=title_fontsize)
+    plt.xticks(x, blocksizes, rotation=45, ha='right', fontsize=tick_fontsize)
+    plt.yticks(fontsize=tick_fontsize)
     plt.ylim(0, 100)
     plt.tight_layout()
     
@@ -83,6 +91,7 @@ def plot_percentage_stats(blocksize_cache_data, cache_type):
     plt.savefig(plot_filename)
     print(f"Plot saved as {plot_filename}")
     plt.close()
+    #plt.show()
 
 if __name__ == "__main__":
     blocksize_cache_data = parse_cache_data_by_blocksize(file_path)

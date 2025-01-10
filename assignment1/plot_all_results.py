@@ -25,7 +25,8 @@ set_of_files = {'results_no_opt_divide_m.dat',
         'results_no_opt_divide_k.dat',
         'results_no_opt_divide_n.dat',
         "results_smaller_m.dat",
-        "results_no_opt.dat"}
+        "results_no_opt.dat",
+        'results_blk.dat'}
 
 # Create a figure with subplots
 fig, axes = plt.subplots(3, 2, figsize=(6, 7))
@@ -190,20 +191,35 @@ plt.show()
 
 #%%
 
-# Load and preprocess the data
-file_name = folder_path + "/" + 'results_smaller_m.dat'
+# "matmult_mnk"
+# "matmult_nkm"
+
+file_name = folder_path + "/" + 'results_no_opt_divide_m.dat'
 data = pd.read_csv(file_name, delim_whitespace=True, header=None)
 data = data.drop(columns=[2])
 data.columns = ['memory', 'performance', 'version']
-versions = data['version'].unique()
 
-plt.figure()
+plt.figure(figsize=(6,4))
 
-for v in range(len(versions)):
-    if versions[v] != 'matmult_lib':
-        x = data[data['version'] == versions[v]]['memory']
-        y = data[data['version'] == versions[v]]['performance']
-        plt.semilogx(x, y, ".-", label=versions[v][-3:])
+plt.title(r"Performance with $n=k=10m$")
+
+plt.vlines([L1, L2, L3], 100, 350, linestyle="--", color="red", label="Cache Levels")
+
+
+x = data[data['version'] == "matmult_mnk"]['memory']
+y = data[data['version'] == "matmult_mnk"]['performance']
+plt.semilogx(x, y, "o-", label="mnk")
+
+x = data[data['version'] == "matmult_nkm"]['memory']
+y = data[data['version'] == "matmult_nkm"]['performance']
+plt.semilogx(x, y, "o-", label="nkm")
+
+plt.xlabel("Memory [KiB]")
+plt.ylabel("Compute [Mflop/s]")
+plt.legend(loc="lower right")        
+
+plt.tight_layout()
+plt.show()
 
 
 
