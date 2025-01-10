@@ -38,12 +38,7 @@ def parse_cache_data_by_blocksize(file_path):
 
     return blocksize_cache_data
 
-def get_title_from_filepath(file_path):
-    base_name = os.path.basename(file_path)
-    name_without_ext = base_name.replace('.dat', '').split('_', 1)[-1]
-    return name_without_ext.replace("_", " ")
-
-def plot_percentage_stats(blocksize_cache_data, title, cache_type):
+def plot_percentage_stats(blocksize_cache_data, cache_type):
     blocksizes = list(blocksize_cache_data.keys())
     if cache_type == 'L1':
         hits = [blocksize_cache_data[blocksize]['L1 Hits'] for blocksize in blocksizes]
@@ -68,7 +63,7 @@ def plot_percentage_stats(blocksize_cache_data, title, cache_type):
     plt.tight_layout()
     
     save_dir = "figures"
-    plot_filename = os.path.join(save_dir, f"{cache_type}_hits_{title}.png")
+    plot_filename = os.path.join(save_dir, f"{cache_type}_hits_blk.png")
     plt.savefig(plot_filename)
     print(f"Plot saved as {plot_filename}")
     plt.close()
@@ -82,15 +77,13 @@ def plot_percentage_stats(blocksize_cache_data, title, cache_type):
     plt.xticks(x, blocksizes, rotation=45, ha='right')
     plt.tight_layout()
     
-    plot_filename = os.path.join(save_dir, f"{cache_type}_misses_{title}.png")
+    plot_filename = os.path.join(save_dir, f"{cache_type}_misses_blk.png")
     plt.savefig(plot_filename)
     print(f"Plot saved as {plot_filename}")
     plt.close()
 
 if __name__ == "__main__":
-
     blocksize_cache_data = parse_cache_data_by_blocksize(file_path)
 
-    plot_title = get_title_from_filepath(file_path)
-    plot_percentage_stats(blocksize_cache_data, plot_title, 'L1')
-    plot_percentage_stats(blocksize_cache_data, plot_title, 'L2')
+    plot_percentage_stats(blocksize_cache_data, 'L1')
+    plot_percentage_stats(blocksize_cache_data, 'L2')
