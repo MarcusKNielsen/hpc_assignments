@@ -60,6 +60,7 @@ def plot_percentage_stats(blocksize_cache_data, cache_type):
     plt.xlabel('BlockSize')
     plt.title(f'{cache_type} Hits')
     plt.xticks(x, blocksizes, rotation=45, ha='right')
+    plt.ylim(0, 100)
     plt.tight_layout()
     
     save_dir = "figures"
@@ -75,6 +76,7 @@ def plot_percentage_stats(blocksize_cache_data, cache_type):
     plt.xlabel('BlockSize')
     plt.title(f'{cache_type} Misses')
     plt.xticks(x, blocksizes, rotation=45, ha='right')
+    plt.ylim(0, 100)
     plt.tight_layout()
     
     plot_filename = os.path.join(save_dir, f"{cache_type}_misses_blk.png")
