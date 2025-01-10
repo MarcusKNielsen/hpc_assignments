@@ -40,7 +40,7 @@ def parse_cache_data_by_blocksize(file_path):
 
 def get_title_from_filepath(file_path):
     base_name = os.path.basename(file_path)
-    name_without_ext = base_name.replace('.dat', '').split('_', 2)[-1]
+    name_without_ext = base_name.replace('.dat', '').split('_', 1)[-1]
     return name_without_ext.replace("_", " ")
 
 def plot_percentage_stats(blocksize_cache_data, title, cache_type):
