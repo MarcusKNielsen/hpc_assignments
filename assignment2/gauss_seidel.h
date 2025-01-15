@@ -6,5 +6,6 @@
 
 
 int solve_gauss_seidel(double ***u, double ***f, int N);
+double gauss_seidel(double ***u, double ***f, int N);
 
 #endif
