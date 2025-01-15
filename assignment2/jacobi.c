@@ -8,7 +8,7 @@ int solve_jacobi(double *** U_new, double *** U_old, double *** F, int N, int ma
   double d = INFINITY;
 
   while ((d > threshold) && (iterations < max_it)) {
-    d = gauss_seidel(u, f, N);
+    d = jacobi(u, f, N);
     iterations++;
   }
 
