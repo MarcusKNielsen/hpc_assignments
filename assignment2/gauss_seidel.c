@@ -12,18 +12,20 @@ int solve_gauss_seidel(double ***u, double ***f, int N, int max_it, double thres
     d = gauss_seidel(u, f, N);
     k++;
   }
+
+  return k;
 }
 
 // Updates u for each element of the 3D matrix. Returns the norm between two iterations.
 double gauss_seidel(double ***u, double ***f, int N) {
-  double delta_squared = (2 / N);
+  double delta_squared = (2.0 / (N + 1));
   delta_squared = delta_squared * delta_squared;
-  double one_sixth = 1 / 6;
-  double norm = 0;
-  
-  for (int i  = 1; i < N; i++) {
-    for (int j = 1; j < N; j++) {
-      for (int k = 1; k < N; k++) {
+  double one_sixth = 1.0 / 6.0;
+  double norm = 0.0;
+
+  for (int i  = 1; i < N + 1; i++) {
+    for (int j = 1; j < N + 1; j++) {
+      for (int k = 1; k < N + 1; k++) {
 
         double temp_u =  u[i][j][k];
         u[i][j][k] = one_sixth * (u[i-1][j][k] + u[i+1][j][k] + u[i][j-1][k] + u[i][j+1][k] + u[i][j][k-1] + u[i][j][k+1] + delta_squared * f[i][j][k]);

@@ -49,11 +49,10 @@ void initialize_data(double ***u, double ***f, int N) {
 
   int i_min = 0;
   int j_min = 0;
-  // TODO: Change this
-  int k_min = 0;
-  int i_max = N;
-  int j_max = N;
-  int k_max = N;
+  int k_min = (int)((N + 2.0) / 3.0);
+  int i_max = (int)((N + 2.0) * 1.5 / 8.0);
+  int j_max = (int)((N + 2.0) / 4.0);
+  int k_max = (int)((N + 2.0) / 2.0);
 
   for (int i = i_min; i < i_max; i++) {
     for (int j = j_min; j < j_max; j++) {
@@ -62,7 +61,6 @@ void initialize_data(double ***u, double ***f, int N) {
       }
     }
   }
-
 }
 
 int main(int argc, char *argv[]) {
