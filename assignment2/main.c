@@ -118,12 +118,13 @@ int main(int argc, char *argv[]) {
   int iter = 0;
 #ifdef _JACOBI
   iter = solve_jacobi(u, u2, f, N, iter_max, tolerance);
-#elifdef _GAUSS_SEIDEL
+#endif
+#ifdef _GAUSS_SEIDEL
   iter = solve_gauss_seidel(u, f, N, iter_max, tolerance);
 #endif
   compute_t += (double) clock() / CLOCKS_PER_SEC;
 
-  printf("%f, %f, %f, %d", allocation_t, initialize_t, compute_t, iter * N * N * N);
+  printf("%f, %f, %f, %d\n", allocation_t, initialize_t, compute_t, iter * N * N * N);
 
   // dump  results if wanted
   switch (output_type) {
