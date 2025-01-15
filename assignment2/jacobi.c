@@ -11,6 +11,9 @@ int solve_jacobi(double ***U_new, double ***U_old, double ***F, int N, int max_i
 
   while ((d > threshold) && (iterations < max_it)) {
     d = jacobi(U_new, U_old, F, N);
+    double ***tmp = U_old;
+    U_old = U_new;
+    U_new = tmp;
     iterations++;
   }
 
