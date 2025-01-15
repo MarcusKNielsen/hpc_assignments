@@ -7,7 +7,7 @@
 // Solve the full gauss-seidel. Return the number of iterations used.
 int solve_gauss_seidel(double ***u, double ***f, int N, int max_it, double threshold) {
   int k = 0;
-  double d = 1000.0;
+  double d = INFINITY;
 
   while ((d > threshold) && (k < max_it)) {
     d = gauss_seidel(u, f, N);

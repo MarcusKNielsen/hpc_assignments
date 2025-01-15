@@ -20,7 +20,8 @@ int solve_jacobi(double ***U_new, double ***U_old, double ***F, int N, int max_i
 double jacobi(double *** U_new, double *** U_old, double *** F, int N) {
 
   double scale = 1.0 / 6.0;
-  double delta = 2.0 / (N + 1);
+  double delta_squared = 2.0 / (N + 1);
+  delta_squared = delta_squared * delta_squared;
   double diff = 0;
 
   for (size_t i = 1; i <= N ; i++) {
