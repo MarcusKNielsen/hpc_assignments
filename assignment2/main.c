@@ -96,7 +96,7 @@ int main(int argc, char *argv[]) {
     exit(-1);
   }
 
-#ifdef _GAUSS_SEIDEL
+#ifdef _JACOBI
   if ((u2 = malloc_3d(N + 2, N + 2, N + 2)) == NULL) {
     perror("array u: allocation failed");
     exit(-1);
