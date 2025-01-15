@@ -60,22 +60,22 @@ void initialize_data(double ***u, double ***f, int N) {
     }
   }
 
-  for (int i = 0; i < N + 2; i++) {
-    for (int k = 0; k < N + 2; k++) {
+  for (int i = 1; i < N + 1; i++) {
+    for (int k = 1; k < N + 1; k++) {
       u[i][0][k] = 0;
       u[i][N + 1][k] = 20;
     }
   }
 
-  for (int j = 0; j < N + 2; j++) {
-    for (int k = 0; k < N + 2; k++) {
+  for (int j = 1; j < N + 1; j++) {
+    for (int k = 1; k < N + 1; k++) {
       u[0][j][k] = 20;
       u[N + 1][j][k] = 20;
     }
   }
 
-  for (int i = 0; i < N + 2; i++) {
-    for (int j = 0; j < N + 2; j++) {
+  for (int i = 1; i < N + 1; i++) {
+    for (int j = 1; j < N + 1; j++) {
       u[i][j][0] = 20;
       u[i][j][N + 1] = 20;
     }

@@ -31,13 +31,13 @@ double gauss_seidel(double ***u, double ***f, int N) {
         double temp_u =  u[i][j][k];
         u[i][j][k] = one_sixth * (u[i-1][j][k] + u[i+1][j][k] + u[i][j-1][k] + u[i][j+1][k] + u[i][j][k-1] + u[i][j][k+1] + delta_squared * f[i][j][k]);
         temp_u = u[i][j][k] - temp_u;
-        
+
         norm += temp_u * temp_u;
       }
     }
   }
 
-  return norm;
+  return norm / N / N / N;
 }
 
 

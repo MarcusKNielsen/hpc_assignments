@@ -38,19 +38,10 @@ double jacobi(double *** U_new, double *** U_old, double *** F, int N) {
           U_old[i][j][k-1] + 
           U_old[i][j][k+1] + 
           delta_squared * F[i][j][k]);
-      for (size_t k = 1; k <= N; k++) {
-        U_new[i][j][k] = scale * (
-          U_old[i-1][j][k] +
-          U_old[i+1][j][k] +
-          U_old[i][j-1][k] +
-          U_old[i][j+1][k] +
-          U_old[i][j][k-1] +
-          U_old[i][j][k+1] +
-          delta_squared * F[i][j][k]);
         diff += (U_old[i][j][k] - U_new[i][j][k]) * (U_old[i][j][k] - U_new[i][j][k]);
       }
     }
   }
 
-  return diff;
+  return diff / N / N / N;
 }
