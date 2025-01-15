@@ -156,7 +156,7 @@ int main(int argc, char *argv[]) {
   compute_t -= (double) clock() / CLOCKS_PER_SEC;
   int iter = 0;
 #ifdef _JACOBI
-  iter = solve_jacobi(u, u2, f, N, iter_max, tolerance);
+  iter = solve_jacobi(u2, u, f, N, iter_max, tolerance);
 #endif
 #ifdef _GAUSS_SEIDEL
   iter = solve_gauss_seidel(u, f, N, iter_max, tolerance);
