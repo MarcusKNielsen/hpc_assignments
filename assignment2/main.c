@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include "alloc3d.h"
 #include "print.h"
+#include <time.h>
 
 #ifdef _JACOBI
 #include "jacobi.h"
@@ -122,7 +123,7 @@ int main(int argc, char *argv[]) {
 #endif
   compute_t += (double) clock() / CLOCKS_PER_SEC;
 
-  printf("%f, %f, %f, %d", allocation_t, initialize_t, compute_t, iter * N * N * N)
+  printf("%f, %f, %f, %d", allocation_t, initialize_t, compute_t, iter * N * N * N);
 
   // dump  results if wanted
   switch (output_type) {

@@ -2,13 +2,15 @@
  * 
  */
 #include <math.h>
+#include <stddef.h>
+#include "jacobi.h"
 
-int solve_jacobi(double *** U_new, double *** U_old, double *** F, int N, int max_it, double threshold) {
+int solve_jacobi(double ***U_new, double ***U_old, double ***F, int N, int max_it, double threshold) {
   int iterations = 0;
   double d = INFINITY;
 
   while ((d > threshold) && (iterations < max_it)) {
-    d = jacobi(U_new, U_old, F, N)
+    d = jacobi(U_new, U_old, F, N);
     iterations++;
   }
 
