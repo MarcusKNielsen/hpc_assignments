@@ -133,7 +133,7 @@ int main(int argc, char *argv[]) {
 
 #ifdef _JACOBI
   if ((u2 = malloc_3d(N + 2, N + 2, N + 2)) == NULL) {
-    perror("array u: allocation failed");
+    perror("array u2: allocation failed");
     exit(-1);
   }
 #endif
