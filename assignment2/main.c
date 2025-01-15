@@ -6,6 +6,7 @@
 #include "alloc3d.h"
 #include "print.h"
 #include <math.h>
+#include <time.h>
 
 #ifdef _JACOBI
 #include "jacobi.h"
@@ -66,10 +67,10 @@ void initialize_data(double ***u, double ***f, int N) {
 
   int i_min = 0;
   int j_min = 0;
-  int k_min = (int)((N + 2.0) / 3.0);
-  int i_max = (int)((N + 2.0) * 1.5 / 8.0);
-  int j_max = (int)((N + 2.0) / 4.0);
-  int k_max = (int)((N + 2.0) / 2.0);
+  int k_min = (int) ((N + 2.0) / 3.0);
+  int i_max = (int) ((N + 2.0) * 1.5 / 8.0);
+  int j_max = (int) ((N + 2.0) / 4.0);
+  int k_max = (int) ((N + 2.0) / 2.0);
 
   for (int i = i_min; i < i_max; i++) {
     for (int j = j_min; j < j_max; j++) {
@@ -89,37 +90,58 @@ int main(int argc, char *argv[]) {
   char *output_prefix = "poisson_res";
   char *output_ext = "";
   char output_filename[FILENAME_MAX];
-  double ***u = NULL;
-  double ***f = NULL;
 
-  /* get the paramters from the command line */
+  /* get the parameters from the command line */
   N = atoi(argv[1]);    // grid size
   iter_max = atoi(argv[2]);  // max. no. of iterations
   tolerance = atof(argv[3]);  // tolerance
   start_T = atof(argv[4]);  // start T for all inner grid points
   if (argc == 6) {
-    output_type = atoi(argv[5]);  // ouput type
+    output_type = atoi(argv[5]);  // output type
   }
 
+  double allocation_t, initialize_t, compute_t = 0;
+
+  double ***u = NULL;
+  double ***u2 = NULL;
+  double ***f = NULL;
+
+  allocation_t -= (double) clock() / CLOCKS_PER_SEC;
   // allocate memory
-  if ((u = malloc_3d(N + 2, N + 2 , N + 2)) == NULL) {
+  if ((u = malloc_3d(N + 2, N + 2, N + 2)) == NULL) {
     perror("array u: allocation failed");
     exit(-1);
   }
 
-  if ((f = malloc_3d(N + 2, N + 2 , N + 2)) == NULL) {
+#ifdef _JACOBI
+  if ((u2 = malloc_3d(N + 2, N + 2, N + 2)) == NULL) {
+    perror("array u: allocation failed");
+    exit(-1);
+  }
+#endif
+
+  if ((f = malloc_3d(N + 2, N + 2, N + 2)) == NULL) {
     perror("array f: allocation failed");
     exit(-1);
   }
 
-  initialize_data(u, f, N);
+  allocation_t += (double) clock() / CLOCKS_PER_SEC;
 
-  /*
-   *
-   * fill in your code here
-   *
-   *
-   */
+  initialize_t -= (double) clock() / CLOCKS_PER_SEC;
+  initialize_data(u, f, N);
+  initialize_t += (double) clock() / CLOCKS_PER_SEC;
+
+  compute_t -= (double) clock() / CLOCKS_PER_SEC;
+  int iter = 0;
+#ifdef _JACOBI
+  iter = solve_jacobi(u, u2, f, N, iter_max, tolerance);
+#endif
+#ifdef _GAUSS_SEIDEL
+  iter = solve_gauss_seidel(u, f, N, iter_max, tolerance);
+#endif
+  compute_t += (double) clock() / CLOCKS_PER_SEC;
+
+  printf("%f, %f, %f, %d\n", allocation_t, initialize_t, compute_t, iter * N * N * N);
 
   // dump  results if wanted
   switch (output_type) {

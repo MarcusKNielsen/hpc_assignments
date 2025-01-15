@@ -2,8 +2,9 @@
  *
  */
 #include <math.h>
+#include "gauss_seidel.h"
 
-// Sovle the full gauss-seidel. Return the number of iterations used.
+// Solve the full gauss-seidel. Return the number of iterations used.
 int solve_gauss_seidel(double ***u, double ***f, int N, int max_it, double threshold) {
   int k = 0;
   double d = 1000.0;
