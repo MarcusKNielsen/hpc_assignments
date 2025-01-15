@@ -18,7 +18,7 @@ int solve_jacobi(double *** U_new, double *** U_old, double *** F, int N, int ma
 double jacobi(double *** U_new, double *** U_old, double *** F, int N); {
 
   double scale = 1.0 / 6.0;
-  double delta = 2.0 / N + 1;
+  double delta = 2.0 / (N + 1);
   double diff = 0;
 
   for (size_t i = 1; i <= N ; i++) {
