@@ -167,7 +167,7 @@ int main(int argc, char *argv[]) {
   check_test_data(u, N, tolerance * 15);
 #endif
 
-  printf("%f, %f, %f, %d\n", allocation_t, initialize_t, compute_t, iter * N * N * N);
+  printf("%f, %f, %f, %ld\n", allocation_t, initialize_t, compute_t, (long) (iter) * N * N * N);
 
   // dump  results if wanted
   switch (output_type) {
