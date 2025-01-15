@@ -16,6 +16,55 @@
 
 #define N_DEFAULT 100
 
+void initialize_data(double ***u, double ***f, int N) {
+  for (int i = 0; i < N + 2; i++) {
+    for (int j = 0; j < N + 2; j++) {
+      for (int k = 0; k < N + 2; k++) {
+        u[i][j][k] = 0.0;
+        f[i][j][k] = 0.0;
+      }
+    }
+  }
+
+  for (int i = 0; i < N + 2; i++) {
+    for (int k = 0; k < N + 2; k++) {
+      u[i][0][k] = 0;
+      u[i][N + 1][k] = 20;
+    }
+  }
+
+  for (int j = 0; j < N + 2; j++) {
+    for (int k = 0; k < N + 2; k++) {
+      u[0][j][k] = 20;
+      u[N + 1][j][k] = 20;
+    }
+  }
+
+  for (int i = 0; i < N + 2; i++) {
+    for (int j = 0; j < N + 2; j++) {
+      u[i][j][0] = 20;
+      u[i][j][N + 1] = 20;
+    }
+  }
+
+  int i_min = 0;
+  int j_min = 0;
+  // TODO: Change this
+  int k_min = 0;
+  int i_max = N;
+  int j_max = N;
+  int k_max = N;
+
+  for (int i = i_min; i < i_max; i++) {
+    for (int j = j_min; j < j_max; j++) {
+      for (int k = k_min; k < k_max; k++) {
+        f[i][j][k] = 200;
+      }
+    }
+  }
+
+}
+
 int main(int argc, char *argv[]) {
   int N = N_DEFAULT;
   int iter_max = 1000;
@@ -26,7 +75,7 @@ int main(int argc, char *argv[]) {
   char *output_ext = "";
   char output_filename[FILENAME_MAX];
   double ***u = NULL;
-
+  double ***f = NULL;
 
   /* get the paramters from the command line */
   N = atoi(argv[1]);    // grid size
@@ -38,10 +87,17 @@ int main(int argc, char *argv[]) {
   }
 
   // allocate memory
-  if ((u = malloc_3d(N, N, N)) == NULL) {
+  if ((u = malloc_3d(N + 2, N + 2 , N + 2)) == NULL) {
     perror("array u: allocation failed");
     exit(-1);
   }
+
+  if ((f = malloc_3d(N + 2, N + 2 , N + 2)) == NULL) {
+    perror("array f: allocation failed");
+    exit(-1);
+  }
+
+  initialize_data(u, f, N);
 
   /*
    *
