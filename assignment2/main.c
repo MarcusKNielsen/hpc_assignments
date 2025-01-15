@@ -132,7 +132,7 @@ int main(int argc, char *argv[]) {
   initialize_test_data(u, f, N);
 #else
   initialize_data(u, f, N);
-#end
+#endif
   initialize_t += (double) clock() / CLOCKS_PER_SEC;
 
   compute_t -= (double) clock() / CLOCKS_PER_SEC;
