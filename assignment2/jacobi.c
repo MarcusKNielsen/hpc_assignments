@@ -8,14 +8,14 @@ int solve_jacobi(double *** U_new, double *** U_old, double *** F, int N, int ma
   double d = INFINITY;
 
   while ((d > threshold) && (iterations < max_it)) {
-    d = jacobi(u, f, N);
+    d = jacobi(U_new, U_old, F, N)
     iterations++;
   }
 
   return iterations;
 }
 
-double jacobi(double *** U_new, double *** U_old, double *** F, int N); {
+double jacobi(double *** U_new, double *** U_old, double *** F, int N) {
 
   double scale = 1.0 / 6.0;
   double delta = 2.0 / (N + 1);
