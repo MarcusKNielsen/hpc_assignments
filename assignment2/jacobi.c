@@ -9,8 +9,11 @@ int solve_jacobi(double ***U_new, double ***U_old, double ***F, int N, int max_i
   int iterations = 0;
   double d = INFINITY;
 
-  while ((d > threshold) && (iterations < max_it)) {
+  while ((d > threshold * threshold) && (iterations < max_it)) {
     d = jacobi(U_new, U_old, F, N);
+    double ***tmp = U_old;
+    U_old = U_new;
+    U_new = tmp;
     iterations++;
   }
 
@@ -35,10 +38,19 @@ double jacobi(double *** U_new, double *** U_old, double *** F, int N) {
           U_old[i][j][k-1] + 
           U_old[i][j][k+1] + 
           delta_squared * F[i][j][k]);
+      for (size_t k = 1; k <= N; k++) {
+        U_new[i][j][k] = scale * (
+          U_old[i-1][j][k] +
+          U_old[i+1][j][k] +
+          U_old[i][j-1][k] +
+          U_old[i][j+1][k] +
+          U_old[i][j][k-1] +
+          U_old[i][j][k+1] +
+          delta_squared * F[i][j][k]);
         diff += (U_old[i][j][k] - U_new[i][j][k]) * (U_old[i][j][k] - U_new[i][j][k]);
       }
     }
   }
-  
+
   return diff;
 }

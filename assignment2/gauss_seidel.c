@@ -9,7 +9,7 @@ int solve_gauss_seidel(double ***u, double ***f, int N, int max_it, double thres
   int k = 0;
   double d = INFINITY;
 
-  while ((d > threshold) && (k < max_it)) {
+  while ((d > threshold * threshold) && (k < max_it)) {
     d = gauss_seidel(u, f, N);
     k++;
   }
