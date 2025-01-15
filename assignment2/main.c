@@ -34,6 +34,22 @@ void initialize_test_data(double ***u, double ***f, int N) {
   }
 }
 
+void check_test_data(double ***u, int N, double tolerance) {
+  for (int i = 0; i < N + 2; i++) {
+    double x = -1.0 + ((2.0 * i) / (N + 2));
+    for (int j = 0; j < N + 2; j++) {
+      double y = -1.0 + ((2.0 * j) / (N + 2));
+      for (int k = 0; k < N + 2; k++) {
+        double z = -1.0 + ((2.0 * k) / (N + 2));
+        double error = fabs(u[i][j][k] - sin(M_PI * x) * sin(M_PI * y) * sin(M_PI * z));
+        if (error > tolerance) {
+          printf("%d %d %d: %f\n", i, j, k, error);
+        }
+      }
+    }
+  }
+}
+
 void initialize_data(double ***u, double ***f, int N) {
   for (int i = 0; i < N + 2; i++) {
     for (int j = 0; j < N + 2; j++) {
@@ -146,6 +162,10 @@ int main(int argc, char *argv[]) {
   iter = solve_gauss_seidel(u, f, N, iter_max, tolerance);
 #endif
   compute_t += (double) clock() / CLOCKS_PER_SEC;
+
+#ifdef _USE_CHECK_DATA
+  check_test_data(u, N, tolerance * 15);
+#endif
 
   printf("%f, %f, %f, %d\n", allocation_t, initialize_t, compute_t, iter * N * N * N);
 
