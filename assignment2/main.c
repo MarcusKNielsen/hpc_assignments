@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include "alloc3d.h"
 #include "print.h"
+#include <math.h>
 
 #ifdef _JACOBI
 #include "jacobi.h"
@@ -15,6 +16,22 @@
 #endif
 
 #define N_DEFAULT 100
+
+#define M_PI 3.14159265358979323846
+
+void initialize_test_data(double ***u, double ***f, int N) {
+  for (int i = 0; i < N + 2; i++) {
+    double x = -1.0 + ((2 * i ) / (N +2));
+    for (int j = 0; j < N + 2; j++) {
+      double y = -1.0 + ((2 * j) / (N +2));
+      for (int k = 0; k < N + 2; k++) {
+        double z = -1.0 + ((2 * k) / (N +2));
+        u[i][j][k] = 0.0;
+        f[i][j][k] = 3 * M_PI * M_PI * sin(M_PI * x) * sin(M_PI * y) * sin(M_PI * z);
+      }
+    }
+  }
+}
 
 void initialize_data(double ***u, double ***f, int N) {
   for (int i = 0; i < N + 2; i++) {
