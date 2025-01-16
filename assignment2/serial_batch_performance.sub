@@ -14,9 +14,6 @@
 # a whole CPU for itself (shared L3 cache)
 #BSUB -R "span[hosts=1] affinity[socket(1)]"
 
-# Usage: ./script.sh <iterations> <tolerance>
-
-
 ITERATIONS="30000"
 TOLERANCE="0.01"
 
