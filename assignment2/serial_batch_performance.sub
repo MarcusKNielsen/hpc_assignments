@@ -14,11 +14,11 @@
 # a whole CPU for itself (shared L3 cache)
 #BSUB -R "span[hosts=1] affinity[socket(1)]"
 
-ITERATIONS="30000"
+ITERATIONS="50000"
 TOLERANCE="0.01"
 
 EXECUTABLES="poisson_j poisson_gs"
-SIZES="40 80 100 150 200 300 400 500 600"
+SIZES="5 20 40 60 80 100 120 140 160"
 
 for S in $SIZES
 do
