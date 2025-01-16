@@ -14,7 +14,7 @@
 
 # Usage: ./script.sh <iterations> <tolerance>
 
-ITERATIONS="30000"
+ITERATIONS="500"
 TOLERANCE="0.01"
 EXECUTABLE="poisson_j"
 
