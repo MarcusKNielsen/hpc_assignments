@@ -1,0 +1,9 @@
+### Start Thu Jan 16 11:47:09 2025
+# /appl9/gprofng/2.43.1/bin/gp-archive -n -a on --outfile /zhome/3c/8/202539/hpc_assignments/assignment2/GPROFNG.e98ea74bd302e3f8babbba59611f9797bfb80042.er/archive.log /zhome/3c/8/202539/hpc_assignments/assignment2/GPROFNG.e98ea74bd302e3f8babbba59611f9797bfb80042.er
+Copying `/zhome/3c/8/202539/hpc_assignments/assignment2/poisson_j'  to `/zhome/3c/8/202539/hpc_assignments/assignment2/GPROFNG.e98ea74bd302e3f8babbba59611f9797bfb80042.er/archives/poisson_j_zzQJVo9lfU2'
+Copying `/usr/lib64/libc.so.6'  to `/zhome/3c/8/202539/hpc_assignments/assignment2/GPROFNG.e98ea74bd302e3f8babbba59611f9797bfb80042.er/archives/libc.so.6_OCEC1bthLm2'
+Copying `/usr/lib64/libgomp.so.1.0.0'  to `/zhome/3c/8/202539/hpc_assignments/assignment2/GPROFNG.e98ea74bd302e3f8babbba59611f9797bfb80042.er/archives/libgomp.so.1.0.0_OCEC1bthLm2'
+Copying `/usr/lib64/libmvec.so.1'  to `/zhome/3c/8/202539/hpc_assignments/assignment2/GPROFNG.e98ea74bd302e3f8babbba59611f9797bfb80042.er/archives/libmvec.so.1_OCEC1bthLm2'
+Copying `/usr/lib64/libm.so.6'  to `/zhome/3c/8/202539/hpc_assignments/assignment2/GPROFNG.e98ea74bd302e3f8babbba59611f9797bfb80042.er/archives/libm.so.6_OCEC1bthLm2'
+Copying `/appl9/gprofng/2.43.1/lib/gprofng/libgp-collector.so'  to `/zhome/3c/8/202539/hpc_assignments/assignment2/GPROFNG.e98ea74bd302e3f8babbba59611f9797bfb80042.er/archives/libgp-collector.so_d2add53Qvx5'
+Copying `/usr/lib64/ld-linux-x86-64.so.2'  to `/zhome/3c/8/202539/hpc_assignments/assignment2/GPROFNG.e98ea74bd302e3f8babbba59611f9797bfb80042.er/archives/ld-linux-x86-64.so.2_OCEC1bthLm2'
