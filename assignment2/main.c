@@ -178,7 +178,7 @@ int main(int argc, char *argv[]) {
     solve_jacobi(u2, u, f, N, iter_max, tolerance);
 #endif
 #ifdef _GAUSS_SEIDEL
-    solve_gauss_seidel(u, f, N, iter_max, tolerance);
+    solve_gauss_seidel(u, f, N, iter_max);
 #endif
   }
   compute_t += omp_get_wtime();
