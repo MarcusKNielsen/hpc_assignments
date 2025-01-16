@@ -103,7 +103,13 @@ int main(int argc, char *argv[]) {
   double tolerance;
   double start_T;
   int output_type = 0;
-  char *output_prefix = "poisson_res";
+  char *output_prefix = "poisson_";
+#ifdef _JACOBI
+  char *type = "j";
+#endif
+#ifdef _GAUSS_SEIDEL
+  char *type = "gs";
+#endif
   char *output_ext = "";
   char output_filename[FILENAME_MAX];
 
@@ -168,12 +174,7 @@ int main(int argc, char *argv[]) {
 #endif
 
   printf("%s, %f, %f, %f, %ld, %d\n",
-#ifdef _JACOBI
-         "j",
-#endif
-#ifdef _GAUSS_SEIDEL
-      "gs",
-#endif
+         type,
          allocation_t,
          initialize_t,
          compute_t,
@@ -186,12 +187,14 @@ int main(int argc, char *argv[]) {
       // no output at all
       break;
     case 3: output_ext = ".bin";
-      sprintf(output_filename, "%s_%d%s", output_prefix, N, output_ext);
+      sprintf(output_filename, "%s_%s_%d_%d_%f_%s", output_prefix, type,
+              N, iter_max, tolerance, output_ext);
       fprintf(stderr, "Write binary dump to %s: ", output_filename);
       print_binary(output_filename, N + 2, u);
       break;
     case 4: output_ext = ".vtk";
-      sprintf(output_filename, "%s_%d%s", output_prefix, N, output_ext);
+      sprintf(output_filename, "%s_%s_%d_%d_%f_%s", output_prefix, type,
+              N, iter_max, tolerance, output_ext);
       fprintf(stderr, "Write VTK file to %s: ", output_filename);
       print_vtk(output_filename, N + 2, u);
       break;
