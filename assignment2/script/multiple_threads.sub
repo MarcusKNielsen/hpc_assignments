@@ -16,8 +16,8 @@
 
 export OMP_PLACES=numa_domains
 export OMP_PROC_BIND=spread
-export OMP_DISPLAY_ENV=1
-export OMP_DISPLAY_AFFINITY=1
+export OMP_DISPLAY_ENV=TRUE
+export OMP_DISPLAY_AFFINITY=TRUE
 
 ITERATIONS="500"
 TOLERANCE="0.01"
@@ -33,8 +33,9 @@ do
   for S in $SIZES
   do
     OUTPUT=$( { time OMP_NUM_THREADS=$T ./$EXECUTABLE $S $ITERATIONS $TOLERANCE 0; } 2>&1 )
+    echo "$OUTPUT"
 
-    METRICS=$(echo "$OUTPUT" | head -n 1)           # Extract the first line
+    METRICS=$(echo "$OUTPUT" | tail -n 5 | head -n 1)           # Extract the first line
     REAL_TIME=$(echo "$OUTPUT" | grep "real" | awk '{print $2}' | sed 's/,/./' | awk -F'm' '{printf "%.3f", $1 * 60 + $2}')
     USER_TIME=$(echo "$OUTPUT" | grep "user" | awk '{print $2}' | sed 's/,/./' | awk -F'm' '{printf "%.3f", $1 * 60 + $2}')
 #   SYS_TIME=$(echo "$OUTPUT" | grep "sys" | awk '{print $2}' | sed 's/,/./' | awk -F'm' '{printf "%.3f", $1 * 60 + $2}')
