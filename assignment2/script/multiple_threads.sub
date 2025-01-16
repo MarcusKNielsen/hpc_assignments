@@ -16,6 +16,8 @@
 
 export OMP_PLACES=numa_domains
 export OMP_PROC_BIND=spread
+export OMP_DISPLAY_ENV=1
+export OMP_DISPLAY_AFFINITY=1
 
 ITERATIONS="500"
 TOLERANCE="0.01"
