@@ -82,7 +82,7 @@ perf_gs = df_gs["Niter"] / df_gs["compute_time"]
 axes[0].loglog(df_gs['N'], perf_gs, "o-",label="Gauss-Seidel")
 axes[0].set_xlabel("Matrix Dimension: N")
 axes[0].set_ylabel(r"Performance $\left[\dfrac{\text{Iterations}}{second} \right]$")
-axes[0].set_title("Performance Plot (loglog)")
+axes[0].set_title("Performance Plot")
 axes[0].plot()
 #axes[0].vlines([L1, L2, L3], 10, 10**6, linestyle="--", color="red", label="Cache Levels")
 axes[0].loglog(df['N'],10**7.7*df['N']**(-3),"--",label=r"$\mathcal{O}(N^{-3})$")
@@ -96,13 +96,21 @@ axes[0].set_xticklabels(manual_labels, rotation=45)  # Rotate labels for clarity
 axes[0].grid(visible=True, which='both', linestyle='--', linewidth=0.5) 
 
 # Second subplot: Number of Iterations plot
-axes[1].plot(df['N'], df["Niter"], "o-",label="Jacobi")
-axes[1].plot(df_gs['N'], df_gs["Niter"], "o-",label="Gauss-Seidel")
-axes[1].plot(df['N'], 0.15*df['N']**2 * np.log(df['N']), "--",label=r"$\mathcal{O}(N^2 \log(N))$")
+axes[1].loglog(df['N'], df["Niter"], "o-",label="Jacobi")
+axes[1].loglog(df_gs['N'], df_gs["Niter"], "o-",label="Gauss-Seidel")
+axes[1].loglog(df['N'],0.7*df['N']**(1.8),"--",label=r"$\mathcal{O}(N^{1.8})$")
+axes[1].loglog(df['N'], df['N']**2 * np.log(df['N']),"--",color="r",label=r"$\mathcal{O}(N^2 \log(N))$")
 axes[1].set_xlabel("Matrix Dimension: N")
 axes[1].set_ylabel("Number of Iterations")
 axes[1].set_title("Number of Iterations Until Convergence")
 axes[1].legend(fontsize=11)
+axes[1].grid(visible=True, which='both', linestyle='--', linewidth=0.5) 
+
+# Manually set x-axis ticks and labels
+manual_ticks = [10,20,40,60,100,140]
+manual_labels = [f"{tick:.0f}" for tick in manual_ticks]  # Format as integers
+axes[1].set_xticks(manual_ticks)
+axes[1].set_xticklabels(manual_labels, rotation=45)  # Rotate labels for clarity
 axes[1].grid(visible=True, which='both', linestyle='--', linewidth=0.5) 
 
 # Adjust layout to prevent overlap
@@ -114,5 +122,23 @@ plt.savefig(output_path, dpi=100)
 
 # Display the combined plots
 plt.show()
+
+#%%
+
+plt.figure(figsize=(5,3))
+
+plt.plot(df['N'], df["Niter"]/df_gs["Niter"], "o-",label=r"$\dfrac{C_J}{C_{GS}}$")
+
+plt.minorticks_on()
+plt.grid(True, which='both', linestyle=':', linewidth=0.8)
+plt.xlabel("Matrix Dimension: N")
+plt.ylabel("Ratio")
+plt.title("Ration Between Number of Iterations")
+plt.legend()
+plt.tight_layout()
+output_path = "ratio.png"
+plt.savefig(output_path, dpi=400)
+plt.show()
+
 
 
