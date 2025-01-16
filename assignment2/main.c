@@ -50,16 +50,7 @@ void check_test_data(double ***u, int N, double tolerance) {
   }
 }
 
-void initialize_data(double ***u, double ***f, int N) {
-  for (int i = 0; i < N + 2; i++) {
-    for (int j = 0; j < N + 2; j++) {
-      for (int k = 0; k < N + 2; k++) {
-        u[i][j][k] = 0.0;
-        f[i][j][k] = 0.0;
-      }
-    }
-  }
-
+void initialize_border(double ***u, int N) {
   for (int i = 1; i < N + 1; i++) {
     for (int k = 1; k < N + 1; k++) {
       u[i][0][k] = 20; // z = 1
@@ -80,6 +71,19 @@ void initialize_data(double ***u, double ***f, int N) {
       u[i][j][N + 1] = 20; // x = 1
     }
   }
+}
+
+void initialize_data(double ***u, double ***f, int N) {
+  for (int i = 0; i < N + 2; i++) {
+    for (int j = 0; j < N + 2; j++) {
+      for (int k = 0; k < N + 2; k++) {
+        u[i][j][k] = 0.0;
+        f[i][j][k] = 0.0;
+      }
+    }
+  }
+
+  initialize_border(u, N);
 
   int i_min = 0; //y
   int j_min = (int) ((N + 2.0) / 2.0); // z
@@ -156,6 +160,9 @@ int main(int argc, char *argv[]) {
   initialize_test_data(u, f, N);
 #else
   initialize_data(u, f, N);
+#ifdef _JACOBI
+  initialize_border(u2, N);
+#endif
 #endif
   initialize_t += (double) clock() / CLOCKS_PER_SEC;
 
