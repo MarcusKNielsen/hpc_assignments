@@ -62,31 +62,31 @@ void initialize_data(double ***u, double ***f, int N) {
 
   for (int i = 1; i < N + 1; i++) {
     for (int k = 1; k < N + 1; k++) {
-      u[i][0][k] = 0;
-      u[i][N + 1][k] = 20;
+      u[i][0][k] = 20; // z = 1
+      u[i][N + 1][k] = 20; // z = -1
     }
   }
 
   for (int j = 1; j < N + 1; j++) {
     for (int k = 1; k < N + 1; k++) {
-      u[0][j][k] = 20;
-      u[N + 1][j][k] = 20;
+      u[0][j][k] = 0; // y = -1
+      u[N + 1][j][k] = 20; // y = 1
     }
   }
 
   for (int i = 1; i < N + 1; i++) {
     for (int j = 1; j < N + 1; j++) {
-      u[i][j][0] = 20;
-      u[i][j][N + 1] = 20;
+      u[i][j][0] = 20; // x = -1
+      u[i][j][N + 1] = 20; // x = 1
     }
   }
 
-  int i_min = 0;
-  int j_min = 0;
-  int k_min = (int) ((N + 2.0) / 3.0);
-  int i_max = (int) ((N + 2.0) * 1.5 / 8.0);
-  int j_max = (int) ((N + 2.0) / 4.0);
-  int k_max = (int) ((N + 2.0) / 2.0);
+  int i_min = 0; //y
+  int j_min = (int) ((N + 2.0) / 2.0); // z
+  int k_min = 0; // x
+  int i_max = (int) ((N + 2.0) / 4.0); // y;
+  int j_max = (int) ((N + 2.0) * 5.0 / 6.0); // z
+  int k_max = (int) ((N + 2.0) * 1.5 / 8.0); // x
 
   for (int i = i_min; i < i_max; i++) {
     for (int j = j_min; j < j_max; j++) {
