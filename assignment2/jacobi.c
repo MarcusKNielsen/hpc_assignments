@@ -23,7 +23,7 @@ void jacobi(double *** U_new, double *** U_old, double *** F, int N) {
   double delta_squared = 2.0 / (N + 1);
   delta_squared = delta_squared * delta_squared;
 
-#pragma omp parallel for default(none) shared(U_new, U_old, F, N, scale, delta_squared)
+#pragma omp parallel for default(none) shared(U_new, U_old, F, N, scale, delta_squared) schedule(dynamic, 10)
   for (size_t i = 1; i <= N ; i++) {
     for (size_t j = 1; j <= N; j++) {
       for (size_t k = 1; k <= N; k++) {                    
