@@ -44,5 +44,5 @@ double jacobi(double *** U_new, double *** U_old, double *** F, int N) {
     }
   }
 
-  return diff / N / N / N;
+  return diff;
 }

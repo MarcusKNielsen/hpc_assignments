@@ -38,7 +38,7 @@ double gauss_seidel(double ***u, double ***f, int N) {
     }
   }
 
-  return norm / N / N / N;
+  return norm;
 }
 
 
