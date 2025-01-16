@@ -107,7 +107,7 @@ int main(int argc, char *argv[]) {
   double tolerance;
   double start_T;
   int output_type = 0;
-  char *output_prefix = "poisson_";
+  char *output_prefix = "poisson";
 #ifdef _JACOBI
   char *type = "j";
 #endif
