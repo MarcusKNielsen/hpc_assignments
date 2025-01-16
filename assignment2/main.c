@@ -7,6 +7,7 @@
 #include "print.h"
 #include <math.h>
 #include <time.h>
+#include <omp.h>
 
 #ifdef _JACOBI
 #include "jacobi.h"
@@ -134,7 +135,7 @@ int main(int argc, char *argv[]) {
   double ***u2 = NULL;
   double ***f = NULL;
 
-  allocation_t -= (double) clock() / CLOCKS_PER_SEC;
+  allocation_t -= omp_get_wtime();
   // allocate memory
   if ((u = malloc_3d(N + 2, N + 2, N + 2)) == NULL) {
     perror("array u: allocation failed");
@@ -153,9 +154,9 @@ int main(int argc, char *argv[]) {
     exit(-1);
   }
 
-  allocation_t += (double) clock() / CLOCKS_PER_SEC;
+  allocation_t += omp_get_wtime();
 
-  initialize_t -= (double) clock() / CLOCKS_PER_SEC;
+  initialize_t -= omp_get_wtime();
 #ifdef _USE_CHECK_DATA
   initialize_test_data(u, f, N);
 #else
@@ -164,9 +165,9 @@ int main(int argc, char *argv[]) {
   initialize_border(u2, N);
 #endif
 #endif
-  initialize_t += (double) clock() / CLOCKS_PER_SEC;
+  initialize_t += omp_get_wtime();
 
-  compute_t -= (double) clock() / CLOCKS_PER_SEC;
+  compute_t -= omp_get_wtime();
   int iter = 0;
 #ifdef _JACOBI
   iter = solve_jacobi(u2, u, f, N, iter_max, tolerance);
@@ -174,7 +175,7 @@ int main(int argc, char *argv[]) {
 #ifdef _GAUSS_SEIDEL
   iter = solve_gauss_seidel(u, f, N, iter_max, tolerance);
 #endif
-  compute_t += (double) clock() / CLOCKS_PER_SEC;
+  compute_t += omp_get_wtime();
 
 #ifdef _USE_CHECK_DATA
   check_test_data(u, N, tolerance * 15);
