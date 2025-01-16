@@ -8,8 +8,9 @@
 int solve_jacobi(double ***U_new, double ***U_old, double ***F, int N, int max_it, double threshold) {
   int iterations = 0;
   double d = INFINITY;
+  double threshold_squared = threshold * threshold;
 
-  while ((d > threshold * threshold) && (iterations < max_it)) {
+  while ((d > threshold_squared) && (iterations < max_it)) {
     d = jacobi(U_new, U_old, F, N);
     double ***tmp = U_old;
     U_old = U_new;
