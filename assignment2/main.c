@@ -75,6 +75,7 @@ void initialize_border(double ***u, int N) {
 }
 
 void initialize_data(double ***u, double ***f, int N) {
+#pragma omp for schedule(static)
   for (int i = 0; i < N + 2; i++) {
     for (int j = 0; j < N + 2; j++) {
       for (int k = 0; k < N + 2; k++) {
@@ -84,19 +85,22 @@ void initialize_data(double ***u, double ***f, int N) {
     }
   }
 
-  initialize_border(u, N);
+#pragma omp single
+  {
+    initialize_border(u, N);
 
-  int i_min = 0; //y
-  int j_min = (int) ((N + 2.0) / 2.0); // z
-  int k_min = 0; // x
-  int i_max = (int) ((N + 2.0) / 4.0); // y;
-  int j_max = (int) ((N + 2.0) * 5.0 / 6.0); // z
-  int k_max = (int) ((N + 2.0) * 1.5 / 8.0); // x
+    int i_min = 0; //y
+    int j_min = (int) ((N + 2.0) / 2.0); // z
+    int k_min = 0; // x
+    int i_max = (int) ((N + 2.0) / 4.0); // y;
+    int j_max = (int) ((N + 2.0) * 5.0 / 6.0); // z
+    int k_max = (int) ((N + 2.0) * 1.5 / 8.0); // x
 
-  for (int i = i_min; i < i_max; i++) {
-    for (int j = j_min; j < j_max; j++) {
-      for (int k = k_min; k < k_max; k++) {
-        f[i][j][k] = 200;
+    for (int i = i_min; i < i_max; i++) {
+      for (int j = j_min; j < j_max; j++) {
+        for (int k = k_min; k < k_max; k++) {
+          f[i][j][k] = 200;
+        }
       }
     }
   }
@@ -160,21 +164,23 @@ int main(int argc, char *argv[]) {
 #ifdef _USE_CHECK_DATA
   initialize_test_data(u, f, N);
 #else
-  initialize_data(u, f, N);
+#pragma omp parallel
+  {
+    initialize_data(u, f, N);
 #ifdef _JACOBI
-  initialize_border(u2, N);
+    initialize_border(u2, N);
 #endif
 #endif
-  initialize_t += omp_get_wtime();
+    initialize_t += omp_get_wtime();
 
-  compute_t -= omp_get_wtime();
-  int iter = 0;
+    compute_t -= omp_get_wtime();
 #ifdef _JACOBI
-  iter = solve_jacobi(u2, u, f, N, iter_max, tolerance);
+    solve_jacobi(u2, u, f, N, iter_max, tolerance);
 #endif
 #ifdef _GAUSS_SEIDEL
-  iter = solve_gauss_seidel(u, f, N, iter_max, tolerance);
+    solve_gauss_seidel(u, f, N, iter_max, tolerance);
 #endif
+  }
   compute_t += omp_get_wtime();
 
 #ifdef _USE_CHECK_DATA
@@ -186,8 +192,8 @@ int main(int argc, char *argv[]) {
          allocation_t,
          initialize_t,
          compute_t,
-         (long) (iter) * N * N * N,
-         iter);
+         (long) (iter_max) * N * N * N,
+         iter_max);
 
   // dump  results if wanted
   switch (output_type) {

@@ -14,6 +14,9 @@
 
 # Usage: ./script.sh <iterations> <tolerance>
 
+export OMP_PLACES=numa_domains
+export OMP_PROC_BIND=spread
+
 ITERATIONS="500"
 TOLERANCE="0.01"
 EXECUTABLE="poisson_j"

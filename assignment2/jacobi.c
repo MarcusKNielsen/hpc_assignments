@@ -5,18 +5,11 @@
 #include "jacobi.h"
 
 int solve_jacobi(double ***U_new, double ***U_old, double ***F, int N, int max_it, double threshold) {
-#pragma omp parallel
-  {
-    for (int iter = 0; iter < max_it; iter++) {
-      jacobi(U_new, U_old, F, N);
-#pragma omp single
-      {
-        double ***tmp = U_old;
-        U_old = U_new;
-        U_new = tmp;
-      }
-// barrier (implied)
-    }
+  for (int iter = 0; iter < max_it; iter++) {
+    jacobi(U_new, U_old, F, N);
+    double ***tmp = U_old;
+    U_old = U_new;
+    U_new = tmp;
   }
 
   return max_it;
@@ -28,7 +21,7 @@ void jacobi(double ***U_new, double ***U_old, double ***F, int N) {
   double delta_squared = 2.0 / (N + 1);
   delta_squared = delta_squared * delta_squared;
 
-#pragma omp for
+#pragma omp for schedule(static)
   for (size_t i = 1; i <= N; i++) {
     for (size_t j = 1; j <= N; j++) {
       for (size_t k = 1; k <= N; k++) {
