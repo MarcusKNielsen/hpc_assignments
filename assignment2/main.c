@@ -171,9 +171,12 @@ int main(int argc, char *argv[]) {
     initialize_border(u2, N);
 #endif
 #endif
-    initialize_t += omp_get_wtime();
+#pragma omp single
+    {
+      initialize_t += omp_get_wtime();
 
-    compute_t -= omp_get_wtime();
+      compute_t -= omp_get_wtime();
+    }
 #ifdef _JACOBI
     solve_jacobi(u2, u, f, N, iter_max, tolerance);
 #endif
