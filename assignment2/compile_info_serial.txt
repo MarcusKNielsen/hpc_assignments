@@ -1,0 +1,80 @@
+gcc   -g -O3 -ffast-math -funroll-loops -fopt-info        -c -o print.o print.c
+print.c:57:7: optimized:  Inlining is_little_endian/11 into print_vtk/13.
+print.c:60:19: optimized: loop unrolled 3 times
+gcc   -g -O3 -ffast-math -funroll-loops -fopt-info        -c -o alloc3d.o alloc3d.c
+alloc3d.c:23:23: optimized: loop vectorized using 16 byte vectors
+alloc3d.c:12:21: optimized: loop vectorized using 16 byte vectors
+alloc3d.c:23:23: optimized: loop with 4 iterations completely unrolled (header execution count 54002348)
+alloc3d.c:12:21: optimized: loop with 4 iterations completely unrolled (header execution count 6677119)
+alloc3d.c:23:23: optimized: loop unrolled 3 times
+alloc3d.c:12:21: optimized: loop unrolled 3 times
+gcc -o main_j.o -D_JACOBI   -g -O3 -ffast-math -funroll-loops -fopt-info      -c main.c 
+main.c:126:19: optimized:   Inlining atoi/11 into main/26 (always_inline).
+main.c:124:13: optimized:   Inlining atof/21 into main/26 (always_inline).
+main.c:123:15: optimized:   Inlining atof/21 into main/26 (always_inline).
+main.c:122:14: optimized:   Inlining atoi/11 into main/26 (always_inline).
+main.c:121:7: optimized:   Inlining atoi/11 into main/26 (always_inline).
+main.c:28:25: optimized: loop vectorized using 16 byte vectors
+main.c:28:25: optimized:  loop versioned for vectorization because of possible aliasing
+main.c:28:25: optimized: loop with 2 iterations completely unrolled (header execution count 47704308)
+main.c:28:25: optimized: loop unrolled 3 times
+main.c:28:25: optimized: loop unrolled 1 times
+main.c:42:25: optimized: loop unrolled 1 times
+main.c:62:23: optimized: loop vectorized using 16 byte vectors
+main.c:62:23: optimized:  loop versioned for vectorization because of possible aliasing
+main.c:55:23: optimized: loop vectorized using 16 byte vectors
+main.c:55:23: optimized:  loop versioned for vectorization because of possible aliasing
+main.c:62:23: optimized: loop turned into non-loop; it never loops
+main.c:55:23: optimized: loop turned into non-loop; it never loops
+main.c:69:23: optimized: loop unrolled 7 times
+main.c:62:23: optimized: loop unrolled 7 times
+main.c:62:23: optimized: loop unrolled 7 times
+main.c:55:23: optimized: loop unrolled 7 times
+main.c:55:23: optimized: loop unrolled 7 times
+main.c:79:25: optimized: Loop 6 distributed: split to 0 loops and 2 library calls.
+main.c:97:29: optimized: loop vectorized using 16 byte vectors
+main.c:97:29: optimized: loop turned into non-loop; it never loops
+main.c:97:29: optimized: loop unrolled 7 times
+main.c:79:25: optimized: loop unrolled 7 times
+gcc   -g -O3 -ffast-math -funroll-loops -fopt-info        -c -o jacobi.o jacobi.c
+jacobi.c:33:28: optimized: loop vectorized using 16 byte vectors
+jacobi.c:33:28: optimized:  loop versioned for vectorization because of possible aliasing
+jacobi.c:33:28: optimized: loop turned into non-loop; it never loops
+jacobi.c:33:28: optimized: loop unrolled 3 times
+jacobi.c:33:28: optimized: loop unrolled 1 times
+jacobi.c:13:34: optimized: loop unrolled 3 times
+gcc -o poisson_j   -g -O3 -ffast-math -funroll-loops -fopt-info      main_j.o jacobi.o print.o alloc3d.o -lm 
+gcc -o main_gs.o -D_GAUSS_SEIDEL   -g -O3 -ffast-math -funroll-loops -fopt-info      -c main.c 
+main.c:126:19: optimized:   Inlining atoi/11 into main/26 (always_inline).
+main.c:124:13: optimized:   Inlining atof/21 into main/26 (always_inline).
+main.c:123:15: optimized:   Inlining atof/21 into main/26 (always_inline).
+main.c:122:14: optimized:   Inlining atoi/11 into main/26 (always_inline).
+main.c:121:7: optimized:   Inlining atoi/11 into main/26 (always_inline).
+main.c:28:25: optimized: loop vectorized using 16 byte vectors
+main.c:28:25: optimized:  loop versioned for vectorization because of possible aliasing
+main.c:28:25: optimized: loop with 2 iterations completely unrolled (header execution count 47704308)
+main.c:28:25: optimized: loop unrolled 3 times
+main.c:28:25: optimized: loop unrolled 1 times
+main.c:42:25: optimized: loop unrolled 1 times
+main.c:62:23: optimized: loop vectorized using 16 byte vectors
+main.c:62:23: optimized:  loop versioned for vectorization because of possible aliasing
+main.c:55:23: optimized: loop vectorized using 16 byte vectors
+main.c:55:23: optimized:  loop versioned for vectorization because of possible aliasing
+main.c:62:23: optimized: loop turned into non-loop; it never loops
+main.c:55:23: optimized: loop turned into non-loop; it never loops
+main.c:69:23: optimized: loop unrolled 7 times
+main.c:62:23: optimized: loop unrolled 7 times
+main.c:62:23: optimized: loop unrolled 7 times
+main.c:55:23: optimized: loop unrolled 7 times
+main.c:55:23: optimized: loop unrolled 7 times
+main.c:79:25: optimized: Loop 6 distributed: split to 0 loops and 2 library calls.
+main.c:97:29: optimized: loop vectorized using 16 byte vectors
+main.c:97:29: optimized: loop turned into non-loop; it never loops
+main.c:97:29: optimized: loop unrolled 7 times
+main.c:79:25: optimized: loop unrolled 7 times
+gcc   -g -O3 -ffast-math -funroll-loops -fopt-info        -c -o gauss_seidel.o gauss_seidel.c
+gauss_seidel.c:30:25: optimized: loop unrolled 3 times
+gauss_seidel.c:13:34: optimized: loop unrolled 3 times
+gauss_seidel.c:52:12: optimized: loop unrolled 7 times
+gauss_seidel.c:68:25: optimized: loop unrolled 3 times
+gcc -o poisson_gs   -g -O3 -ffast-math -funroll-loops -fopt-info      main_gs.o gauss_seidel.o print.o alloc3d.o -lm 

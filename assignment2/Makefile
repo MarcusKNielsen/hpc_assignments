@@ -14,7 +14,7 @@ OBJS_GS	= $(MAIN_GS) gauss_seidel.o
 #
 CC	= gcc
 DEFS	= # -D_USE_CHECK_DATA
-OPT	= -g 
+OPT	= -g -O3 -ffast-math -funroll-loops -fopt-info
 IPO	= 
 ISA	= 
 CHIP	= 

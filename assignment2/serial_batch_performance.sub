@@ -1,33 +1,33 @@
 #!/bin/bash
 
-#BSUB -J mm_batch
-#BSUB -o mm_batch_%J.out
+#BSUB -J poisson
+# -- Output File --
+#BSUB -o job_out/Output_%J.out
+# -- Error File --
+#BSUB -e job_out/Output_%J.err
 #BSUB -q hpcintro
 #BSUB -n 1
-#BSUB -R "rusage[mem=2048]"
+#BSUB -R "rusage[mem=10GB]"
 #BSUB -W 15
-# Uncomment the following line, if you want to assure that your job has
+#BSUB -R "select[model==XeonE5_2650v4]"
+# uncomment the following line, if you want to assure that your job has
 # a whole CPU for itself (shared L3 cache)
-# #BSUB -R "span[hosts=1] affinity[socket(1)]"
+#BSUB -R "span[hosts=1] affinity[socket(1)]"
 
 # Usage: ./script.sh <iterations> <tolerance>
 
-if [ "$#" -lt 2 ]; then
-    echo "Usage: $0 <iterations> <tolerance>"
-    exit 1
-fi
 
-ITERATIONS=$1
-TOLERANCE=$2
+ITERATIONS="30000"
+TOLERANCE="0.01"
 
 EXECUTABLES="poisson_j poisson_gs"
-SIZES="100 200 500"
+SIZES="40 80 100 150 200 300 400 500 600"
 
-for EXECUTABLE in $EXECUTABLES
+for S in $SIZES
 do
-    for S in $SIZES
+    for EXECUTABLE in $EXECUTABLES
     do
-        OUTPUT_FILE="${EXECUTABLE}_S${S}_I${ITERATIONS}_T${TOLERANCE}.dat"
+        OUTPUT_FILE="${EXECUTABLE}_I${ITERATIONS}_T${TOLERANCE}.dat"
         ./$EXECUTABLE $S $ITERATIONS $TOLERANCE 0 >> "$OUTPUT_FILE"
     done
 done
