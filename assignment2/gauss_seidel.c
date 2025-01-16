@@ -23,17 +23,17 @@ void gauss_seidel(double ***u, double ***f, int N) {
   delta_squared = delta_squared * delta_squared;
   double one_sixth = 1.0 / 6.0;
 
-//  #pragma omp parallel
-//  {
-//  #pragma omp for schedule(static,1) ordered(2)
+ #pragma omp parallel
+ {
+ #pragma omp parallel for schedule(static,1) ordered(2)
   for (int i  = 1; i < N + 1; i++) {
     for (int j = 1; j < N + 1; j++) {
-//      #pragma omp ordered depend(sink: i-1) depend(sink: j-1)
+     #pragma omp ordered depend(sink: i-1,j) depend(sink: i,j-1)
       for (int k = 1; k < N + 1; k++) {
         u[i][j][k] = one_sixth * (u[i-1][j][k] + u[i+1][j][k] + u[i][j-1][k] + u[i][j+1][k] + u[i][j][k-1] + u[i][j][k+1] + delta_squared * f[i][j][k]);
       }
-//      #pragma omp ordered depend(source)
+     #pragma omp ordered depend(source)
     }
   }
-//  }
+ }
 }
