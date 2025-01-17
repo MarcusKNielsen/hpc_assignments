@@ -5,11 +5,8 @@
 
 // Solve the full gauss-seidel in parallel. Return the number of iterations used.
 void solve_gauss_seidel(double ***u, double ***f, int N, int max_it) {
-#pragma omp parallel
-  {
-    for (int iter = 0; iter < max_it; iter++) {
-      gauss_seidel(u, f, N);
-    }
+  for (int iter = 0; iter < max_it; iter++) {
+    gauss_seidel(u, f, N);
   }
 }
 

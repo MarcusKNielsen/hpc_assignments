@@ -160,19 +160,27 @@ int main(int argc, char *argv[]) {
   allocation_t += omp_get_wtime();
 
   initialize_t -= omp_get_wtime();
+
+#pragma omp parallel
+{
   initialize_data(u, f, N);
 #ifdef _JACOBI
+#pragma omp single
+{
   initialize_border(u2, N);
 #endif
   initialize_t += omp_get_wtime();
 
   compute_t -= omp_get_wtime();
+} // end single region 
 #ifdef _JACOBI
   solve_jacobi(u2, u, f, N, iter_max, tolerance);
 #endif
 #ifdef _GAUSS_SEIDEL
   solve_gauss_seidel(u, f, N, iter_max);
 #endif
+} // end parallel region
+  
   compute_t += omp_get_wtime();
 
   printf("%s, %f, %f, %f, %ld, %d\n",
