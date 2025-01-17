@@ -7,12 +7,11 @@
 
 // Solve the full gauss-seidel in parallel. Return the number of iterations used.
 void solve_gauss_seidel(double ***u, double ***f, int N, int max_it) {
-  int k = 0;
-
-  while (k < max_it) {
+  for (int iter = 0; iter < max_it; iter++) {
     gauss_seidel(u, f, N);
-    k++;
   }
+
+  return max_it;
 }
 
 
