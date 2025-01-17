@@ -5,8 +5,11 @@
 
 // Solve the full gauss-seidel in parallel. Return the number of iterations used.
 void solve_gauss_seidel(double ***u, double ***f, int N, int max_it) {
-  for (int iter = 0; iter < max_it; iter++) {
-    gauss_seidel(u, f, N);
+#pragma omp parallel
+  {
+    for (int iter = 0; iter < max_it; iter++) {
+      gauss_seidel(u, f, N);
+    }
   }
 }
 
@@ -16,7 +19,7 @@ void gauss_seidel(double ***u, double ***f, int N) {
   delta_squared = delta_squared * delta_squared;
   double one_sixth = 1.0 / 6.0;
 
-#pragma omp parallel for schedule(static, 1) ordered(2)
+#pragma omp for schedule(static, 1) ordered(2)
   for (int i = 1; i < N + 1; i++) {
     for (int j = 1; j < N + 1; j++) {
 #pragma omp ordered depend(sink: i-1, j) depend(sink: i, j-1)
@@ -27,6 +30,6 @@ void gauss_seidel(double ***u, double ***f, int N) {
       }
 #pragma omp ordered depend(source)
     }
-  }
+  } // barrier (implied)
 
 }
