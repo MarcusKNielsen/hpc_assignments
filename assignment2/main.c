@@ -161,18 +161,14 @@ int main(int argc, char *argv[]) {
   allocation_t += omp_get_wtime();
 
   initialize_t -= omp_get_wtime();
-#ifdef _USE_CHECK_DATA
-  initialize_test_data(u, f, N);
-#else
 #pragma omp parallel
   {
     initialize_data(u, f, N);
-#ifdef _JACOBI
-    initialize_border(u2, N);
-#endif
-#endif
 #pragma omp single
     {
+#ifdef _JACOBI
+      initialize_border(u2, N);
+#endif
       initialize_t += omp_get_wtime();
 
       compute_t -= omp_get_wtime();
@@ -185,10 +181,6 @@ int main(int argc, char *argv[]) {
 #endif
   }
   compute_t += omp_get_wtime();
-
-#ifdef _USE_CHECK_DATA
-  check_test_data(u, N, tolerance * 15);
-#endif
 
   printf("%s, %f, %f, %f, %ld, %d\n",
          type,
