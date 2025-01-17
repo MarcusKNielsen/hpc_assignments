@@ -165,11 +165,12 @@ int main(int argc, char *argv[]) {
 #pragma omp parallel
   {
     initialize_data(u, f, N);
-#ifdef _JACOBI
-    initialize_border(u2, N);
-#endif
+
 #pragma omp single
     {
+#ifdef _JACOBI
+      initialize_border(u2, N);
+#endif
       initialize_t += omp_get_wtime();
 
       compute_t -= omp_get_wtime();
