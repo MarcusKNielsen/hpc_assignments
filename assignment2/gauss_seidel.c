@@ -1,7 +1,6 @@
 /* gauss_seidel.c - Poisson problem in 3d
  *
  */
-#include <math.h>
 #include "gauss_seidel.h"
 
 
@@ -10,8 +9,6 @@ void solve_gauss_seidel(double ***u, double ***f, int N, int max_it) {
   for (int iter = 0; iter < max_it; iter++) {
     gauss_seidel(u, f, N);
   }
-
-  return max_it;
 }
 
 
