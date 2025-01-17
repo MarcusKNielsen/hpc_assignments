@@ -131,7 +131,8 @@ int main(int argc, char *argv[]) {
     output_type = atoi(argv[5]);  // output type
   }
 
-  const int repeated = 100;
+  const int repeated = N > 150 ? 1 : 100;
+
   double allocation_t = 0;
   double initialize_t = 0;
   double compute_t = 0;
