@@ -131,6 +131,7 @@ int main(int argc, char *argv[]) {
     output_type = atoi(argv[5]);  // output type
   }
 
+  const int repeated = 100;
   double allocation_t = 0;
   double initialize_t = 0;
   double compute_t = 0;
@@ -173,12 +174,15 @@ int main(int argc, char *argv[]) {
 
       compute_t -= omp_get_wtime();
     }
+
+    for (int i = 0; i < repeated; i++) {
 #ifdef _JACOBI
-    solve_jacobi(u2, u, f, N, iter_max, tolerance);
+      solve_jacobi(u2, u, f, N, iter_max, tolerance);
 #endif
 #ifdef _GAUSS_SEIDEL
-    solve_gauss_seidel(u, f, N, iter_max);
+      solve_gauss_seidel(u, f, N, iter_max);
 #endif
+    }
   }
   compute_t += omp_get_wtime();
 
@@ -187,7 +191,7 @@ int main(int argc, char *argv[]) {
          allocation_t,
          initialize_t,
          compute_t,
-         (long) (iter_max) * N * N * N,
+         (long) (iter_max) * N * N * N * repeated,
          iter_max);
 
   // dump  results if wanted
