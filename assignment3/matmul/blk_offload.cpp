@@ -10,7 +10,8 @@
 #define BLK 50
 
 void matmult_blk_offload(int m, int n, int k, double *A, double *B, double *C){
-    
+    #pragma omp parallel for default(none) \
+    shared(m, n, C)
     for (int c_idx = 0; c_idx < m * n; c_idx++) {
         C[c_idx] = 0;
     }
