@@ -100,6 +100,12 @@ void initialize_data(double ***u, double ***f, int N) {
 }
 
 int main(int argc, char *argv[]) {
+  cudaSetDevice(0);
+  cudaDeviceEnablePeerAccess(1, 0);
+  cudaSetDevice(1);
+  cudaDeviceEnablePeerAccess(0, 0);
+  cudaSetDevice(0);
+
   int N = N_DEFAULT;
   int iter_max = 1000;
   double tolerance;
@@ -182,12 +188,6 @@ int main(int argc, char *argv[]) {
                     0, 0, omp_get_default_device(), omp_get_initial_device());
   omp_target_memcpy(data_f_d1, f[(N + 2) / 2], (N + 2) * (N + 2) * (N + 2) * sizeof(double) / 2,
                     0, 0, omp_get_default_device(), omp_get_initial_device());
-
-  cudaSetDevice(0);
-  cudaDeviceEnablePeerAccess(1, 0);
-  cudaSetDevice(1);
-  cudaDeviceEnablePeerAccess(0, 0);
-  cudaSetDevice(0);
 
   solve_jacobi(u2_d0, u_d0, f_d0, u2_d1, u_d1, f_d1, N, iter_max, tolerance);
 
