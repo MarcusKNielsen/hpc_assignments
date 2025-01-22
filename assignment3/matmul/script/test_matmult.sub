@@ -24,11 +24,7 @@ for m in $(seq 1 $STEP 1000); do
   for n in $(seq 1 $STEP 1000); do
     for k in $(seq 1 $STEP 1000); do
       for type in mkn_omp lib lib_offload mkn_offload mnk_offload blk_offload; do
-        ./matmult_f.nvc++ $type $m $n $k > sk_matmult_file
-        third_value=$(echo sk_matmult_file | awk '{print $3}')
-        if [[ $third_value != 0 ]]; then
-          echo "Warning: Non-zero third value ($third_value) $type $m $n $k"
-        fi
+        ./matmult_f.nvc++ $type $m $n $k
       done
     done
   done
