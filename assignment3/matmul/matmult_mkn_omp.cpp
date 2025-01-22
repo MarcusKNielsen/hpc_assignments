@@ -13,17 +13,16 @@ void matmult_lib(int m,int n,int k,double *A,double *B,double *C){
 }
 
 void matmult_mkn_omp(int m,int n,int k,double *A,double *B,double *C){
-    // Intialize C-matrix to 0.
-    #pragma omp parallel for
-    for (int c_idx = 0; c_idx < m * n; c_idx++) {
-        C[c_idx] = 0;
-    }
 
-    // These two loops iterates over indexes of C: C[i,j]
     #pragma omp parallel
     {
+        #pragma omp for default(none) share(m,n,C)
+        for (int c_idx = 0; c_idx < m * n; c_idx++) {
+            C[c_idx] = 0;
+        }
+
         // Each thread will pick up work for each `i`
-        #pragma omp for
+        #pragma omp for default(none) share(m,n,k,C,A,B)
         for (int i = 0; i < m; i++) {
             for (int l = 0; l < k; l++) {
                 int a_idx = i * k + l; // row-major indexing: "A[i,l] = A[a_idx]"
