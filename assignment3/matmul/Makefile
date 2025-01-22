@@ -1,5 +1,5 @@
 TARGET= libmatmult.so
-OBJS	= matmult_c.o
+OBJS	= mkn_mnk_offload.o matmult_cublas.o matmult_mkn_omp.o
 
 CC	= nvc
 CXX	= nvc++
@@ -11,7 +11,8 @@ PARA	=
 INC   =
 LIBS	=
 
-CXXFLAGS= $(OPT) $(PIC) $(INC) $(ISA) $(PARA) $(XOPT)
+CXXFLAGS = $(OPT) $(PIC) $(INC) $(ISA) $(PARA) $(XOPT)
+CCFLAGS = $(OPT) $(PIC) $(INC) $(ISA) $(PARA) $(XOPT)
 
 all: $(TARGET)
 
