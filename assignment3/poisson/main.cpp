@@ -139,7 +139,6 @@ int main(int argc, char *argv[]) {
     exit(-1);
   }
 
-
   if ((f = malloc_3d(N + 2, N + 2, N + 2)) == NULL) {
     perror("array f: allocation failed");
     exit(-1);
@@ -147,18 +146,12 @@ int main(int argc, char *argv[]) {
   allocation_t += omp_get_wtime();
 
   initialize_t -= omp_get_wtime();
+  initialize_data(u, f, N);
+  initialize_border(u2, N);
+  initialize_t += omp_get_wtime();
 
-
-    initialize_data(u, f, N);
-    
-    initialize_border(u2, N);
-    initialize_t += omp_get_wtime();
-    compute_t -= omp_get_wtime();
-
-    solve_jacobi(u2, u, f, N, iter_max, tolerance);
-
-  
-
+  compute_t -= omp_get_wtime();
+  solve_jacobi(u2, u, f, N, iter_max, tolerance);
   compute_t += omp_get_wtime();
 
   printf("%s, %f, %f, %f, %ld, %d\n",
