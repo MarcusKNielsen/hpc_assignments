@@ -7,6 +7,6 @@
 #define _JACOBI_H
 
 int solve_jacobi(double *** U_new, double *** U_old, double *** F, int N, int max_it, double threshold);
-double jacobi(double *** U_new, double *** U_old, double *** F, int N);
+void jacobi(double *** U_new, double *** U_old, double *** F, int N);
 
 #endif
