@@ -27,7 +27,7 @@ for m in $(seq 1 $STEP 1000); do
         output=$(./matmult_f.nvc++ $type $m $n $k)
         third_value=$(echo $output | awk '{print $3}')
         if [[ $third_value != 0 ]]; then
-          echo "Warning: Non-zero third value ($third_value) for parameters type=$type, m=$m, n=$n, k=$k"
+          echo "Warning: Non-zero third value ($third_value) $type $m $n $k"
         fi
       done
     done
