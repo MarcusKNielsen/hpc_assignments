@@ -1,7 +1,7 @@
 #ifndef MATVEC_CUBLAS_H
-#define MATVEC_CUBLAS_H
+#define MATVEC_CUBLAS_
 
 extern "C" {
-    void matvec_cublas(int m,int n,int k,double *A,double *B,double *C);
+    void matmult_lib_offload(int m,int n,int k,double *A,double *B,double *C);
 }
 #endif
