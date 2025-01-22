@@ -10,6 +10,7 @@
 #include <omp.h>
 #include "jacobi.h"
 #include "alloc3d_dev.h"
+#include <cuda.h>
 
 #define N_DEFAULT 100
 
@@ -109,7 +110,6 @@ int main(int argc, char *argv[]) {
 
   char *output_ext = "";
   char output_filename[FILENAME_MAX];
-
   /* get the parameters from the command line */
   N = atoi(argv[1]);    // grid size
   iter_max = atoi(argv[2]);  // max. no. of iterations
@@ -122,23 +122,19 @@ int main(int argc, char *argv[]) {
   double allocation_t = 0;
   double initialize_t = 0;
   double compute_t = 0;
-
   double ***u = NULL;
   double ***u2 = NULL;
   double ***f = NULL;
-
   allocation_t -= omp_get_wtime();
   // allocate memory
   if ((u = malloc_3d(N + 2, N + 2, N + 2)) == NULL) {
     perror("array u: allocation failed");
     exit(-1);
   }
-
   if ((u2 = malloc_3d(N + 2, N + 2, N + 2)) == NULL) {
     perror("array u2: allocation failed");
     exit(-1);
   }
-
 
   if ((f = malloc_3d(N + 2, N + 2, N + 2)) == NULL) {
     perror("array f: allocation failed");
@@ -147,7 +143,7 @@ int main(int argc, char *argv[]) {
   allocation_t += omp_get_wtime();
 
   initialize_t -= omp_get_wtime();
-
+ 
 
   initialize_data(u, f, N);
   
@@ -155,24 +151,52 @@ int main(int argc, char *argv[]) {
   initialize_t += omp_get_wtime();
   compute_t -= omp_get_wtime();
 
+  
   // Initialize on device.
-  double *data_u;
-  double *data_u2;
-  double *data_f;
-  double ***u_d = malloc_3d_dev(N+2, N+2, N+2, &data_u);
-  double ***u2_d = malloc_3d_dev(N+2, N+2, N+2, &data_u2);
-  double ***f_d = malloc_3d_dev(N+2, N+2, N+2, &data_f);
+  double *data_u_d0;
+  double *data_u2_d0;
+  double *data_f_d0;
+  double *data_u_d1;
+  double *data_u2_d1;
+  double *data_f_d1;
 
-  omp_target_memcpy(data_u, u[0], (N + 2) * (N + 2) * (N + 2) * sizeof(double),
+  omp_set_default_device(0);
+  double ***u_d0 = malloc_3d_dev((N+2) / 2, N+2, N+2, &data_u_d0);
+  double ***u2_d0 = malloc_3d_dev((N+2) / 2, N+2, N+2, &data_u2_d0);
+  double ***f_d0 = malloc_3d_dev((N+2) / 2, N+2, N+2, &data_f_d0);
+  
+  omp_target_memcpy(data_u_d0, u[0], (N + 2) * (N + 2) * (N + 2) * sizeof(double) / 2,
           0, 0, omp_get_default_device(), omp_get_initial_device());
-  omp_target_memcpy(data_u2, u2[0], (N + 2) * (N + 2) * (N + 2) * sizeof(double),
+  omp_target_memcpy(data_u2_d0, u2[0], (N + 2) * (N + 2) * (N + 2) * sizeof(double) / 2,
           0, 0, omp_get_default_device(), omp_get_initial_device());
-  omp_target_memcpy(data_f, f[0], (N + 2) * (N + 2) * (N + 2) * sizeof(double),
+  omp_target_memcpy(data_f_d0, f[0], (N + 2) * (N + 2) * (N + 2) * sizeof(double) / 2,
           0, 0, omp_get_default_device(), omp_get_initial_device());
 
-  solve_jacobi(u2_d, u_d, f_d, N, iter_max, tolerance);
 
-  omp_target_memcpy(u[0], data_u, (N + 2) * (N + 2) * (N + 2) * sizeof(double),
+  omp_set_default_device(1);
+  double ***u_d1 = malloc_3d_dev((N+2) / 2, N+2, N+2, &data_u_d1);
+  double ***u2_d1 = malloc_3d_dev((N+2) / 2, N+2, N+2, &data_u2_d1);
+  double ***f_d1 = malloc_3d_dev((N+2) / 2, N+2, N+2, &data_f_d1);
+ 
+  omp_target_memcpy(data_u_d1, u[(N+2) / 2], (N + 2) * (N + 2) * (N + 2) * sizeof(double) / 2,
+          0, 0, omp_get_default_device(), omp_get_initial_device());
+  omp_target_memcpy(data_u2_d1, u2[(N+2) / 2], (N + 2) * (N + 2) * (N + 2) * sizeof(double) / 2,
+          0, 0, omp_get_default_device(), omp_get_initial_device());
+  omp_target_memcpy(data_f_d1, f[(N+2) / 2], (N + 2) * (N + 2) * (N + 2) * sizeof(double) / 2,
+          0, 0, omp_get_default_device(), omp_get_initial_device());
+
+  cudaSetDevice(0);
+  cudaDeviceEnablePeerAccess(1,0);
+  cudaSetDevice(1);
+  cudaDeviceEnablePeerAccess(0,0);
+  cudaSetDevice(0);
+
+  solve_jacobi(u2_d0, u_d0, f_d0, u2_d1, u_d1, f_d1, N, iter_max, tolerance);
+
+
+  omp_target_memcpy(u[0], data_u_d0, (N + 2) * (N + 2) * (N + 2) * sizeof(double) / 2,
+          0, 0, omp_get_initial_device(), omp_get_default_device());
+  omp_target_memcpy(u[(N+2)/2], data_u_d1, (N + 2) * (N + 2) * (N + 2) * sizeof(double) / 2,
           0, 0, omp_get_initial_device(), omp_get_default_device());
   
 
@@ -211,9 +235,12 @@ int main(int argc, char *argv[]) {
   free_3d(u);
   free_3d(u2);
   free_3d(f);
-  free_3d_dev(u_d, data_u);
-  free_3d_dev(u2_d, data_u2);
-  free_3d_dev(f_d, data_f);
+  free_3d_dev(u_d0, data_u_d0);
+  free_3d_dev(u2_d0, data_u2_d0);
+  free_3d_dev(f_d0, data_f_d0);
+  free_3d_dev(u_d1, data_u_d1);
+  free_3d_dev(u2_d1, data_u2_d1);
+  free_3d_dev(f_d1, data_f_d1);
 
   return (0);
 }
