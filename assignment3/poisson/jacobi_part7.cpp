@@ -3,12 +3,12 @@
  */
 #include <stddef.h>
 #include <stdio.h>
-#include "jacobi.h"
+#include "jacobi_part7.h"
 
 int solve_jacobi(double ***U_new_d0, double ***U_old_d0, double ***F_d0, double ***U_new_d1, double ***U_old_d1, double ***F_d1, int N, int max_it, double threshold) {
-  
+
   for (int iter = 0; iter < max_it; iter++) {
-    
+
     jacobi(U_new_d0, U_old_d0, F_d0, U_new_d1, U_old_d1, F_d1, N);
 
     double ***tmp_d0 = U_old_d0;
@@ -19,7 +19,7 @@ int solve_jacobi(double ***U_new_d0, double ***U_old_d0, double ***F_d0, double 
     U_old_d1 = U_new_d1;
     U_new_d1 = tmp_d1;
   }
-  
+
   return max_it;
 }
 
@@ -29,7 +29,7 @@ void jacobi(double ***U_new_d0, double ***U_old_d0, double ***F_d0, double ***U_
   double scale = 1.0 / 6.0;
   double delta_squared = 2.0 / (N + 1);
   delta_squared = delta_squared * delta_squared;
-  
+
   printf("Now HERE! 1\n");
   #pragma omp target teams loop is_device_ptr(U_new_d0, U_old_d0, F_d0, U_new_d1, U_old_d1, F_d1) \
     num_teams(N/2) thread_limit(32) collapse(2) device(0) nowait

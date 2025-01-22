@@ -8,7 +8,7 @@
 #include <math.h>
 #include <time.h>
 #include <omp.h>
-#include "jacobi.h"
+#include "jacobi_part7.h"
 #include "alloc3d_dev.h"
 #include <cuda.h>
 
@@ -143,15 +143,14 @@ int main(int argc, char *argv[]) {
   allocation_t += omp_get_wtime();
 
   initialize_t -= omp_get_wtime();
- 
 
   initialize_data(u, f, N);
-  
+
   initialize_border(u2, N);
   initialize_t += omp_get_wtime();
   compute_t -= omp_get_wtime();
 
-  
+
   // Initialize on device.
   double *data_u_d0;
   double *data_u2_d0;
@@ -161,44 +160,41 @@ int main(int argc, char *argv[]) {
   double *data_f_d1;
 
   omp_set_default_device(0);
-  double ***u_d0 = malloc_3d_dev((N+2) / 2, N+2, N+2, &data_u_d0);
-  double ***u2_d0 = malloc_3d_dev((N+2) / 2, N+2, N+2, &data_u2_d0);
-  double ***f_d0 = malloc_3d_dev((N+2) / 2, N+2, N+2, &data_f_d0);
-  
-  omp_target_memcpy(data_u_d0, u[0], (N + 2) * (N + 2) * (N + 2) * sizeof(double) / 2,
-          0, 0, omp_get_default_device(), omp_get_initial_device());
-  omp_target_memcpy(data_u2_d0, u2[0], (N + 2) * (N + 2) * (N + 2) * sizeof(double) / 2,
-          0, 0, omp_get_default_device(), omp_get_initial_device());
-  omp_target_memcpy(data_f_d0, f[0], (N + 2) * (N + 2) * (N + 2) * sizeof(double) / 2,
-          0, 0, omp_get_default_device(), omp_get_initial_device());
+  double ***u_d0 = malloc_3d_dev((N + 2) / 2, N + 2, N + 2, &data_u_d0);
+  double ***u2_d0 = malloc_3d_dev((N + 2) / 2, N + 2, N + 2, &data_u2_d0);
+  double ***f_d0 = malloc_3d_dev((N + 2) / 2, N + 2, N + 2, &data_f_d0);
 
+  omp_target_memcpy(data_u_d0, u[0], (N + 2) * (N + 2) * (N + 2) * sizeof(double) / 2,
+                    0, 0, omp_get_default_device(), omp_get_initial_device());
+  omp_target_memcpy(data_u2_d0, u2[0], (N + 2) * (N + 2) * (N + 2) * sizeof(double) / 2,
+                    0, 0, omp_get_default_device(), omp_get_initial_device());
+  omp_target_memcpy(data_f_d0, f[0], (N + 2) * (N + 2) * (N + 2) * sizeof(double) / 2,
+                    0, 0, omp_get_default_device(), omp_get_initial_device());
 
   omp_set_default_device(1);
-  double ***u_d1 = malloc_3d_dev((N+2) / 2, N+2, N+2, &data_u_d1);
-  double ***u2_d1 = malloc_3d_dev((N+2) / 2, N+2, N+2, &data_u2_d1);
-  double ***f_d1 = malloc_3d_dev((N+2) / 2, N+2, N+2, &data_f_d1);
- 
-  omp_target_memcpy(data_u_d1, u[(N+2) / 2], (N + 2) * (N + 2) * (N + 2) * sizeof(double) / 2,
-          0, 0, omp_get_default_device(), omp_get_initial_device());
-  omp_target_memcpy(data_u2_d1, u2[(N+2) / 2], (N + 2) * (N + 2) * (N + 2) * sizeof(double) / 2,
-          0, 0, omp_get_default_device(), omp_get_initial_device());
-  omp_target_memcpy(data_f_d1, f[(N+2) / 2], (N + 2) * (N + 2) * (N + 2) * sizeof(double) / 2,
-          0, 0, omp_get_default_device(), omp_get_initial_device());
+  double ***u_d1 = malloc_3d_dev((N + 2) / 2, N + 2, N + 2, &data_u_d1);
+  double ***u2_d1 = malloc_3d_dev((N + 2) / 2, N + 2, N + 2, &data_u2_d1);
+  double ***f_d1 = malloc_3d_dev((N + 2) / 2, N + 2, N + 2, &data_f_d1);
+
+  omp_target_memcpy(data_u_d1, u[(N + 2) / 2], (N + 2) * (N + 2) * (N + 2) * sizeof(double) / 2,
+                    0, 0, omp_get_default_device(), omp_get_initial_device());
+  omp_target_memcpy(data_u2_d1, u2[(N + 2) / 2], (N + 2) * (N + 2) * (N + 2) * sizeof(double) / 2,
+                    0, 0, omp_get_default_device(), omp_get_initial_device());
+  omp_target_memcpy(data_f_d1, f[(N + 2) / 2], (N + 2) * (N + 2) * (N + 2) * sizeof(double) / 2,
+                    0, 0, omp_get_default_device(), omp_get_initial_device());
 
   cudaSetDevice(0);
-  cudaDeviceEnablePeerAccess(1,0);
+  cudaDeviceEnablePeerAccess(1, 0);
   cudaSetDevice(1);
-  cudaDeviceEnablePeerAccess(0,0);
+  cudaDeviceEnablePeerAccess(0, 0);
   cudaSetDevice(0);
 
   solve_jacobi(u2_d0, u_d0, f_d0, u2_d1, u_d1, f_d1, N, iter_max, tolerance);
 
-
   omp_target_memcpy(u[0], data_u_d0, (N + 2) * (N + 2) * (N + 2) * sizeof(double) / 2,
-          0, 0, omp_get_initial_device(), omp_get_default_device());
-  omp_target_memcpy(u[(N+2)/2], data_u_d1, (N + 2) * (N + 2) * (N + 2) * sizeof(double) / 2,
-          0, 0, omp_get_initial_device(), omp_get_default_device());
-  
+                    0, 0, omp_get_initial_device(), omp_get_default_device());
+  omp_target_memcpy(u[(N + 2) / 2], data_u_d1, (N + 2) * (N + 2) * (N + 2) * sizeof(double) / 2,
+                    0, 0, omp_get_initial_device(), omp_get_default_device());
 
   compute_t += omp_get_wtime();
 
