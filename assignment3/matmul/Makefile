@@ -12,7 +12,6 @@ INC   =
 LIBS	=
 
 CXXFLAGS = $(OPT) $(PIC) $(INC) $(ISA) $(PARA) $(XOPT)
-CCFLAGS = $(OPT) $(PIC) $(INC) $(ISA) $(PARA) $(XOPT)
 
 all: $(TARGET)
 
