@@ -1,6 +1,7 @@
 #ifndef MATVEC_CUBLAS_H
 #define MATVEC_CUBLAS_H
 
-void matvec_cublas(int n, int m, double *mat, double *vec, double *res);
-
+extern "C" {
+    void matvec_cublas(int m,int n,int k,double *A,double *B,double *C);
+}
 #endif
