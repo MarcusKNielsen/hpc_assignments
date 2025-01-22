@@ -1,6 +1,9 @@
-#include <cblas.h>
 #include <omp.h>
 #include "matmult_mkn_omp.h"
+
+extern "C" {
+    #include <cblas.h>
+}
 
 // Function to compute product C=A*B using cblas
 void matmult_lib(int m,int n,int k,double *A,double *B,double *C){
