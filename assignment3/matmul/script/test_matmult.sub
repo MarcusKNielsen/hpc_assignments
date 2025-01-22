@@ -1,0 +1,40 @@
+#!/bin/bash
+#BSUB -J test
+#BSUB -o test_%J.out
+#BSUB -q hpcintro
+#BSUB -B
+#BSUB -N
+#BSUB -n 1
+#BSUB -R "rusage[mem=2048]"
+#BSUB -W 60
+
+lscpu
+lscpu -C
+
+export MATMULT_RESULTS=0
+export MATMULT_COMPARE=1
+export MFLOPS_MAX_IT=1
+export STEP=73
+export NVCOMPILER_OMP_CUDA_GRID=165,13
+export OMP_NUM_THREADS=13
+
+echo "Start tests"
+
+for m in $(seq 1 $STEP 1000); do
+  for n in $(seq 1 $STEP 1000); do
+    for k in $(seq 1 $STEP 1000); do
+      for type in mkn_omp lib lib_offload mkn_offload mnk_offload blk_offload asy_offload; do
+        output=$(./matmult_f.gcc $type $m $n $k)
+        third_value=$(echo $output | awk '{print $3}')
+        if [[ $third_value != 0 ]]; then
+          echo "Warning: Non-zero third value ($third_value) for parameters type=$type, m=$m, n=$n, k=$k"
+        fi
+      done
+    done
+  done
+  echo "$type: $m"
+done
+
+echo "End of test!"
+
+exit 0;
