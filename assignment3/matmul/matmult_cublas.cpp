@@ -1,6 +1,5 @@
 #include <cublas_v2.h>
 #include <cuda_runtime.h>
-#include <iostream>
 
 void matmult_lib_offload(int m,int n,int k,double *A,double *B,double *C) {
     // cuBLAS handle
