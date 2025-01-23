@@ -8,7 +8,7 @@ void matmult_asy_offload(int m,int n,int k,double *A,double *B,double *C) {
 
     #pragma omp target update to(B[0:k*n])
     
-    #pragma omp parallel for
+    //#pragma omp parallel for
     for (int s = 0; s < SPLITS; ++s) {
 
         int length = m / SPLITS;
@@ -20,7 +20,7 @@ void matmult_asy_offload(int m,int n,int k,double *A,double *B,double *C) {
 
         // As[i,l] = As[i*k+l], Cs[i,j] = Cs[i*n+j], Bs[l,j] = Bs[l*n+j]
         // Cs[i,j] = sum_l As[i,l] * Bs[l,j]
-        #pragma omp target teams loop\
+        #pragma omp target teams loop nowait\
         num_teams(length) thread_limit(32) 
         for (int i = lower; i < lower + length; ++i) {
 
