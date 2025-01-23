@@ -185,9 +185,7 @@ int main(int argc, char *argv[]) {
 
   // de-allocate memory
   free_3d(u);
-#ifdef _JACOBI
   free_3d(u2);
-#endif
   free_3d(f);
 
   return (0);
