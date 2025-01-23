@@ -32,5 +32,5 @@ void matmult_asy_offload(int m, int n, int k, double *A, double *B, double *C) {
 #pragma omp target update from(C[lower*n:upper_C])
   }
 #pragma omp taskwait
-#pragma omp target exit data map(release: A[0:m*k], B[0:m*k], C[0:m*n])
+#pragma omp target exit data map(release: A[0:m*k], B[0:k*n], C[0:m*n])
 }
