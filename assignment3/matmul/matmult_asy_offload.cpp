@@ -1,14 +1,4 @@
 #include "matmult_asy_offload.h"
-#include <iostream>
-
-void printMatrix(int m, int k, const double *A) {
-  for (int i = 0; i < m; ++i) {
-    for (int j = 0; j < k; ++j) {
-      std::cout << A[i * k + j] << " ";
-    }
-    std::cout << std::endl;
-  }
-}
 
 void matmult_asy_offload(int m, int n, int k, double *A, double *B, double *C) {
 #define SPLITS 2
@@ -21,8 +11,7 @@ void matmult_asy_offload(int m, int n, int k, double *A, double *B, double *C) {
   for (int s = 0; s < SPLITS; ++s) {
     int lower = s * length;
 #pragma omp target update to(A[lower*k:upper_A])
-    // As[i,l] = As[i*k+l], Cs[i,j] = Cs[i*n+j], Bs[l,j] = Bs[l*n+j]
-    // Cs[i,j] = sum_l As[i,l] * Bs[l,j]
+
 #pragma omp target teams loop nowait \
         num_teams(length) thread_limit(32)
     for (int i = lower; i < lower + length; i++) {
