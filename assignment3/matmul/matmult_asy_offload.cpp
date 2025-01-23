@@ -11,12 +11,6 @@ void printMatrix(int m, int k, const double *A) {
 }
 
 void matmult_asy_offload(int m, int n, int k, double *A, double *B, double *C) {
-
-  std::cout << "Matrix A" << std::endl;
-  printMatrix(m, k, A);
-  std::cout << "Matrix B" << std::endl;
-  printMatrix(k, n, B);
-
 #define SPLITS 2
   int length = m / SPLITS;
   int upper_A = k * length;
@@ -50,8 +44,4 @@ void matmult_asy_offload(int m, int n, int k, double *A, double *B, double *C) {
   }
 #pragma omp taskwait
 #pragma omp target exit data map(release: A[0:m*k], B[0:m*k], C[0:m*n])
-
-  std::cout << "Matrix C" << std::endl;
-  printMatrix(m, n, C);
-
 }
