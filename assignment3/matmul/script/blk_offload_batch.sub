@@ -7,8 +7,8 @@
 # Author: Bernd Dammann <bd@cc.dtu.dk>
 #         Hans Henrik Brandenborg Sørensen <hhbs@dtu.dk>
 #
-#BSUB -J mm_batch_gpu
-#BSUB -o mm_batch_gpu_%J.out
+#BSUB -J blk_batch_gpu
+#BSUB -o blk_batch_gpu_%J.out
 #BSUB -q hpcintrogpu
 #BSUB -n 32
 #BSUB -R "rusage[mem=2048]"
