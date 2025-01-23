@@ -21,13 +21,7 @@ export CUDA_VISIBLE_DEVICES=0,1
 
 module load nvhpc/24.11
 
-EXECUTABLE=poisson7
-
-#ncu -o "${EXECUTABLE}_${LSB_JOBID}" \
-#    --set basic \
-#    --section MemoryWorkloadAnalysis \
-#    --section MemoryWorkloadAnalysis_Chart \
-#    --section ComputeWorkloadAnalysis \
-#    ./$EXECUTABLE 100 500 0.01 0
-
-nsys profile --trace=cuda --stats=true ./$EXECUTABLE 100 500 0.01 0
+for EXECUTABLE in poisson6.1 poisson6.2 poisson7 poisson8;
+do
+  nsys profile --trace=cuda --stats=true -o "${EXECUTABLE}_${LSB_JOBID}" $EXECUTABLE 500 50 0.01 0
+done
