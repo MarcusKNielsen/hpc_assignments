@@ -22,9 +22,9 @@ export OMP_NUM_THREADS=13
 
 echo "Start tests"
 
-for m in $(seq 1 $STEP 1000); do
-  for n in $(seq 1 $STEP 1000); do
-    for k in $(seq 1 $STEP 1000); do
+for m in $(seq 1 $STEP 500); do
+  for n in $(seq 1 $STEP 500); do
+    for k in $(seq 1 $STEP 500); do
       for type in mkn_omp lib lib_offload mkn_offload mnk_offload blk_offload; do
         output=$(./matmult_f.nvc++ $type $m $n $k)
         third_value=$(echo $output | awk '{print $3}')
@@ -35,6 +35,19 @@ for m in $(seq 1 $STEP 1000); do
     done
   done
   echo "$type: $m"
+done
+
+for m in $(seq 2 10 500); do
+  for n in $(seq 1 $STEP 500); do
+    for k in $(seq 1 $STEP 500); do
+      output=$(./matmult_f.nvc++ asy_offload $m $n $k)
+      third_value=$(echo $output | awk '{print $3}')
+      if [[ $third_value != 0 ]]; then
+        echo "Warning: Non-zero third value ($third_value) asy_offload $m $n $k"
+      fi
+    done
+  done
+  echo "asy_offload: $m"
 done
 
 echo "End of test!"
