@@ -37,13 +37,10 @@ nvaccelinfo
 
 SIZES="100 200 500 1000 2000 5000"
 
-TYPES="asy_offload"
+TYPE="asy_offload"
 
-for TYPE in $TYPES
+for S in $SIZES
 do
-  for S in $SIZES
-  do
-    OUTPUT=$(./$EXECUTABLE $TYPE $S $S $S)
-    echo "$OUTPUT $TYPE $S " >> results.dat
-  done
+  OUTPUT=$(./$EXECUTABLE $TYPE $S $S $S)
+  echo "$OUTPUT $TYPE $S " >> results.dat
 done
