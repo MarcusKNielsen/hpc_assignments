@@ -29,7 +29,7 @@ SIZE="2048"
 HWCOUNT="-h dch,on,dcm,on,l2h,on,l2m,on"
 JID=$(date "+%s.%N")
 EXPOUT="GPROFNG.${JID}.er"
-OMP_NUM_THREADS=32 collect app -o $EXPOUT $HWCOUNT ./$EXECUTABLE mkn_omp $SIZE $SIZE $SIZE
+OMP_NUM_THREADS=32 gprofng collect app -o $EXPOUT $HWCOUNT ./$EXECUTABLE mkn_omp $SIZE $SIZE $SIZE
 gprofng display text --functions $EXPOUT
 
 
@@ -46,6 +46,7 @@ BLK_SIZES="30 150"
 for BLK_SIZE in $BLK_SIZES
 do
   make clean && make PARA=-DBLK=${BLK_SIZE}
+  echo NVCOMPILER_OMP_CUDA_GRID=1024,128 nsys profile --trace=cuda --stats=true -o "${TYPE}_${LSB_JOBID}_${BLK_SIZE}" ./$EXECUTABLE $TYPE $SIZE $SIZE $SIZE
   NVCOMPILER_OMP_CUDA_GRID=1024,128 nsys profile --trace=cuda --stats=true -o "${TYPE}_${LSB_JOBID}_${BLK_SIZE}" ./$EXECUTABLE $TYPE $SIZE $SIZE $SIZE
 done
 
@@ -55,5 +56,6 @@ SPLT_SIZES="2 5"
 for SPLT_SIZE in $SPLT_SIZES
 do
   make clean && make PARA=-DSPLITS=${SPLT_SIZE}
-  NVCOMPILER_OMP_CUDA_GRID=1024,128 nsys profile --trace=cuda --stats=true -o "${TYPE}_${LSB_JOBID}_${SPLT_SIZE}" ./$EXECUTABLE $TYPE $SIZE $SIZE $SIZE
+  echo nsys profile --trace=cuda --stats=true -o "${TYPE}_${LSB_JOBID}_${SPLT_SIZE}" ./$EXECUTABLE $TYPE $SIZE $SIZE $SIZE
+  nsys profile --trace=cuda --stats=true -o "${TYPE}_${LSB_JOBID}_${SPLT_SIZE}" ./$EXECUTABLE $TYPE $SIZE $SIZE $SIZE
 done
