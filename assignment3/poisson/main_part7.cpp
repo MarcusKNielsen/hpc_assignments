@@ -158,6 +158,7 @@ int main(int argc, char *argv[]) {
   #pragma omp target exit data map(release:allocation_t)
 
   compute_t -= omp_get_wtime();
+ 
   // Initialize on device.
   double *data_u_d0;
   double *data_u2_d0;
@@ -170,44 +171,55 @@ int main(int argc, char *argv[]) {
   double ***u_d0 = malloc_3d_dev((N + 2) / 2, N + 2, N + 2, &data_u_d0);
   double ***u2_d0 = malloc_3d_dev((N + 2) / 2, N + 2, N + 2, &data_u2_d0);
   double ***f_d0 = malloc_3d_dev((N + 2) / 2, N + 2, N + 2, &data_f_d0);
-
-#pragma omp target nowait
-  omp_target_memcpy(data_u_d0, u[0][0], (N + 2) * (N + 2) * (N + 2) * sizeof(double) / 2,
-                    0, 0, omp_get_default_device(), omp_get_initial_device());
-#pragma omp target nowait
-  omp_target_memcpy(data_u2_d0, u2[0][0], (N + 2) * (N + 2) * (N + 2) * sizeof(double) / 2,
-                    0, 0, omp_get_default_device(), omp_get_initial_device());
-#pragma omp target nowait
-  omp_target_memcpy(data_f_d0, f[0][0], (N + 2) * (N + 2) * (N + 2) * sizeof(double) / 2,
-                    0, 0, omp_get_default_device(), omp_get_initial_device());
-
   omp_set_default_device(1);
   double ***u_d1 = malloc_3d_dev((N + 2) / 2, N + 2, N + 2, &data_u_d1);
   double ***u2_d1 = malloc_3d_dev((N + 2) / 2, N + 2, N + 2, &data_u2_d1);
   double ***f_d1 = malloc_3d_dev((N + 2) / 2, N + 2, N + 2, &data_f_d1);
+  omp_set_default_device(0);
+ #pragma omp parallel 
+  {
+    #pragma omp single
+  {
+#pragma omp task
+  omp_target_memcpy(data_u_d0, u[0][0], (N + 2) * (N + 2) * (N + 2) * sizeof(double) / 2,
+                    0, 0, omp_get_default_device(), omp_get_initial_device());
+#pragma omp task 
+  omp_target_memcpy(data_u2_d0, u2[0][0], (N + 2) * (N + 2) * (N + 2) * sizeof(double) / 2,
+                    0, 0, omp_get_default_device(), omp_get_initial_device());
+#pragma omp task
+  omp_target_memcpy(data_f_d0, f[0][0], (N + 2) * (N + 2) * (N + 2) * sizeof(double) / 2,
+                    0, 0, omp_get_default_device(), omp_get_initial_device());
 
-#pragma omp target nowait
+  omp_set_default_device(1);
+
+#pragma omp task 
   omp_target_memcpy(data_u_d1, u[(N + 2) / 2][0], (N + 2) * (N + 2) * (N + 2) * sizeof(double) / 2,
                     0, 0, omp_get_default_device(), omp_get_initial_device());
-#pragma omp target nowait
+#pragma omp task 
   omp_target_memcpy(data_u2_d1, u2[(N + 2) / 2][0], (N + 2) * (N + 2) * (N + 2) * sizeof(double) / 2,
                     0, 0, omp_get_default_device(), omp_get_initial_device());
-#pragma omp target nowait
+#pragma omp task 
   omp_target_memcpy(data_f_d1, f[(N + 2) / 2][0], (N + 2) * (N + 2) * (N + 2) * sizeof(double) / 2,
                     0, 0, omp_get_default_device(), omp_get_initial_device());
-  #pragma omp taskwait
+  }
+  }
+  omp_set_default_device(0);
   solve_jacobi(u2_d0, u_d0, f_d0, u2_d1, u_d1, f_d1, N, iter_max, tolerance);
 
-  omp_set_default_device(0);
-  #pragma omp target nowait
+#pragma omp parallel
+{
+  #pragma omp single 
+  {
+  #pragma omp task
   omp_target_memcpy(u[0][0], data_u_d0, (N + 2) * (N + 2) * (N + 2) * sizeof(double) / 2,
                     0, 0, omp_get_initial_device(), omp_get_default_device());
   omp_set_default_device(1);
-  #pragma omp target nowait
+  #pragma omp task 
   omp_target_memcpy(u[(N + 2) / 2][0], data_u_d1, (N + 2) * (N + 2) * (N + 2) * sizeof(double) / 2,
                     0, 0, omp_get_initial_device(), omp_get_default_device());
    omp_set_default_device(0);
-    #pragma omp taskwait
+  }
+}
   compute_t += omp_get_wtime();
 
   printf("%s, %f, %f, %f, %ld, %d\n",
