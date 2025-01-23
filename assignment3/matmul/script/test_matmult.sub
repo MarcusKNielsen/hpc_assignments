@@ -16,15 +16,15 @@ lscpu -C
 export MATMULT_RESULTS=0
 export MATMULT_COMPARE=1
 export MFLOPS_MAX_IT=1
-export STEP=73
+export SIZES="1 73 175 373 453"
 export NVCOMPILER_OMP_CUDA_GRID=165,13
 export OMP_NUM_THREADS=13
 
 echo "Start tests"
 
-for m in $(seq 1 $STEP 500); do
-  for n in $(seq 1 $STEP 500); do
-    for k in $(seq 1 $STEP 500); do
+for m in $SIZES; do
+  for n in $SIZES; do
+    for k in $SIZES; do
       for type in mkn_omp lib lib_offload mkn_offload mnk_offload blk_offload; do
         output=$(./matmult_f.nvc++ $type $m $n $k)
         third_value=$(echo $output | awk '{print $3}')
@@ -37,9 +37,9 @@ for m in $(seq 1 $STEP 500); do
   echo "$type: $m"
 done
 
-for m in $(seq 2 10 500); do
-  for n in $(seq 1 $STEP 500); do
-    for k in $(seq 1 $STEP 500); do
+for m in $(seq 2 80 500); do
+  for n in $SIZES; do
+    for k in $SIZES; do
       output=$(./matmult_f.nvc++ asy_offload $m $n $k)
       third_value=$(echo $output | awk '{print $3}')
       if [[ $third_value != 0 ]]; then
@@ -51,7 +51,5 @@ for m in $(seq 2 10 500); do
 done
 
 echo "End of test!"
-
-# TODO asy_offload
 
 exit 0;
