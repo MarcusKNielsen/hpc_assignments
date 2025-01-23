@@ -1,8 +1,24 @@
 #include <cublas_v2.h>
 #include <cuda_runtime.h>
 #include "matmult_cublas.h"
+#include <iostream>
+
+void print(int rows, int cols, double* mat){
+  for (int i=0; i<rows; i++){
+    for (int j=0; j<cols; j++){
+      std::cout << mat[i*cols+j] << " ";
+    }
+    std::cout << "\n";
+  }
+}
 
 void matmult_lib_offload(int m, int n, int k, double *A, double *B, double *C) {
+
+  std::cout << "Matrix A" << std::endl;
+  print(m, k, A);
+  std::cout << "Matrix B" << std::endl;
+  print(k, n, B);
+
   // cuBLAS handle
   cublasHandle_t handle;
   cublasCreate(&handle);
@@ -21,24 +37,25 @@ void matmult_lib_offload(int m, int n, int k, double *A, double *B, double *C) {
   cudaMemcpy(C_d, C, m * n * sizeof(double), cudaMemcpyHostToDevice);
 
   // Perform matrix-vector multiplication using cuBLAS
-  const double alpha = 1.0; // Scalar multiplier
-  const double beta = 0.0;  // Scalar added to result
+  const double alpha = 1.0;  // Scalar multiplier
+  const double beta  = 0.0;  // Scalar added to result
 
-  // cuBLAS uses column-major order, so we interpret the input matrix accordingly
+  // cuBLAS compute matrix matrix product
   cublasDgemm(handle,
-              CUBLAS_OP_N,  // No transposition of the matrix A
-              CUBLAS_OP_N,  // No transposition of the matrix B
-              m,            // Matrix dimension
+              CUBLAS_OP_N,  // transposition of the matrix A
+              CUBLAS_OP_N,  // transposition of the matrix B
               n,            // Matrix dimension
+              m,            // Matrix dimension
               k,            // Matrix dimension
               &alpha,       // Scalar alpha
-              A_d,          // Matrix A on the device
-              m,            // Leading dimension of the matrix A
-              B_d,          // Matrix B on the device
+              B_d,          // Matrix A on the device
+              n,            // Leading dimension of the matrix A
+              A_d,          // Matrix B on the device
               k,            // Leading dimension of the matrix B
               &beta,        // Scalar beta
               C_d,          // Result matrix C on the device
-              m);           // Leading dimension of the matrix B
+              n);           // Leading dimension of the matrix B
+
 
   // Copy result back to host
   cudaMemcpy(C, C_d, m * n * sizeof(double), cudaMemcpyDeviceToHost);
@@ -48,4 +65,8 @@ void matmult_lib_offload(int m, int n, int k, double *A, double *B, double *C) {
   cudaFree(B_d);
   cudaFree(C_d);
   cublasDestroy(handle);
+
+  std::cout << "Matrix C" << std::endl;
+  print(m, n, C);
+
 }
