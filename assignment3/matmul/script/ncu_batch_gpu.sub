@@ -25,30 +25,33 @@ module load nvhpc/24.11
 EXECUTABLE=matmult_f.nvc++
 SIZE="2048"
 
-TYPE="mkn_omp"
+HWCOUNT="-h dch,on,dcm,on,l2h,on,l2m,on"
+JID=$(date "+%s.%N")
+EXPOUT="GPROFNG.${JID}.er"
+OMP_NUM_THREADS=32 collect app -o $EXPOUT $HWCOUNT ./$EXECUTABLE mkn_omp $SIZE $SIZE $SIZE
+gprofng display text --functions $EXPOUT >> profiling_out.dat
 
-ncu -o "${TYPE}_${LSB_JOBID}" \
-    --set basic \
-    --section MemoryWorkloadAnalysis \
-    --section MemoryWorkloadAnalysis_Chart \
-    --section ComputeWorkloadAnalysis \
-    OMP_NUM_THREADS=32 ./$EXECUTABLE $TYPE $SIZE $SIZE $SIZE
 
 TYPE="mnk_offload"
+NVCOMPILER_OMP_CUDA_GRID=256,32 nsys profile --trace=cuda --stats=true -o "${TYPE}_${LSB_JOBID}" ./$EXECUTABLE $TYPE $SIZE $SIZE $SIZE
 
-ncu -o "${TYPE}_${LSB_JOBID}" \
-    --set basic \
-    --section MemoryWorkloadAnalysis \
-    --section MemoryWorkloadAnalysis_Chart \
-    --section ComputeWorkloadAnalysis \
-    NVCOMPILER_OMP_CUDA_GRID=256,32 ./$EXECUTABLE $TYPE $SIZE $SIZE $SIZE
 
 TYPE="mkn_offload"
+NVCOMPILER_OMP_CUDA_GRID=256,32 nsys profile --trace=cuda --stats=true -o "${TYPE}_${LSB_JOBID}" ./$EXECUTABLE $TYPE $SIZE $SIZE $SIZE
 
-ncu -o "${TYPE}_${LSB_JOBID}" \
-    --set basic \
-    --section MemoryWorkloadAnalysis \
-    --section MemoryWorkloadAnalysis_Chart \
-    --section ComputeWorkloadAnalysis \
-    NVCOMPILER_OMP_CUDA_GRID=256,32 ./$EXECUTABLE $TYPE $SIZE $SIZE $SIZE
 
+TYPE="blk_offload"
+BLK_SIZES="30 150"
+for BLK_SIZE in $BLK_SIZES
+do
+  make clean && make PARA=-DBLK=${BLK_SIZE}
+  NVCOMPILER_OMP_CUDA_GRID=1024,128 nsys profile --trace=cuda --stats=true -o "${TYPE}_${LSB_JOBID}_${BLK_SIZE}" ./$EXECUTABLE $TYPE $SIZE $SIZE $SIZE
+done
+
+TYPE="asy_offload"
+SPLT_SIZES="2 5"
+for SPLT_SIZE in $SPLT_SIZES
+do
+  make clean && make PARA=-DSPLITS=${SPLT_SIZE}
+  NVCOMPILER_OMP_CUDA_GRID=1024,128 nsys profile --trace=cuda --stats=true -o "${TYPE}_${LSB_JOBID}_${SPLT_SIZE}" ./$EXECUTABLE $TYPE $SIZE $SIZE $SIZE
+done
