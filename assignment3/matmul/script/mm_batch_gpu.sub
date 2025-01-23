@@ -36,8 +36,21 @@ lscpu -C
 nvaccelinfo
 
 SIZES="100 200 500 1000 2000 5000"
-CUDA_SIZES="256,32 512,64 1024,32 1024,128"
+
 TYPES="mnk_offload mkn_offload"
+CUDA="256,32"
+
+for TYPE in $TYPES
+do
+  for S in $SIZES
+  do
+    OUTPUT=$(NVCOMPILER_OMP_CUDA_GRID=$CUDA ./$EXECUTABLE $TYPE $S $S $S)
+    echo "$OUTPUT $TYPE $S $CUDA" >> results.dat
+  done
+done
+
+
+CUDA_SIZES="256,32 256,64 256,128 512,32 512,64 512,128 1024,32 1024,64 1024,128"
 
 for TYPE in $TYPES
 do
@@ -51,18 +64,25 @@ do
   done
 done
 
-TYPES="lib_offload lib mkn_omp"
-SIZES="100 200 500 1000 2000 5000"
-OMP_SIZES="1 4 8 16 20"
+TYPE="mkn_omp"
+OMP_SIZES="1 4 8 16 32"
+
+for S in $SIZES
+do
+  for OMP_SIZE in $OMP_SIZES
+  do
+    OUTPUT=$(OMP_NUM_THREADS=$OMP_SIZE ./$EXECUTABLE $TYPE $S $S $S)
+    echo "$OUTPUT $TYPE $S $OMP_SIZE" >> results.dat
+  done
+done
+
+TYPES="lib_offload lib"
 
 for TYPE in $TYPES
 do
   for S in $SIZES
   do
-    for OMP_SIZE in $OMP_SIZES
-    do
-      OUTPUT=$(OMP_NUM_THREADS=$OMP_SIZE ./$EXECUTABLE $TYPE $S $S $S)
-      echo "$OUTPUT $TYPE $S $OMP_SIZE" >> results.dat
-    done
+    OUTPUT=$(./$EXECUTABLE $TYPE $S $S $S)
+    echo "$OUTPUT $TYPE $S $OMP_SIZE" >> results.dat
   done
 done
