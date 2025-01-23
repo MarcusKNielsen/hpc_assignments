@@ -32,6 +32,10 @@ double ***malloc_3d_dev(int m, int n, int k, double **data) {
 }
 
 void free_3d_dev(double ***p, double *data) {
-    omp_target_free(data, omp_get_default_device());
-    omp_target_free(p, omp_get_default_device());
+    if (data != NULL) {
+       omp_target_free(data, omp_get_default_device());
+    }
+    if (p != NULL) {
+      omp_target_free(p, omp_get_default_device());
+    }
 }

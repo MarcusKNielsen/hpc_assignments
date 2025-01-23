@@ -188,10 +188,13 @@ int main(int argc, char *argv[]) {
 
   solve_jacobi(u2_d0, u_d0, f_d0, u2_d1, u_d1, f_d1, N, iter_max, tolerance);
 
+  omp_set_default_device(0);
   omp_target_memcpy(u[0], data_u_d0, (N + 2) * (N + 2) * (N + 2) * sizeof(double) / 2,
                     0, 0, omp_get_initial_device(), omp_get_default_device());
+  omp_set_default_device(1);
   omp_target_memcpy(u[(N + 2) / 2], data_u_d1, (N + 2) * (N + 2) * (N + 2) * sizeof(double) / 2,
                     0, 0, omp_get_initial_device(), omp_get_default_device());
+   omp_set_default_device(0);
 
   compute_t += omp_get_wtime();
 
@@ -228,12 +231,15 @@ int main(int argc, char *argv[]) {
   free_3d(u);
   free_3d(u2);
   free_3d(f);
+  omp_set_default_device(0);
   free_3d_dev(u_d0, data_u_d0);
   free_3d_dev(u2_d0, data_u2_d0);
   free_3d_dev(f_d0, data_f_d0);
+  omp_set_default_device(1);
   free_3d_dev(u_d1, data_u_d1);
   free_3d_dev(u2_d1, data_u2_d1);
   free_3d_dev(f_d1, data_f_d1);
+  omp_set_default_device(0);
 
   return (0);
 }

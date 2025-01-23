@@ -29,6 +29,8 @@ double ***malloc_3d(int m, int n, int k) {
 }
 
 void free_3d(double ***p) {
-  free(p[0][0]);
-  free(p);
+  if (p != NULL) {
+    free(p[0][0]);
+    free(p);
+  }
 }
