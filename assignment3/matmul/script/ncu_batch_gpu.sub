@@ -16,41 +16,39 @@
 #BSUB -R "span[hosts=1]"
 #BSUB -gpu "num=1:mode=exclusive_process"
 
-# define the driver name to use
-# valid values: matmult_c.nvc++, matmult_f.nvc++
-#
-EXECUTABLE=matmult_f.nvc++
-
-# define the mkn values in the MKN variable
-#
-SIZE="1000"
-
-# define the method type in TYPE
-#
-TYPE="mnk_offload"
-
-# you have exclusive access to the GPU and only need 1 iteration from
-# the driver for ncu to collect metrics with high accuary
-#
 export MFLOPS_MAX_IT=1
 export MATMULT_COMPARE=0
-
-# set tmp dir for profiler lock
-#
 export TMPDIR=$__LSF_JOB_TMPDIR__
 
-# experiment name 
-#
-JID=${LSB_JOBID}
-EXPOUT="${LSB_JOBNAME}_${JID}"
-
-# load module for shared cuda libraries
 module load nvhpc/24.11
 
-# start the collect command with the above settings
-ncu -o $EXPOUT \
+EXECUTABLE=matmult_f.nvc++
+SIZE="2048"
+
+TYPE="mkn_omp"
+
+ncu -o "${TYPE}_${LSB_JOBID}" \
     --set basic \
     --section MemoryWorkloadAnalysis \
     --section MemoryWorkloadAnalysis_Chart \
     --section ComputeWorkloadAnalysis \
-    ./$EXECUTABLE $TYPE $SIZE $SIZE $SIZE
+    OMP_NUM_THREADS=32 ./$EXECUTABLE $TYPE $SIZE $SIZE $SIZE
+
+TYPE="mnk_offload"
+
+ncu -o "${TYPE}_${LSB_JOBID}" \
+    --set basic \
+    --section MemoryWorkloadAnalysis \
+    --section MemoryWorkloadAnalysis_Chart \
+    --section ComputeWorkloadAnalysis \
+    NVCOMPILER_OMP_CUDA_GRID=256,32 ./$EXECUTABLE $TYPE $SIZE $SIZE $SIZE
+
+TYPE="mkn_offload"
+
+ncu -o "${TYPE}_${LSB_JOBID}" \
+    --set basic \
+    --section MemoryWorkloadAnalysis \
+    --section MemoryWorkloadAnalysis_Chart \
+    --section ComputeWorkloadAnalysis \
+    NVCOMPILER_OMP_CUDA_GRID=256,32 ./$EXECUTABLE $TYPE $SIZE $SIZE $SIZE
+
