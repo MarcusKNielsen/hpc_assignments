@@ -1,0 +1,32 @@
+#!/bin/bash
+# 02614 - High-Performance Computing, January 2024
+# 
+# batch script to run matmult on a dedicated GPU server in the hpcintrogpu
+# queue
+#
+# Author: Bernd Dammann <bd@cc.dtu.dk>
+#         Hans Henrik Brandenborg Sørensen <hhbs@dtu.dk>
+#
+#BSUB -J ncu_prof
+#BSUB -o ncu_prof_%J.out
+#BSUB -q hpcintrogpu
+#BSUB -n 32
+#BSUB -R "rusage[mem=2048]"
+#BSUB -W 15
+#BSUB -R "span[hosts=1]"
+#BSUB -gpu "num=1:mode=exclusive_process"
+
+export TMPDIR=$__LSF_JOB_TMPDIR__
+export CUDA_VISIBLE_DEVICES=0,1
+
+module load nvhpc/24.11
+
+EXECUTABLE=poisson7
+
+ncu -o "${EXECUTABLE}_${LSB_JOBID}" \
+    --set basic \
+    --section MemoryWorkloadAnalysis \
+    --section MemoryWorkloadAnalysis_Chart \
+    --section ComputeWorkloadAnalysis \
+    ./$EXECUTABLE 100 500 0.01 0
+
