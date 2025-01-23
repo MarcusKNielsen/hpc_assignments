@@ -37,6 +37,8 @@ for m in $SIZES; do
   echo "$type: $m"
 done
 
+# FIXME this fails for no reason
+export NVCOMPILER_OMP_CUDA_GRID=256,24
 for m in $(seq 2 80 500); do
   for n in $SIZES; do
     for k in $SIZES; do
