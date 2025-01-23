@@ -1,0 +1,6 @@
+     234.375  16082.834 # matmult_asy_offload asy_offload 100 
+     937.500  94808.544 # matmult_asy_offload asy_offload 200 
+    5859.375 789650.585 # matmult_asy_offload asy_offload 500 
+   23437.500 1733442.324 # matmult_asy_offload asy_offload 1000 
+   93750.000 2256408.979 # matmult_asy_offload asy_offload 2000 
+  585937.500 2408773.808 # matmult_asy_offload asy_offload 5000 
