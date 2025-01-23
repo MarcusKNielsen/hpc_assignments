@@ -1,23 +1,8 @@
 #include <cublas_v2.h>
 #include <cuda_runtime.h>
 #include "matmult_cublas.h"
-#include <iostream>
-
-void print(int rows, int cols, double* mat){
-  for (int i=0; i<rows; i++){
-    for (int j=0; j<cols; j++){
-      std::cout << mat[i*cols+j] << " ";
-    }
-    std::cout << "\n";
-  }
-}
 
 void matmult_lib_offload(int m, int n, int k, double *A, double *B, double *C) {
-
-  std::cout << "Matrix A" << std::endl;
-  print(m, k, A);
-  std::cout << "Matrix B" << std::endl;
-  print(k, n, B);
 
   // cuBLAS handle
   cublasHandle_t handle;
@@ -65,8 +50,5 @@ void matmult_lib_offload(int m, int n, int k, double *A, double *B, double *C) {
   cudaFree(B_d);
   cudaFree(C_d);
   cublasDestroy(handle);
-
-  std::cout << "Matrix C" << std::endl;
-  print(m, n, C);
 
 }
