@@ -4,11 +4,9 @@ void matmult_asy_offload(int m,int n,int k,double *A,double *B,double *C) {
 
     #define SPLITS 8
 
-    #pragma omp target enter data map(alloc: A[0:m*k])\
-    map(alloc: B[0:k*n])\
-    map(alloc: C[0:m*n])
+    #pragma omp target enter data map(alloc: A[0:m*k], B[0:k*n], C[0:m*n])
 
-    #pragma omp target data update(to: B[0:k*n])
+    #pragma omp target data update(to:B[0:k*n])
     
     #pragma omp parallel for
     for (int s = 0; s < SPLITS; ++s) {
@@ -20,9 +18,10 @@ void matmult_asy_offload(int m,int n,int k,double *A,double *B,double *C) {
 
         #pragma omp target data update(to: A[lower:upper_A])
 
+        // As[i,l] = As[i*k+l], Cs[i,j] = Cs[i*n+j], Bs[l,j] = Bs[l*n+j]
+        // Cs[i,j] = sum_l As[i,l] * Bs[l,j]
         #pragma omp target teams loop nowait\
         num_teams(length) thread_limit(32) 
-        //map(to:A[lower:upper_A]) map(to:B) map(from:C[lower:upper_C]) 
         for (int i = lower; i < lower + length; ++i) {
 
             #pragma omp loop bind(parallel)
