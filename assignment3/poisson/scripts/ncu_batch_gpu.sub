@@ -17,11 +17,13 @@
 #BSUB -gpu "num=1:mode=exclusive_process"
 
 export TMPDIR=$__LSF_JOB_TMPDIR__
-export CUDA_VISIBLE_DEVICES=0,1
 
 module load nvhpc/24.11
 
-for EXECUTABLE in poisson6.1 poisson6.2 poisson7 poisson8;
+for EXECUTABLE in poisson6.1 poisson6.2 poisson8;
 do
   nsys profile --trace=cuda --stats=true -o "${EXECUTABLE}_${LSB_JOBID}" $EXECUTABLE 500 50 0.01 0
 done
+
+EXECUTABLE=poisson7
+CUDA_VISIBLE_DEVICES=0,1 OMP_NUM_THREADS=6 nsys profile --trace=cuda --stats=true -o "${EXECUTABLE}_${LSB_JOBID}" $EXECUTABLE 500 50 0.01 0
