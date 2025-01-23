@@ -1,10 +1,10 @@
-TARGET_V1 = poisson
+TARGET_V1 = poisson6.1
 OBJS_V1	= main.o \
         jacobi.o \
         alloc3d.o \
         print.o \
 
-TARGET_V6 = poisson6
+TARGET_V6 = poisson6.2
 OBJS_V6	= main_part6_2.o \
         jacobi_part6_2.o \
         alloc3d.o \
