@@ -23,10 +23,11 @@ module load nvhpc/24.11
 
 EXECUTABLE=poisson7
 
-ncu -o "${EXECUTABLE}_${LSB_JOBID}" \
-    --set basic \
-    --section MemoryWorkloadAnalysis \
-    --section MemoryWorkloadAnalysis_Chart \
-    --section ComputeWorkloadAnalysis \
-    ./$EXECUTABLE 100 500 0.01 0
+#ncu -o "${EXECUTABLE}_${LSB_JOBID}" \
+#    --set basic \
+#    --section MemoryWorkloadAnalysis \
+#    --section MemoryWorkloadAnalysis_Chart \
+#    --section ComputeWorkloadAnalysis \
+#    ./$EXECUTABLE 100 500 0.01 0
 
+nsys profile --trace=cuda --stats=true ./$EXECUTABLE 100 500 0.01 0
