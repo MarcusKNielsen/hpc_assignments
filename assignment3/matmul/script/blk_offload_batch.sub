@@ -16,7 +16,6 @@
 #BSUB -R "span[hosts=1]"
 #BSUB -gpu "num=1:mode=exclusive_process"
 
-
 make clean && make
 # define the driver name to use
 # valid values: matmult_c.nvc++, matmult_f.nvc++
