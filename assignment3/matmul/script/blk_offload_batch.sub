@@ -41,9 +41,9 @@ TYPE="blk_offload"
 
 for S in $SIZES
 do
-for CUDA in $CUDA_SIZES
-do
-    OUTPUT=$(NVCOMPILER_OMP_CUDA_GRID=$CUDA ./$EXECUTABLE $TYPE $S $S $S)
-    echo "$OUTPUT $TYPE $S $CUDA" >> results.dat
-done
+    for CUDA in $CUDA_SIZES
+    do
+        OUTPUT=$(NVCOMPILER_OMP_CUDA_GRID=$CUDA ./$EXECUTABLE $TYPE $S $S $S)
+        echo "$OUTPUT $TYPE $S $CUDA" >> results.dat
+    done
 done
