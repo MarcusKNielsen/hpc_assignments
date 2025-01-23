@@ -35,8 +35,6 @@ lscpu
 lscpu -C
 nvaccelinfo
 
-CUDA_SIZES="256,32 256,64 256,128 512,32 512,64 512,128 1024,32 1024,64 1024,128"
-
 SIZES="100 200 500 1000 2000 5000"
 
 TYPES="asy_offload"
@@ -45,10 +43,7 @@ for TYPE in $TYPES
 do
   for S in $SIZES
   do
-    for CUDA in $CUDA_SIZES
-    do
-      OUTPUT=$(NVCOMPILER_OMP_CUDA_GRID=$CUDA ./$EXECUTABLE $TYPE $S $S $S)
-      echo "$OUTPUT $TYPE $S $CUDA" >> results.dat
-    done
+    OUTPUT=$(./$EXECUTABLE $TYPE $S $S $S)
+    echo "$OUTPUT $TYPE $S " >> results.dat
   done
 done
