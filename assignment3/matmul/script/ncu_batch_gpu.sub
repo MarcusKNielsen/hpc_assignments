@@ -21,6 +21,7 @@ export MATMULT_COMPARE=0
 export TMPDIR=$__LSF_JOB_TMPDIR__
 
 module load nvhpc/24.11
+module load gprofng
 
 EXECUTABLE=matmult_f.nvc++
 SIZE="2048"
@@ -29,7 +30,7 @@ HWCOUNT="-h dch,on,dcm,on,l2h,on,l2m,on"
 JID=$(date "+%s.%N")
 EXPOUT="GPROFNG.${JID}.er"
 OMP_NUM_THREADS=32 collect app -o $EXPOUT $HWCOUNT ./$EXECUTABLE mkn_omp $SIZE $SIZE $SIZE
-gprofng display text --functions $EXPOUT >> profiling_out.dat
+gprofng display text --functions $EXPOUT
 
 
 TYPE="mnk_offload"
@@ -47,6 +48,7 @@ do
   make clean && make PARA=-DBLK=${BLK_SIZE}
   NVCOMPILER_OMP_CUDA_GRID=1024,128 nsys profile --trace=cuda --stats=true -o "${TYPE}_${LSB_JOBID}_${BLK_SIZE}" ./$EXECUTABLE $TYPE $SIZE $SIZE $SIZE
 done
+
 
 TYPE="asy_offload"
 SPLT_SIZES="2 5"
