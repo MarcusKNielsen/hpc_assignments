@@ -150,6 +150,10 @@ int main(int argc, char *argv[]) {
   initialize_border(u2, N);
   initialize_t += omp_get_wtime();
 
+   // Warm up GPU
+  #pragma omp target enter data map(to:allocation_t)
+  #pragma omp target exit data map(release:allocation_t)
+
   compute_t -= omp_get_wtime();
   solve_jacobi(u2, u, f, N, iter_max, tolerance);
   compute_t += omp_get_wtime();
