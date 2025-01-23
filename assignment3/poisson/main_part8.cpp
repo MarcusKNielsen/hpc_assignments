@@ -8,7 +8,7 @@
 #include <math.h>
 #include <time.h>
 #include <omp.h>
-#include "jacobi.h"
+#include "jacobi_part8.h"
 #include "alloc3d_dev.h"
 
 #define N_DEFAULT 100
@@ -151,7 +151,7 @@ int main(int argc, char *argv[]) {
   initialize_t += omp_get_wtime();
 
   compute_t -= omp_get_wtime();
-  solve_jacobi(u2, u, f, N, iter_max, tolerance);
+  int iterations = solve_jacobi(u2, u, f, N, iter_max, tolerance);
   compute_t += omp_get_wtime();
 
   printf("%s, %f, %f, %f, %ld, %d\n",
@@ -159,8 +159,8 @@ int main(int argc, char *argv[]) {
          allocation_t,
          initialize_t,
          compute_t,
-         (long) (iter_max) * N * N * N,
-         iter_max);
+         (long) (iterations) * N * N * N,
+         iterations);
 
   // dump  results if wanted
   switch (output_type) {

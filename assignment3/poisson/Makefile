@@ -18,6 +18,13 @@ OBJS_V7	= main_part7.o \
         alloc3d_dev.o \
         print.o \
 
+TARGET_V8 = poisson8
+OBJS_V8	= main_part8.o \
+        jacobi_part8.o \
+        alloc3d.o \
+        alloc3d_dev.o \
+        print.o \
+
 CC	= nvc
 CXX	= nvc++
 
@@ -30,7 +37,7 @@ LIBS	=
 CFLAGS = $(OPT) $(INC) $(ISA) $(PARA) $(XOPT)
 CXXFLAGS = $(OPT) $(INC) $(ISA) $(PARA) $(XOPT)
 
-all: $(TARGET_V1) $(TARGET_V6) $(TARGET_V7)
+all: $(TARGET_V1) $(TARGET_V6) $(TARGET_V7) $(TARGET_V8)
 
 $(TARGET_V1): $(OBJS_V1)
 	$(CXX) $(CXXFLAGS) -o $@ $(OBJS_V1) $(LIBS)
@@ -41,5 +48,7 @@ $(TARGET_V6): $(OBJS_V6)
 $(TARGET_V7): $(OBJS_V7)
 	$(CXX) $(CXXFLAGS) -o $@ $(OBJS_V7) $(LIBS)
 
+$(TARGET_V8): $(OBJS_V8)
+	$(CXX) $(CXXFLAGS) -o $@ $(OBJS_V8) $(LIBS)
 clean:
-	@/bin/rm -f *.o $(TARGET_V1) $(TARGET_V6) $(TARGET_V7)
+	@/bin/rm -f *.o $(TARGET_V1) $(TARGET_V6) $(TARGET_V7) $(TARGET_V8)

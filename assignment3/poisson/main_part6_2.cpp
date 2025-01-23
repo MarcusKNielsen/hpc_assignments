@@ -103,7 +103,7 @@ int main(int argc, char *argv[]) {
   int iter_max = 1000;
   double tolerance;
   double start_T;
-  int output_type = 0;
+  int output_type = 4;
   char *output_prefix = "poisson";
   char *type = "j";
 
@@ -163,16 +163,16 @@ int main(int argc, char *argv[]) {
   double ***u2_d = malloc_3d_dev(N+2, N+2, N+2, &data_u2);
   double ***f_d = malloc_3d_dev(N+2, N+2, N+2, &data_f);
 
-  omp_target_memcpy(data_u, u[0], (N + 2) * (N + 2) * (N + 2) * sizeof(double),
+  omp_target_memcpy(data_u, u[0][0], (N + 2) * (N + 2) * (N + 2) * sizeof(double),
           0, 0, omp_get_default_device(), omp_get_initial_device());
-  omp_target_memcpy(data_u2, u2[0], (N + 2) * (N + 2) * (N + 2) * sizeof(double),
+  omp_target_memcpy(data_u2, u2[0][0], (N + 2) * (N + 2) * (N + 2) * sizeof(double),
           0, 0, omp_get_default_device(), omp_get_initial_device());
-  omp_target_memcpy(data_f, f[0], (N + 2) * (N + 2) * (N + 2) * sizeof(double),
+  omp_target_memcpy(data_f, f[0][0], (N + 2) * (N + 2) * (N + 2) * sizeof(double),
           0, 0, omp_get_default_device(), omp_get_initial_device());
 
   solve_jacobi(u2_d, u_d, f_d, N, iter_max, tolerance);
 
-  omp_target_memcpy(u[0], data_u, (N + 2) * (N + 2) * (N + 2) * sizeof(double),
+  omp_target_memcpy(u[0][0], data_u, (N + 2) * (N + 2) * (N + 2) * sizeof(double),
           0, 0, omp_get_initial_device(), omp_get_default_device());
   
 

@@ -44,7 +44,7 @@ void jacobi(double ***U_new_d0,
   delta_squared = delta_squared * delta_squared;
   // from i = 1 to ((N + 2) / 2) - 1 (excluded)
 #pragma omp target teams loop is_device_ptr(U_new_d0, U_old_d0, F_d0, U_new_d1, U_old_d1, F_d1) \
-    num_teams(N/2) thread_limit(32) collapse(2) device(0) nowait
+    num_teams((N)/2) thread_limit(32) collapse(2) device(0) nowait
   for (size_t i = 1; i < ((N + 2) / 2) - 1; i++) {
     for (size_t j = 1; j <= N; j++) {
 #pragma omp loop bind(parallel)

@@ -7,7 +7,7 @@
 int solve_jacobi(double ***U_new, double ***U_old, double ***F, int N, int max_it, double threshold) {
 
 #pragma omp target data \
-    map(to:U_new[:N+2][:N+2][:N+2], U_old[:N+2][:N+2][:N+2], F[:N+2][:N+2][:N+2]) map(from:U_new[:N+2][:N+2][:N+2])
+    map(to:U_old[:N+2][:N+2][:N+2], F[:N+2][:N+2][:N+2]) map(tofrom:U_new[:N+2][:N+2][:N+2])
   {
     for (int iter = 0; iter < max_it; iter++) {
       jacobi(U_new, U_old, F, N);
@@ -26,7 +26,7 @@ void jacobi(double ***U_new, double ***U_old, double ***F, int N) {
   delta_squared = delta_squared * delta_squared;
 
 #pragma omp target teams loop is_device_ptr(U_new, U_old, F) \
-    num_teams(N) thread_limit(32)
+    num_teams(N * N) thread_limit(32) collapse(2)
   for (size_t i = 1; i <= N; i++) {
     for (size_t j = 1; j <= N; j++) {
 #pragma omp loop bind(parallel)
