@@ -149,14 +149,11 @@ int main(int argc, char *argv[]) {
   allocation_t += omp_get_wtime();
 
   initialize_t -= omp_get_wtime();
-
   initialize_data(u, f, N);
-
   initialize_border(u2, N);
   initialize_t += omp_get_wtime();
+
   compute_t -= omp_get_wtime();
-
-
   // Initialize on device.
   double *data_u_d0;
   double *data_u2_d0;
