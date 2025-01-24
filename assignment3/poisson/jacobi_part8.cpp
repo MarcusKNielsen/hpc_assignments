@@ -13,7 +13,7 @@ double threshold_squared = threshold * threshold;
 #pragma omp target data \
     map(to:U_old[:N+2][:N+2][:N+2], F[:N+2][:N+2][:N+2]) map(tofrom:U_new[:N+2][:N+2][:N+2])
   {
-    while ((d > threshold_squared) && (iterations < max_it)) {
+    while ((iterations < max_it)) {
       d = jacobi(U_new, U_old, F, N);
 
       double ***tmp = U_old;
@@ -32,11 +32,9 @@ double jacobi(double ***U_new, double ***U_old, double ***F, int N) {
   delta_squared = delta_squared * delta_squared;
   double diff = 0;
 
-#pragma omp target teams loop is_device_ptr(U_new, U_old, F) \
-    num_teams(N * N) thread_limit(32) collapse(2) reduction(+:diff)
+#pragma omp target teams distribute parallel for collapse(3) reduction(+:diff)
   for (size_t i = 1; i <= N; i++) {
     for (size_t j = 1; j <= N; j++) {
-#pragma omp loop bind(parallel)
       for (size_t k = 1; k <= N; k++) {
         U_new[i][j][k] = scale * (
             U_old[i - 1][j][k] +

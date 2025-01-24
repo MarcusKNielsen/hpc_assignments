@@ -43,11 +43,10 @@ void jacobi(double ***U_new_d0,
   double delta_squared = 2.0 / (N + 1);
   delta_squared = delta_squared * delta_squared;
   // from i = 1 to ((N + 2) / 2) - 1 (excluded)
-#pragma omp target teams loop is_device_ptr(U_new_d0, U_old_d0, F_d0, U_new_d1, U_old_d1, F_d1) \
-    num_teams((N)/2) thread_limit(N*32) collapse(2) device(0) nowait
+    #pragma omp target teams distribute parallel for \
+is_device_ptr(U_new_d0, U_old_d0, F_d0, U_new_d1, U_old_d1, F_d1) device(0) nowait collapse(3)
   for (size_t i = 1; i < ((N + 2) / 2) - 1; i++) {
     for (size_t j = 1; j <= N; j++) {
-#pragma omp loop bind(parallel)
       for (size_t k = 1; k <= N; k++) {
         U_new_d0[i][j][k] = scale * (
             U_old_d0[i - 1][j][k] +
@@ -62,10 +61,9 @@ void jacobi(double ***U_new_d0,
   }
   // do ((N + 2) / 2) - 1 (it uses shared mem from device1)
   size_t i = ((N + 2) / 2) - 1;
-#pragma omp target teams loop is_device_ptr(U_new_d0, U_old_d0, F_d0, U_new_d1, U_old_d1, F_d1) \
-    num_teams(N) thread_limit(32) device(0) nowait
+#pragma omp target teams distribute parallel for \
+is_device_ptr(U_new_d0, U_old_d0, F_d0, U_new_d1, U_old_d1, F_d1) device(0) nowait collapse(2)
   for (size_t j = 1; j <= N; j++) {
-#pragma omp loop bind(parallel)
     for (size_t k = 1; k <= N; k++) {
       U_new_d0[i][j][k] = scale * (
           U_old_d0[i - 1][j][k] +
@@ -78,10 +76,9 @@ void jacobi(double ***U_new_d0,
     }
   }
   // do ((N + 2) / 2) (it uses shared mem from device 0)
-#pragma omp target teams loop is_device_ptr(U_new_d0, U_old_d0, F_d0, U_new_d1, U_old_d1, F_d1) \
-    num_teams(N) thread_limit(32) device(1) nowait
+#pragma omp target teams distribute parallel for \
+is_device_ptr(U_new_d0, U_old_d0, F_d0, U_new_d1, U_old_d1, F_d1) device(1) nowait collapse(2)
   for (size_t j = 1; j <= N; j++) {
-#pragma omp loop bind(parallel)
     for (size_t k = 1; k <= N; k++) {
       U_new_d1[0][j][k] = scale * (
           U_old_d0[((N + 2) / 2) - 1][j][k] +
@@ -94,11 +91,10 @@ void jacobi(double ***U_new_d0,
     }
   }
   // from ((N + 2) / 2) + 1 to N + 2 - 1 (excluded)
-#pragma omp target teams loop is_device_ptr(U_new_d0, U_old_d0, F_d0, U_new_d1, U_old_d1, F_d1) \
-    num_teams(N/2) thread_limit(N*32) collapse(2) device(1) nowait
+  #pragma omp target teams distribute parallel for \
+is_device_ptr(U_new_d0, U_old_d0, F_d0, U_new_d1, U_old_d1, F_d1) device(1) nowait collapse(3)
   for (size_t i = 1; i < ((N + 2) / 2) - 1; i++) {
     for (size_t j = 1; j <= N; j++) {
-#pragma omp loop bind(parallel)
       for (size_t k = 1; k <= N; k++) {
         U_new_d1[i][j][k] = scale * (
             U_old_d1[i - 1][j][k] +
