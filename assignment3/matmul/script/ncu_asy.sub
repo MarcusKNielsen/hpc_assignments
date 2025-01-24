@@ -1,0 +1,22 @@
+#!/bin/bash
+# 02614 - High-Performance Computing, January 2024
+# 
+# batch script to run matmult on a dedicated GPU server in the hpcintrogpu
+# queue
+#
+# Author: Bernd Dammann <bd@cc.dtu.dk>
+#         Hans Henrik Brandenborg Sørensen <hhbs@dtu.dk>
+#
+#BSUB -J ncu_prof
+#BSUB -o ncu_prof_%J.out
+#BSUB -e ncu_prof_%J.err
+#BSUB -q hpcintrogpu
+#BSUB -n 16
+#BSUB -R "rusage[mem=2048]"
+#BSUB -W 15
+#BSUB -R "span[hosts=1]"
+#BSUB -gpu "num=1:mode=exclusive_process"
+
+module load nvhpc/24.11
+
+/appl9/nvhpc/2024_2411/Linux_x86_64/24.11/profilers/Nsight_Compute/target/linux-desktop-glibc_2_11_3-x64/ncu --config-file off --export "/zhome/57/d/202545/Documents/NVIDIA Nsight Compute/prof_asy_5" --force-overwrite /zhome/57/d/202545/Desktop/hpc/hpc_assignments/assignment3/matmul/matmult_f.nvc++ asy_offload 500 500 500
