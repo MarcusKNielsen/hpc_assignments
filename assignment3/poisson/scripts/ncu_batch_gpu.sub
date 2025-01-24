@@ -26,10 +26,10 @@ for EXECUTABLE in poisson6.1 poisson6.2 poisson8;
 do
   nsys profile --trace=cuda --stats=true -o "prof_nsys_${EXECUTABLE}_${LSB_JOBID}" $EXECUTABLE 500 50 0.01 0
 
-  $NSIGHT --config-file off --export "prof_ncu_${EXECUTABLE}_${LSB_JOBID}" --force-overwrite $EXECUTABLE 500 50 0.01 0
+  "$NSIGHT" --config-file off --export "prof_ncu_${EXECUTABLE}_${LSB_JOBID}" --force-overwrite $EXECUTABLE 500 50 0.01 0
 done
 
 EXECUTABLE=poisson7
 CUDA_VISIBLE_DEVICES=0,1 OMP_NUM_THREADS=6 nsys profile --trace=cuda --stats=true -o "${EXECUTABLE}_${LSB_JOBID}" $EXECUTABLE 500 50 0.01 0
-CUDA_VISIBLE_DEVICES=0,1 OMP_NUM_THREADS=6 $NSIGHT --config-file off --export "prof_ncu_${EXECUTABLE}_${LSB_JOBID}" --force-overwrite $EXECUTABLE 500 50 0.01 0
+CUDA_VISIBLE_DEVICES=0,1 OMP_NUM_THREADS=6 "$NSIGHT" --config-file off --export "prof_ncu_${EXECUTABLE}_${LSB_JOBID}" --force-overwrite $EXECUTABLE 500 50 0.01 0
 
