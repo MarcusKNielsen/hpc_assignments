@@ -19,7 +19,7 @@
 # define the driver name to use
 # valid values: matmult_c.nvc++, matmult_f.nvc++
 #
-EXECUTABLE=matmult_c.nvc++
+EXECUTABLE=matmult_f.nvc++
 
 # define the mkn values in the MKN variable
 #
