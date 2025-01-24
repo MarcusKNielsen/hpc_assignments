@@ -27,7 +27,7 @@ SIZE="1000"
 
 # define the method type in TYPE
 #
-TYPE="asy_offload"
+TYPE="blk_offload"
 
 # you have exclusive access to the GPU and only need 1 iteration from
 # the driver for ncu to collect metrics with high accuary
