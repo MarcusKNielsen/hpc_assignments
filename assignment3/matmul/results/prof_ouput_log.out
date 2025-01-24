@@ -1,0 +1,770 @@
+Loaded module: gprofng/2.43.1
+Invalid HW counter name: dch
+Run "collect -h" with no other arguments for more information on HW counters on this system.
+GPROFNG.1737720392.097228467.er: *** Error: experiment not found
+Functions sorted by metric: Name
+
+Name
+
+
+ <Total>
+
+WARNING: CPU IP/backtrace sampling not supported, disabling.
+Try the 'nsys status --environment' command to learn more.
+
+WARNING: CPU context switch tracing not supported, disabling.
+Try the 'nsys status --environment' command to learn more.
+
+   98304.000  46473.138 # matmult_mnk_offload
+Collecting data...
+Generating '/tmp/23878852.tmpdir/nsys-report-92c0.qdstrm'
+[1/6] [0%                          ] mnk_offload_23878852.nsys-rep[1/6] [0%                          ] mnk_offload_23878852.nsys-rep[1/6] [=========44%                ] mnk_offload_23878852.nsys-rep[1/6] [================70%         ] mnk_offload_23878852.nsys-rep[1/6] [=======================96%  ] mnk_offload_23878852.nsys-rep[1/6] [========================97% ] mnk_offload_23878852.nsys-rep[1/6] [========================98% ] mnk_offload_23878852.nsys-rep[1/6] [========================100%] mnk_offload_23878852.nsys-rep[1/6] [========================100%] mnk_offload_23878852.nsys-rep
+[2/6] [0%                          ] mnk_offload_23878852.sqlite[2/6] [1%                          ] mnk_offload_23878852.sqlite[2/6] [2%                          ] mnk_offload_23878852.sqlite[2/6] [3%                          ] mnk_offload_23878852.sqlite[2/6] [4%                          ] mnk_offload_23878852.sqlite[2/6] [5%                          ] mnk_offload_23878852.sqlite[2/6] [6%                          ] mnk_offload_23878852.sqlite[2/6] [7%                          ] mnk_offload_23878852.sqlite[2/6] [8%                          ] mnk_offload_23878852.sqlite[2/6] [9%                          ] mnk_offload_23878852.sqlite[2/6] [10%                         ] mnk_offload_23878852.sqlite[2/6] [11%                         ] mnk_offload_23878852.sqlite[2/6] [12%                         ] mnk_offload_23878852.sqlite[2/6] [13%                         ] mnk_offload_23878852.sqlite[2/6] [14%                         ] mnk_offload_23878852.sqlite[2/6] [=15%                        ] mnk_offload_23878852.sqlite[2/6] [=16%                        ] mnk_offload_23878852.sqlite[2/6] [=17%                        ] mnk_offload_23878852.sqlite[2/6] [==18%                       ] mnk_offload_23878852.sqlite[2/6] [==19%                       ] mnk_offload_23878852.sqlite[2/6] [==20%                       ] mnk_offload_23878852.sqlite[2/6] [==21%                       ] mnk_offload_23878852.sqlite[2/6] [===22%                      ] mnk_offload_23878852.sqlite[2/6] [===23%                      ] mnk_offload_23878852.sqlite[2/6] [===24%                      ] mnk_offload_23878852.sqlite[2/6] [====25%                     ] mnk_offload_23878852.sqlite[2/6] [====26%                     ] mnk_offload_23878852.sqlite[2/6] [====27%                     ] mnk_offload_23878852.sqlite[2/6] [====28%                     ] mnk_offload_23878852.sqlite[2/6] [=====29%                    ] mnk_offload_23878852.sqlite[2/6] [=====30%                    ] mnk_offload_23878852.sqlite[2/6] [=====31%                    ] mnk_offload_23878852.sqlite[2/6] [=====32%                    ] mnk_offload_23878852.sqlite[2/6] [======33%                   ] mnk_offload_23878852.sqlite[2/6] [======34%                   ] mnk_offload_23878852.sqlite[2/6] [======35%                   ] mnk_offload_23878852.sqlite[2/6] [=======36%                  ] mnk_offload_23878852.sqlite[2/6] [=======37%                  ] mnk_offload_23878852.sqlite[2/6] [=======38%                  ] mnk_offload_23878852.sqlite[2/6] [=======39%                  ] mnk_offload_23878852.sqlite[2/6] [========40%                 ] mnk_offload_23878852.sqlite[2/6] [========41%                 ] mnk_offload_23878852.sqlite[2/6] [========42%                 ] mnk_offload_23878852.sqlite[2/6] [=========43%                ] mnk_offload_23878852.sqlite[2/6] [=========44%                ] mnk_offload_23878852.sqlite[2/6] [=========45%                ] mnk_offload_23878852.sqlite[2/6] [=========46%                ] mnk_offload_23878852.sqlite[2/6] [==========47%               ] mnk_offload_23878852.sqlite[2/6] [==========48%               ] mnk_offload_23878852.sqlite[2/6] [==========49%               ] mnk_offload_23878852.sqlite[2/6] [===========50%              ] mnk_offload_23878852.sqlite[2/6] [===========51%              ] mnk_offload_23878852.sqlite[2/6] [===========52%              ] mnk_offload_23878852.sqlite[2/6] [===========53%              ] mnk_offload_23878852.sqlite[2/6] [============54%             ] mnk_offload_23878852.sqlite[2/6] [============55%             ] mnk_offload_23878852.sqlite[2/6] [============56%             ] mnk_offload_23878852.sqlite[2/6] [============57%             ] mnk_offload_23878852.sqlite[2/6] [=============58%            ] mnk_offload_23878852.sqlite[2/6] [=============59%            ] mnk_offload_23878852.sqlite[2/6] [=============60%            ] mnk_offload_23878852.sqlite[2/6] [==============61%           ] mnk_offload_23878852.sqlite[2/6] [==============62%           ] mnk_offload_23878852.sqlite[2/6] [==============63%           ] mnk_offload_23878852.sqlite[2/6] [==============64%           ] mnk_offload_23878852.sqlite[2/6] [===============65%          ] mnk_offload_23878852.sqlite[2/6] [===============66%          ] mnk_offload_23878852.sqlite[2/6] [===============67%          ] mnk_offload_23878852.sqlite[2/6] [================68%         ] mnk_offload_23878852.sqlite[2/6] [================69%         ] mnk_offload_23878852.sqlite[2/6] [================70%         ] mnk_offload_23878852.sqlite[2/6] [================71%         ] mnk_offload_23878852.sqlite[2/6] [=================72%        ] mnk_offload_23878852.sqlite[2/6] [=================73%        ] mnk_offload_23878852.sqlite[2/6] [=================74%        ] mnk_offload_23878852.sqlite[2/6] [==================75%       ] mnk_offload_23878852.sqlite[2/6] [==================76%       ] mnk_offload_23878852.sqlite[2/6] [==================77%       ] mnk_offload_23878852.sqlite[2/6] [==================78%       ] mnk_offload_23878852.sqlite[2/6] [===================79%      ] mnk_offload_23878852.sqlite[2/6] [===================80%      ] mnk_offload_23878852.sqlite[2/6] [===================81%      ] mnk_offload_23878852.sqlite[2/6] [===================82%      ] mnk_offload_23878852.sqlite[2/6] [====================83%     ] mnk_offload_23878852.sqlite[2/6] [====================84%     ] mnk_offload_23878852.sqlite[2/6] [====================85%     ] mnk_offload_23878852.sqlite[2/6] [=====================86%    ] mnk_offload_23878852.sqlite[2/6] [=====================87%    ] mnk_offload_23878852.sqlite[2/6] [=====================88%    ] mnk_offload_23878852.sqlite[2/6] [=====================89%    ] mnk_offload_23878852.sqlite[2/6] [======================90%   ] mnk_offload_23878852.sqlite[2/6] [======================91%   ] mnk_offload_23878852.sqlite[2/6] [======================92%   ] mnk_offload_23878852.sqlite[2/6] [=======================93%  ] mnk_offload_23878852.sqlite[2/6] [=======================94%  ] mnk_offload_23878852.sqlite[2/6] [=======================95%  ] mnk_offload_23878852.sqlite[2/6] [=======================96%  ] mnk_offload_23878852.sqlite[2/6] [========================97% ] mnk_offload_23878852.sqlite[2/6] [========================98% ] mnk_offload_23878852.sqlite[2/6] [========================99% ] mnk_offload_23878852.sqlite[2/6] [========================100%] mnk_offload_23878852.sqlite[2/6] [========================100%] mnk_offload_23878852.sqlite
+[3/6] Executing 'cuda_api_sum' stats report
+
+ Time (%)  Total Time (ns)  Num Calls   Avg (ns)     Med (ns)    Min (ns)   Max (ns)   StdDev (ns)                        Name                      
+ --------  ---------------  ---------  -----------  -----------  ---------  ---------  -----------  ------------------------------------------------
+     52.2        559699286          1  559699286.0  559699286.0  559699286  559699286          0.0  cuMemHostAlloc                                  
+     30.6        327662742          2  163831371.0  163831371.0       3815  327658927  231687151.6  cuStreamSynchronize                             
+      7.3         78085323          3   26028441.0   26178452.0   25156965   26749906     806996.1  cudaMallocHost                                  
+      4.2         45484006          3   15161335.3   11668013.0   11066714   22749279    6578226.0  cudaFreeHost                                    
+      1.9         20403925          1   20403925.0   20403925.0   20403925   20403925          0.0  cuMemAllocManaged                               
+      1.6         16903135          6    2817189.2    2810454.0       6730    6404038    2575222.1  cuMemAlloc_v2                                   
+      1.4         14520003          3    4840001.0       6460.0       3144   14510399    8374810.5  cudaMalloc                                      
+      0.5          4863976          4    1215994.0    1055156.0       3455    2750209    1423645.1  cudaFree                                        
+      0.2          2661496          1    2661496.0    2661496.0    2661496    2661496          0.0  cuMemAllocHost_v2                               
+      0.0           527948          1     527948.0     527948.0     527948     527948          0.0  cudaGetFuncBySymbol_v11000                      
+      0.0           310866       1222        254.4        210.5         80       6139        214.0  cuGetProcAddress_v2                             
+      0.0           258627          4      64656.8      19409.0       8022     211787      98458.9  cuMemcpyHtoDAsync_v2                            
+      0.0            45478          1      45478.0      45478.0      45478      45478          0.0  cuLaunchKernel                                  
+      0.0            24795         18       1377.5        300.5        240       9534       2532.0  cudaEventCreateWithFlags                        
+      0.0            13219          4       3304.8       2053.0        881       8232       3397.8  cudaDeviceSynchronize                           
+      0.0            10627         18        590.4        255.0        190       6180       1396.0  cudaEventDestroy                                
+      0.0            10195          1      10195.0      10195.0      10195      10195          0.0  cuMemcpyDtoHAsync_v2                            
+      0.0             8464          5       1692.8       1703.0       1302       2044        279.9  cuInit                                          
+      0.0             7963         18        442.4        320.5        290       2444        500.6  cudaOccupancyMaxActiveClusters_v11070           
+      0.0             3326          6        554.3        375.5         81       1342        526.5  cuCtxSetCurrent                                 
+      0.0             2294          1       2294.0       2294.0       2294       2294          0.0  cudaOccupancyAvailableDynamicSMemPerBlock_v10200
+      0.0              921          2        460.5        460.5        220        701        340.1  cudaGetDriverEntryPoint_v11030                  
+      0.0              510          3        170.0        200.0        110        200         52.0  cuModuleGetLoadingMode                          
+      0.0              331          1        331.0        331.0        331        331          0.0  cuFuncGetModule                                 
+
+[4/6] Executing 'cuda_gpu_kern_sum' stats report
+
+ Time (%)  Total Time (ns)  Instances   Avg (ns)     Med (ns)    Min (ns)   Max (ns)   StdDev (ns)                  Name                 
+ --------  ---------------  ---------  -----------  -----------  ---------  ---------  -----------  -------------------------------------
+    100.0        325241421          1  325241421.0  325241421.0  325241421  325241421          0.0  nvkernel_matmult_mnk_offload_F1L23_10
+
+[5/6] Executing 'cuda_gpu_mem_time_sum' stats report
+
+ Time (%)  Total Time (ns)  Count  Avg (ns)   Med (ns)   Min (ns)  Max (ns)  StdDev (ns)           Operation          
+ --------  ---------------  -----  ---------  ---------  --------  --------  -----------  ----------------------------
+     73.6          6735558      4  1683889.5  1293341.5      1024   4147851    1789848.8  [CUDA memcpy Host-to-Device]
+     26.4          2410553      1  2410553.0  2410553.0   2410553   2410553          0.0  [CUDA memcpy Device-to-Host]
+
+[6/6] Executing 'cuda_gpu_mem_size_sum' stats report
+
+ Total (MB)  Count  Avg (MB)  Med (MB)  Min (MB)  Max (MB)  StdDev (MB)           Operation          
+ ----------  -----  --------  --------  --------  --------  -----------  ----------------------------
+    100.663      4    25.166    33.554     0.000    33.554       16.777  [CUDA memcpy Host-to-Device]
+     33.554      1    33.554    33.554    33.554    33.554        0.000  [CUDA memcpy Device-to-Host]
+
+Generated:
+    /zhome/3c/8/202539/hpc_assignments/assignment3/matmul/mnk_offload_23878852.nsys-rep
+    /zhome/3c/8/202539/hpc_assignments/assignment3/matmul/mnk_offload_23878852.sqlite
+WARNING: CPU IP/backtrace sampling not supported, disabling.
+Try the 'nsys status --environment' command to learn more.
+
+WARNING: CPU context switch tracing not supported, disabling.
+Try the 'nsys status --environment' command to learn more.
+
+   98304.000  19153.096 # matmult_mkn_offload
+Collecting data...
+Generating '/tmp/23878852.tmpdir/nsys-report-78e2.qdstrm'
+[1/6] [0%                          ] mkn_offload_23878852.nsys-rep[1/6] [0%                          ] mkn_offload_23878852.nsys-rep[1/6] [=========43%                ] mkn_offload_23878852.nsys-rep[1/6] [================69%         ] mkn_offload_23878852.nsys-rep[1/6] [=======================95%  ] mkn_offload_23878852.nsys-rep[1/6] [=======================96%  ] mkn_offload_23878852.nsys-rep[1/6] [========================97% ] mkn_offload_23878852.nsys-rep[1/6] [========================98% ] mkn_offload_23878852.nsys-rep[1/6] [========================100%] mkn_offload_23878852.nsys-rep[1/6] [========================100%] mkn_offload_23878852.nsys-rep
+[2/6] [0%                          ] mkn_offload_23878852.sqlite[2/6] [1%                          ] mkn_offload_23878852.sqlite[2/6] [2%                          ] mkn_offload_23878852.sqlite[2/6] [3%                          ] mkn_offload_23878852.sqlite[2/6] [4%                          ] mkn_offload_23878852.sqlite[2/6] [5%                          ] mkn_offload_23878852.sqlite[2/6] [6%                          ] mkn_offload_23878852.sqlite[2/6] [7%                          ] mkn_offload_23878852.sqlite[2/6] [8%                          ] mkn_offload_23878852.sqlite[2/6] [9%                          ] mkn_offload_23878852.sqlite[2/6] [10%                         ] mkn_offload_23878852.sqlite[2/6] [11%                         ] mkn_offload_23878852.sqlite[2/6] [12%                         ] mkn_offload_23878852.sqlite[2/6] [13%                         ] mkn_offload_23878852.sqlite[2/6] [14%                         ] mkn_offload_23878852.sqlite[2/6] [=15%                        ] mkn_offload_23878852.sqlite[2/6] [=16%                        ] mkn_offload_23878852.sqlite[2/6] [=17%                        ] mkn_offload_23878852.sqlite[2/6] [==18%                       ] mkn_offload_23878852.sqlite[2/6] [==19%                       ] mkn_offload_23878852.sqlite[2/6] [==20%                       ] mkn_offload_23878852.sqlite[2/6] [==21%                       ] mkn_offload_23878852.sqlite[2/6] [===22%                      ] mkn_offload_23878852.sqlite[2/6] [===23%                      ] mkn_offload_23878852.sqlite[2/6] [===24%                      ] mkn_offload_23878852.sqlite[2/6] [====25%                     ] mkn_offload_23878852.sqlite[2/6] [====26%                     ] mkn_offload_23878852.sqlite[2/6] [====27%                     ] mkn_offload_23878852.sqlite[2/6] [====28%                     ] mkn_offload_23878852.sqlite[2/6] [=====29%                    ] mkn_offload_23878852.sqlite[2/6] [=====30%                    ] mkn_offload_23878852.sqlite[2/6] [=====31%                    ] mkn_offload_23878852.sqlite[2/6] [=====32%                    ] mkn_offload_23878852.sqlite[2/6] [======33%                   ] mkn_offload_23878852.sqlite[2/6] [======34%                   ] mkn_offload_23878852.sqlite[2/6] [======35%                   ] mkn_offload_23878852.sqlite[2/6] [=======36%                  ] mkn_offload_23878852.sqlite[2/6] [=======37%                  ] mkn_offload_23878852.sqlite[2/6] [=======38%                  ] mkn_offload_23878852.sqlite[2/6] [=======39%                  ] mkn_offload_23878852.sqlite[2/6] [========40%                 ] mkn_offload_23878852.sqlite[2/6] [========41%                 ] mkn_offload_23878852.sqlite[2/6] [========42%                 ] mkn_offload_23878852.sqlite[2/6] [=========43%                ] mkn_offload_23878852.sqlite[2/6] [=========44%                ] mkn_offload_23878852.sqlite[2/6] [=========45%                ] mkn_offload_23878852.sqlite[2/6] [=========46%                ] mkn_offload_23878852.sqlite[2/6] [==========47%               ] mkn_offload_23878852.sqlite[2/6] [==========48%               ] mkn_offload_23878852.sqlite[2/6] [==========49%               ] mkn_offload_23878852.sqlite[2/6] [===========50%              ] mkn_offload_23878852.sqlite[2/6] [===========51%              ] mkn_offload_23878852.sqlite[2/6] [===========52%              ] mkn_offload_23878852.sqlite[2/6] [===========53%              ] mkn_offload_23878852.sqlite[2/6] [============54%             ] mkn_offload_23878852.sqlite[2/6] [============55%             ] mkn_offload_23878852.sqlite[2/6] [============56%             ] mkn_offload_23878852.sqlite[2/6] [============57%             ] mkn_offload_23878852.sqlite[2/6] [=============58%            ] mkn_offload_23878852.sqlite[2/6] [=============59%            ] mkn_offload_23878852.sqlite[2/6] [=============60%            ] mkn_offload_23878852.sqlite[2/6] [==============61%           ] mkn_offload_23878852.sqlite[2/6] [==============62%           ] mkn_offload_23878852.sqlite[2/6] [==============63%           ] mkn_offload_23878852.sqlite[2/6] [==============64%           ] mkn_offload_23878852.sqlite[2/6] [===============65%          ] mkn_offload_23878852.sqlite[2/6] [===============66%          ] mkn_offload_23878852.sqlite[2/6] [===============67%          ] mkn_offload_23878852.sqlite[2/6] [================68%         ] mkn_offload_23878852.sqlite[2/6] [================69%         ] mkn_offload_23878852.sqlite[2/6] [================70%         ] mkn_offload_23878852.sqlite[2/6] [================71%         ] mkn_offload_23878852.sqlite[2/6] [=================72%        ] mkn_offload_23878852.sqlite[2/6] [=================73%        ] mkn_offload_23878852.sqlite[2/6] [=================74%        ] mkn_offload_23878852.sqlite[2/6] [==================75%       ] mkn_offload_23878852.sqlite[2/6] [==================76%       ] mkn_offload_23878852.sqlite[2/6] [==================77%       ] mkn_offload_23878852.sqlite[2/6] [==================78%       ] mkn_offload_23878852.sqlite[2/6] [===================79%      ] mkn_offload_23878852.sqlite[2/6] [===================80%      ] mkn_offload_23878852.sqlite[2/6] [===================81%      ] mkn_offload_23878852.sqlite[2/6] [===================82%      ] mkn_offload_23878852.sqlite[2/6] [====================83%     ] mkn_offload_23878852.sqlite[2/6] [====================84%     ] mkn_offload_23878852.sqlite[2/6] [====================85%     ] mkn_offload_23878852.sqlite[2/6] [=====================86%    ] mkn_offload_23878852.sqlite[2/6] [=====================87%    ] mkn_offload_23878852.sqlite[2/6] [=====================88%    ] mkn_offload_23878852.sqlite[2/6] [=====================89%    ] mkn_offload_23878852.sqlite[2/6] [======================90%   ] mkn_offload_23878852.sqlite[2/6] [======================91%   ] mkn_offload_23878852.sqlite[2/6] [======================92%   ] mkn_offload_23878852.sqlite[2/6] [=======================93%  ] mkn_offload_23878852.sqlite[2/6] [=======================94%  ] mkn_offload_23878852.sqlite[2/6] [=======================95%  ] mkn_offload_23878852.sqlite[2/6] [=======================96%  ] mkn_offload_23878852.sqlite[2/6] [========================97% ] mkn_offload_23878852.sqlite[2/6] [========================98% ] mkn_offload_23878852.sqlite[2/6] [========================99% ] mkn_offload_23878852.sqlite[2/6] [========================100%] mkn_offload_23878852.sqlite[2/6] [========================100%] mkn_offload_23878852.sqlite
+[3/6] Executing 'cuda_api_sum' stats report
+
+ Time (%)  Total Time (ns)  Num Calls   Avg (ns)     Med (ns)    Min (ns)   Max (ns)   StdDev (ns)                        Name                      
+ --------  ---------------  ---------  -----------  -----------  ---------  ---------  -----------  ------------------------------------------------
+     54.5        858378661          3  286126220.3    1627802.0       3755  856747104  494172848.3  cuStreamSynchronize                             
+     35.1        553614402          1  553614402.0  553614402.0  553614402  553614402          0.0  cuMemHostAlloc                                  
+      6.1         95724946          3   31908315.3   32105907.0   28128575   35490464    3684919.8  cudaMallocHost                                  
+      2.3         36815584          3   12271861.3   12069803.0   11044491   13701290    1339875.3  cudaFreeHost                                    
+      1.3         20411686          1   20411686.0   20411686.0   20411686   20411686          0.0  cuMemAllocManaged                               
+      0.3          4412803          1    4412803.0    4412803.0    4412803    4412803          0.0  cuMemAllocHost_v2                               
+      0.2          2567606          6     427934.3     534318.0       7451     771303     346438.3  cuMemAlloc_v2                                   
+      0.2          2411683          4     602920.8     138382.0       3174    2131745    1027075.5  cudaFree                                        
+      0.0           539235          1     539235.0     539235.0     539235     539235          0.0  cudaGetFuncBySymbol_v11000                      
+      0.0           369983          3     123327.7       6190.0       2774     361019     205853.8  cudaMalloc                                      
+      0.0           296425       1222        242.6        191.0         70       8223        260.6  cuGetProcAddress_v2                             
+      0.0           266970          5      53394.0       8172.0       7432     203785      85226.9  cuMemcpyHtoDAsync_v2                            
+      0.0            58908          2      29454.0      29454.0      12518      46390      23951.1  cuLaunchKernel                                  
+      0.0            23246         18       1291.4        285.0        240       8903       2425.5  cudaEventCreateWithFlags                        
+      0.0            15263          2       7631.5       7631.5       4687      10576       4164.2  cuMemcpyDtoHAsync_v2                            
+      0.0             9657         18        536.5        260.5        200       4988       1114.0  cudaEventDestroy                                
+      0.0             9344          4       2336.0       1678.0        941       5047       1921.4  cudaDeviceSynchronize                           
+      0.0             9044          5       1808.8       1943.0       1202       2383        569.1  cuInit                                          
+      0.0             7990         18        443.9        310.5        300       2553        527.0  cudaOccupancyMaxActiveClusters_v11070           
+      0.0             3145          6        524.2        275.5        100       1392        545.1  cuCtxSetCurrent                                 
+      0.0             2373          1       2373.0       2373.0       2373       2373          0.0  cudaOccupancyAvailableDynamicSMemPerBlock_v10200
+      0.0              821          2        410.5        410.5        340        481         99.7  cudaGetDriverEntryPoint_v11030                  
+      0.0              522          3        174.0        200.0        121        201         45.9  cuModuleGetLoadingMode                          
+      0.0              401          1        401.0        401.0        401        401          0.0  cuFuncGetModule                                 
+
+[4/6] Executing 'cuda_gpu_kern_sum' stats report
+
+ Time (%)  Total Time (ns)  Instances   Avg (ns)     Med (ns)    Min (ns)   Max (ns)   StdDev (ns)                  Name                
+ --------  ---------------  ---------  -----------  -----------  ---------  ---------  -----------  ------------------------------------
+    100.0        851071188          1  851071188.0  851071188.0  851071188  851071188          0.0  nvkernel_matmult_mkn_offload_F1L11_4
+      0.0            11968          1      11968.0      11968.0      11968      11968          0.0  nvkernel_matmult_mkn_offload_F1L7_2 
+
+[5/6] Executing 'cuda_gpu_mem_time_sum' stats report
+
+ Time (%)  Total Time (ns)  Count  Avg (ns)   Med (ns)   Min (ns)  Max (ns)  StdDev (ns)           Operation          
+ --------  ---------------  -----  ---------  ---------  --------  --------  -----------  ----------------------------
+     59.6          5962207      5  1192441.4  1649265.0      1024   1769011     766064.0  [CUDA memcpy Host-to-Device]
+     40.4          4047274      2  2023637.0  2023637.0   1628593   2418681     558676.6  [CUDA memcpy Device-to-Host]
+
+[6/6] Executing 'cuda_gpu_mem_size_sum' stats report
+
+ Total (MB)  Count  Avg (MB)  Med (MB)  Min (MB)  Max (MB)  StdDev (MB)           Operation          
+ ----------  -----  --------  --------  --------  --------  -----------  ----------------------------
+    134.218      5    26.844    33.554     0.000    33.554       15.006  [CUDA memcpy Host-to-Device]
+     67.109      2    33.554    33.554    33.554    33.554        0.000  [CUDA memcpy Device-to-Host]
+
+Generated:
+    /zhome/3c/8/202539/hpc_assignments/assignment3/matmul/mkn_offload_23878852.nsys-rep
+    /zhome/3c/8/202539/hpc_assignments/assignment3/matmul/mkn_offload_23878852.sqlite
+nvc++ -g -fast -Msafeptr -Minfo -mp=gpu -gpu=mem:separate:pinnedalloc -gpu=lineinfo -gpu=cc90 -cuda -mp=noautopar -cudalib=cublas -fpic -shared   -DBLK=30    -c -o mkn_mnk_offload.o mkn_mnk_offload.cpp
+matmult_mkn_offload:
+      7, #omp target teams distribute parallel for num_teams(m) thread_limit(32)
+          7, Generating "nvkernel_matmult_mkn_offload_F1L7_2" GPU kernel
+          9, Loop parallelized across teams and threads(128), schedule(static)
+      7, Generating map(tofrom:C[:m*n]) 
+      9, Loop not vectorized/parallelized: not countable
+     11, #omp target teams distribute parallel for num_teams(m) thread_limit(32)
+         11, Generating "nvkernel_matmult_mkn_offload_F1L11_4" GPU kernel
+         14, Loop parallelized across teams and threads(128), schedule(static)
+     11, Generating map(to:A[:m*k]) 
+         Generating map(tofrom:C[:m*n]) 
+         Generating map(to:B[:n*k]) 
+     14, Loop not vectorized/parallelized: not countable
+     16, Generated vector simd code for the loop
+matmult_mnk_offload:
+     23, #omp target teams distribute parallel for
+         23, Generating "nvkernel_matmult_mnk_offload_F1L23_10" GPU kernel
+         25, Loop parallelized across teams and threads(128), schedule(static)
+     23, Generating map(to:A[:k*m],B[:k*n]) 
+         Generating map(tofrom:C[:m*n]) 
+     25, Loop not vectorized/parallelized: not countable
+     28, Generated vector simd code for the loop containing reductions
+     29, FMA (fused multiply-add) instruction(s) generated
+nvc++ -g -fast -Msafeptr -Minfo -mp=gpu -gpu=mem:separate:pinnedalloc -gpu=lineinfo -gpu=cc90 -cuda -mp=noautopar -cudalib=cublas -fpic -shared   -DBLK=30    -c -o matmult_cublas.o matmult_cublas.cpp
+nvc++ -g -fast -Msafeptr -Minfo -mp=gpu -gpu=mem:separate:pinnedalloc -gpu=lineinfo -gpu=cc90 -cuda -mp=noautopar -cudalib=cublas -fpic -shared   -DBLK=30    -c -o matmult_mkn_omp.o matmult_mkn_omp.cpp
+matmult_mkn_omp:
+     21, #omp parallel
+         25, Barrier
+         41, Barrier
+     23, Recognized memory zero idiom
+     33, Generated vector simd code for the loop
+nvc++ -g -fast -Msafeptr -Minfo -mp=gpu -gpu=mem:separate:pinnedalloc -gpu=lineinfo -gpu=cc90 -cuda -mp=noautopar -cudalib=cublas -fpic -shared   -DBLK=30    -c -o blk_offload.o blk_offload.cpp
+matmult_blk_offload:
+     14, #omp target teams distribute parallel for num_teams(m) thread_limit(64)
+         14, Generating "nvkernel_matmult_blk_offload_F1L14_2" GPU kernel
+         20, Loop parallelized across teams and threads(128), schedule(static)
+     14, Generating map(to:A[:m*k],B[:k*n]) 
+         Generating map(tofrom:C[:m*n]) 
+     21, Loop not vectorized/parallelized: not countable
+     25, Generated vector simd code for the loop
+     29, Loop not vectorized: unprofitable for target
+         Loop unrolled 8 times
+     35, Generated vector simd code for the loop containing reductions
+     36, FMA (fused multiply-add) instruction(s) generated
+nvc++ -g -fast -Msafeptr -Minfo -mp=gpu -gpu=mem:separate:pinnedalloc -gpu=lineinfo -gpu=cc90 -cuda -mp=noautopar -cudalib=cublas -fpic -shared   -DBLK=30    -c -o matmult_asy_offload.o matmult_asy_offload.cpp
+matmult_asy_offload:
+      8, Generating target enter data map(create: C[:m*n],B[:k*n],A[:m*k])
+         Generating update to(B[:k*n])
+     11, Loop not vectorized/parallelized: too deeply nested
+     12, #omp target teams loop num_teams(length) thread_limit(32)
+         12, Generating "nvkernel_matmult_asy_offload_F1L12_2" GPU kernel
+             Generating NVIDIA GPU code
+           17, Loop parallelized across teams(length) /* blockIdx.x */
+           19, Loop parallelized across threads(32) /* threadIdx.x */
+           22, Loop run sequentially 
+               Generating implicit reduction(+:sum)
+         12, Generating Multicore code
+           17, Loop parallelized across threads
+     12, Generating update to(A[k*lower:k*length])
+         Generating implicit map(from:C[:]) 
+         Generating implicit map(to:B[:],A[:]) 
+     19, Loop is parallelizable
+     22, Loop carried scalar dependence for l at line 24,25,27
+         Generated vector simd code for the loop containing reductions
+     26, FMA (fused multiply-add) instruction(s) generated
+     33, Generating update from(C[n*lower:n*length])
+     36, Taskwait
+         Generating target exit data(release: C[:m*n],B[:k*n],A[:m*k])
+nvc++ -g -fast -Msafeptr -Minfo -mp=gpu -gpu=mem:separate:pinnedalloc -gpu=lineinfo -gpu=cc90 -cuda -mp=noautopar -cudalib=cublas -fpic -shared   -DBLK=30  -o libmatmult.so mkn_mnk_offload.o matmult_cublas.o matmult_mkn_omp.o blk_offload.o matmult_asy_offload.o -lopenblas
+NVCOMPILER_OMP_CUDA_GRID=1024,128 nsys profile --trace=cuda --stats=true -o blk_offload_23878852_30 ./matmult_f.nvc++ blk_offload 2048 2048 2048
+WARNING: CPU IP/backtrace sampling not supported, disabling.
+Try the 'nsys status --environment' command to learn more.
+
+WARNING: CPU context switch tracing not supported, disabling.
+Try the 'nsys status --environment' command to learn more.
+
+   98304.000 612754.685 # matmult_blk_offload
+Collecting data...
+Generating '/tmp/23878852.tmpdir/nsys-report-f5d6.qdstrm'
+[1/6] [0%                          ] blk_offload_23878852_30.nsys-rep[1/6] [0%                          ] blk_offload_23878852_30.nsys-rep[1/6] [=========43%                ] blk_offload_23878852_30.nsys-rep[1/6] [================70%         ] blk_offload_23878852_30.nsys-rep[1/6] [=======================96%  ] blk_offload_23878852_30.nsys-rep[1/6] [========================97% ] blk_offload_23878852_30.nsys-rep[1/6] [========================98% ] blk_offload_23878852_30.nsys-rep[1/6] [========================100%] blk_offload_23878852_30.nsys-rep[1/6] [========================100%] blk_offload_23878852_30.nsys-rep
+[2/6] [0%                          ] blk_offload_23878852_30.sqlite[2/6] [1%                          ] blk_offload_23878852_30.sqlite[2/6] [2%                          ] blk_offload_23878852_30.sqlite[2/6] [3%                          ] blk_offload_23878852_30.sqlite[2/6] [4%                          ] blk_offload_23878852_30.sqlite[2/6] [5%                          ] blk_offload_23878852_30.sqlite[2/6] [6%                          ] blk_offload_23878852_30.sqlite[2/6] [7%                          ] blk_offload_23878852_30.sqlite[2/6] [8%                          ] blk_offload_23878852_30.sqlite[2/6] [9%                          ] blk_offload_23878852_30.sqlite[2/6] [10%                         ] blk_offload_23878852_30.sqlite[2/6] [11%                         ] blk_offload_23878852_30.sqlite[2/6] [12%                         ] blk_offload_23878852_30.sqlite[2/6] [13%                         ] blk_offload_23878852_30.sqlite[2/6] [14%                         ] blk_offload_23878852_30.sqlite[2/6] [=15%                        ] blk_offload_23878852_30.sqlite[2/6] [=16%                        ] blk_offload_23878852_30.sqlite[2/6] [=17%                        ] blk_offload_23878852_30.sqlite[2/6] [==18%                       ] blk_offload_23878852_30.sqlite[2/6] [==19%                       ] blk_offload_23878852_30.sqlite[2/6] [==20%                       ] blk_offload_23878852_30.sqlite[2/6] [==21%                       ] blk_offload_23878852_30.sqlite[2/6] [===22%                      ] blk_offload_23878852_30.sqlite[2/6] [===23%                      ] blk_offload_23878852_30.sqlite[2/6] [===24%                      ] blk_offload_23878852_30.sqlite[2/6] [====25%                     ] blk_offload_23878852_30.sqlite[2/6] [====26%                     ] blk_offload_23878852_30.sqlite[2/6] [====27%                     ] blk_offload_23878852_30.sqlite[2/6] [====28%                     ] blk_offload_23878852_30.sqlite[2/6] [=====29%                    ] blk_offload_23878852_30.sqlite[2/6] [=====30%                    ] blk_offload_23878852_30.sqlite[2/6] [=====31%                    ] blk_offload_23878852_30.sqlite[2/6] [=====32%                    ] blk_offload_23878852_30.sqlite[2/6] [======33%                   ] blk_offload_23878852_30.sqlite[2/6] [======34%                   ] blk_offload_23878852_30.sqlite[2/6] [======35%                   ] blk_offload_23878852_30.sqlite[2/6] [=======36%                  ] blk_offload_23878852_30.sqlite[2/6] [=======37%                  ] blk_offload_23878852_30.sqlite[2/6] [=======38%                  ] blk_offload_23878852_30.sqlite[2/6] [=======39%                  ] blk_offload_23878852_30.sqlite[2/6] [========40%                 ] blk_offload_23878852_30.sqlite[2/6] [========41%                 ] blk_offload_23878852_30.sqlite[2/6] [========42%                 ] blk_offload_23878852_30.sqlite[2/6] [=========43%                ] blk_offload_23878852_30.sqlite[2/6] [=========44%                ] blk_offload_23878852_30.sqlite[2/6] [=========45%                ] blk_offload_23878852_30.sqlite[2/6] [=========46%                ] blk_offload_23878852_30.sqlite[2/6] [==========47%               ] blk_offload_23878852_30.sqlite[2/6] [==========48%               ] blk_offload_23878852_30.sqlite[2/6] [==========49%               ] blk_offload_23878852_30.sqlite[2/6] [===========50%              ] blk_offload_23878852_30.sqlite[2/6] [===========51%              ] blk_offload_23878852_30.sqlite[2/6] [===========52%              ] blk_offload_23878852_30.sqlite[2/6] [===========53%              ] blk_offload_23878852_30.sqlite[2/6] [============54%             ] blk_offload_23878852_30.sqlite[2/6] [============55%             ] blk_offload_23878852_30.sqlite[2/6] [============56%             ] blk_offload_23878852_30.sqlite[2/6] [============57%             ] blk_offload_23878852_30.sqlite[2/6] [=============58%            ] blk_offload_23878852_30.sqlite[2/6] [=============59%            ] blk_offload_23878852_30.sqlite[2/6] [=============60%            ] blk_offload_23878852_30.sqlite[2/6] [==============61%           ] blk_offload_23878852_30.sqlite[2/6] [==============62%           ] blk_offload_23878852_30.sqlite[2/6] [==============63%           ] blk_offload_23878852_30.sqlite[2/6] [==============64%           ] blk_offload_23878852_30.sqlite[2/6] [===============65%          ] blk_offload_23878852_30.sqlite[2/6] [===============66%          ] blk_offload_23878852_30.sqlite[2/6] [===============67%          ] blk_offload_23878852_30.sqlite[2/6] [================68%         ] blk_offload_23878852_30.sqlite[2/6] [================69%         ] blk_offload_23878852_30.sqlite[2/6] [================70%         ] blk_offload_23878852_30.sqlite[2/6] [================71%         ] blk_offload_23878852_30.sqlite[2/6] [=================72%        ] blk_offload_23878852_30.sqlite[2/6] [=================73%        ] blk_offload_23878852_30.sqlite[2/6] [=================74%        ] blk_offload_23878852_30.sqlite[2/6] [==================75%       ] blk_offload_23878852_30.sqlite[2/6] [==================76%       ] blk_offload_23878852_30.sqlite[2/6] [==================77%       ] blk_offload_23878852_30.sqlite[2/6] [==================78%       ] blk_offload_23878852_30.sqlite[2/6] [===================79%      ] blk_offload_23878852_30.sqlite[2/6] [===================80%      ] blk_offload_23878852_30.sqlite[2/6] [===================81%      ] blk_offload_23878852_30.sqlite[2/6] [===================82%      ] blk_offload_23878852_30.sqlite[2/6] [====================83%     ] blk_offload_23878852_30.sqlite[2/6] [====================84%     ] blk_offload_23878852_30.sqlite[2/6] [====================85%     ] blk_offload_23878852_30.sqlite[2/6] [=====================86%    ] blk_offload_23878852_30.sqlite[2/6] [=====================87%    ] blk_offload_23878852_30.sqlite[2/6] [=====================88%    ] blk_offload_23878852_30.sqlite[2/6] [=====================89%    ] blk_offload_23878852_30.sqlite[2/6] [======================90%   ] blk_offload_23878852_30.sqlite[2/6] [======================91%   ] blk_offload_23878852_30.sqlite[2/6] [======================92%   ] blk_offload_23878852_30.sqlite[2/6] [=======================93%  ] blk_offload_23878852_30.sqlite[2/6] [=======================94%  ] blk_offload_23878852_30.sqlite[2/6] [=======================95%  ] blk_offload_23878852_30.sqlite[2/6] [=======================96%  ] blk_offload_23878852_30.sqlite[2/6] [========================97% ] blk_offload_23878852_30.sqlite[2/6] [========================98% ] blk_offload_23878852_30.sqlite[2/6] [========================99% ] blk_offload_23878852_30.sqlite[2/6] [========================100%] blk_offload_23878852_30.sqlite[2/6] [========================100%] blk_offload_23878852_30.sqlite
+[3/6] Executing 'cuda_api_sum' stats report
+
+ Time (%)  Total Time (ns)  Num Calls   Avg (ns)     Med (ns)    Min (ns)   Max (ns)   StdDev (ns)                        Name                      
+ --------  ---------------  ---------  -----------  -----------  ---------  ---------  -----------  ------------------------------------------------
+     77.3        556796839          1  556796839.0  556796839.0  556796839  556796839          0.0  cuMemHostAlloc                                  
+     12.2         87861389          3   29287129.7   26100555.0   25444886   36315948    6095956.9  cudaMallocHost                                  
+      4.9         35210856          3   11736952.0   11969923.0   11180334   12060599     484172.7  cudaFreeHost                                    
+      2.8         20406078          1   20406078.0   20406078.0   20406078   20406078          0.0  cuMemAllocManaged                               
+      0.7          4956526          2    2478263.0    2478263.0       4026    4952500    3499099.5  cuStreamSynchronize                             
+      0.6          4376498          3    1458832.7       6339.0       2694    4367465    2518950.2  cudaMalloc                                      
+      0.5          3724194          4     931048.5     822484.0       3335    2075891    1085228.1  cudaFree                                        
+      0.5          3500040          6     583340.0     260900.0       7121    2499244     954246.3  cuMemAlloc_v2                                   
+      0.3          1878677          1    1878677.0    1878677.0    1878677    1878677          0.0  cuMemAllocHost_v2                               
+      0.1           508160          1     508160.0     508160.0     508160     508160          0.0  cudaGetFuncBySymbol_v11000                      
+      0.0           294541       1222        241.0        200.0         80        872        130.3  cuGetProcAddress_v2                             
+      0.0           253689          4      63422.3      18017.0       7070     210585      98543.1  cuMemcpyHtoDAsync_v2                            
+      0.0            41472          1      41472.0      41472.0      41472      41472          0.0  cuLaunchKernel                                  
+      0.0            22406         18       1244.8        280.0        240       7542       2171.0  cudaEventCreateWithFlags                        
+      0.0            10355          4       2588.8       1622.5        881       6229       2502.2  cudaDeviceSynchronize                           
+      0.0             9875          1       9875.0       9875.0       9875       9875          0.0  cuMemcpyDtoHAsync_v2                            
+      0.0             9607         18        533.7        265.0        201       5087       1137.4  cudaEventDestroy                                
+      0.0             8843          5       1768.6       1863.0       1302       2263        380.9  cuInit                                          
+      0.0             8081         18        448.9        330.5        290       2453        501.6  cudaOccupancyMaxActiveClusters_v11070           
+      0.0             3455          6        575.8        345.0         80       1352        567.7  cuCtxSetCurrent                                 
+      0.0             2424          1       2424.0       2424.0       2424       2424          0.0  cudaOccupancyAvailableDynamicSMemPerBlock_v10200
+      0.0             1022          2        511.0        511.0        231        791        396.0  cudaGetDriverEntryPoint_v11030                  
+      0.0              481          1        481.0        481.0        481        481          0.0  cuFuncGetModule                                 
+      0.0              371          3        123.7        121.0        120        130          5.5  cuModuleGetLoadingMode                          
+
+[4/6] Executing 'cuda_gpu_kern_sum' stats report
+
+ Time (%)  Total Time (ns)  Instances  Avg (ns)   Med (ns)   Min (ns)  Max (ns)  StdDev (ns)                  Name                
+ --------  ---------------  ---------  ---------  ---------  --------  --------  -----------  ------------------------------------
+    100.0          3753703          1  3753703.0  3753703.0   3753703   3753703          0.0  nvkernel_matmult_blk_offload_F1L14_2
+
+[5/6] Executing 'cuda_gpu_mem_time_sum' stats report
+
+ Time (%)  Total Time (ns)  Count  Avg (ns)   Med (ns)   Min (ns)  Max (ns)  StdDev (ns)           Operation          
+ --------  ---------------  -----  ---------  ---------  --------  --------  -----------  ----------------------------
+     83.0          5982430      4  1495607.5  1362542.5      1056   3256289    1402242.1  [CUDA memcpy Host-to-Device]
+     17.0          1222860      1  1222860.0  1222860.0   1222860   1222860          0.0  [CUDA memcpy Device-to-Host]
+
+[6/6] Executing 'cuda_gpu_mem_size_sum' stats report
+
+ Total (MB)  Count  Avg (MB)  Med (MB)  Min (MB)  Max (MB)  StdDev (MB)           Operation          
+ ----------  -----  --------  --------  --------  --------  -----------  ----------------------------
+    100.663      4    25.166    33.554     0.000    33.554       16.777  [CUDA memcpy Host-to-Device]
+     33.554      1    33.554    33.554    33.554    33.554        0.000  [CUDA memcpy Device-to-Host]
+
+Generated:
+    /zhome/3c/8/202539/hpc_assignments/assignment3/matmul/blk_offload_23878852_30.nsys-rep
+    /zhome/3c/8/202539/hpc_assignments/assignment3/matmul/blk_offload_23878852_30.sqlite
+nvc++ -g -fast -Msafeptr -Minfo -mp=gpu -gpu=mem:separate:pinnedalloc -gpu=lineinfo -gpu=cc90 -cuda -mp=noautopar -cudalib=cublas -fpic -shared   -DBLK=150    -c -o mkn_mnk_offload.o mkn_mnk_offload.cpp
+matmult_mkn_offload:
+      7, #omp target teams distribute parallel for num_teams(m) thread_limit(32)
+          7, Generating "nvkernel_matmult_mkn_offload_F1L7_2" GPU kernel
+          9, Loop parallelized across teams and threads(128), schedule(static)
+      7, Generating map(tofrom:C[:m*n]) 
+      9, Loop not vectorized/parallelized: not countable
+     11, #omp target teams distribute parallel for num_teams(m) thread_limit(32)
+         11, Generating "nvkernel_matmult_mkn_offload_F1L11_4" GPU kernel
+         14, Loop parallelized across teams and threads(128), schedule(static)
+     11, Generating map(to:A[:m*k]) 
+         Generating map(tofrom:C[:m*n]) 
+         Generating map(to:B[:n*k]) 
+     14, Loop not vectorized/parallelized: not countable
+     16, Generated vector simd code for the loop
+matmult_mnk_offload:
+     23, #omp target teams distribute parallel for
+         23, Generating "nvkernel_matmult_mnk_offload_F1L23_10" GPU kernel
+         25, Loop parallelized across teams and threads(128), schedule(static)
+     23, Generating map(to:A[:k*m],B[:k*n]) 
+         Generating map(tofrom:C[:m*n]) 
+     25, Loop not vectorized/parallelized: not countable
+     28, Generated vector simd code for the loop containing reductions
+     29, FMA (fused multiply-add) instruction(s) generated
+nvc++ -g -fast -Msafeptr -Minfo -mp=gpu -gpu=mem:separate:pinnedalloc -gpu=lineinfo -gpu=cc90 -cuda -mp=noautopar -cudalib=cublas -fpic -shared   -DBLK=150    -c -o matmult_cublas.o matmult_cublas.cpp
+nvc++ -g -fast -Msafeptr -Minfo -mp=gpu -gpu=mem:separate:pinnedalloc -gpu=lineinfo -gpu=cc90 -cuda -mp=noautopar -cudalib=cublas -fpic -shared   -DBLK=150    -c -o matmult_mkn_omp.o matmult_mkn_omp.cpp
+matmult_mkn_omp:
+     21, #omp parallel
+         25, Barrier
+         41, Barrier
+     23, Recognized memory zero idiom
+     33, Generated vector simd code for the loop
+nvc++ -g -fast -Msafeptr -Minfo -mp=gpu -gpu=mem:separate:pinnedalloc -gpu=lineinfo -gpu=cc90 -cuda -mp=noautopar -cudalib=cublas -fpic -shared   -DBLK=150    -c -o blk_offload.o blk_offload.cpp
+matmult_blk_offload:
+     14, #omp target teams distribute parallel for num_teams(m) thread_limit(64)
+         14, Generating "nvkernel_matmult_blk_offload_F1L14_2" GPU kernel
+         20, Loop parallelized across teams and threads(128), schedule(static)
+     14, Generating map(to:A[:m*k],B[:k*n]) 
+         Generating map(tofrom:C[:m*n]) 
+     21, Loop not vectorized/parallelized: not countable
+     25, Generated vector simd code for the loop
+     29, Loop not vectorized: unprofitable for target
+         Loop unrolled 8 times
+     35, Generated vector simd code for the loop containing reductions
+     36, FMA (fused multiply-add) instruction(s) generated
+nvc++ -g -fast -Msafeptr -Minfo -mp=gpu -gpu=mem:separate:pinnedalloc -gpu=lineinfo -gpu=cc90 -cuda -mp=noautopar -cudalib=cublas -fpic -shared   -DBLK=150    -c -o matmult_asy_offload.o matmult_asy_offload.cpp
+matmult_asy_offload:
+      8, Generating target enter data map(create: C[:m*n],B[:k*n],A[:m*k])
+         Generating update to(B[:k*n])
+     11, Loop not vectorized/parallelized: too deeply nested
+     12, #omp target teams loop num_teams(length) thread_limit(32)
+         12, Generating "nvkernel_matmult_asy_offload_F1L12_2" GPU kernel
+             Generating NVIDIA GPU code
+           17, Loop parallelized across teams(length) /* blockIdx.x */
+           19, Loop parallelized across threads(32) /* threadIdx.x */
+           22, Loop run sequentially 
+               Generating implicit reduction(+:sum)
+         12, Generating Multicore code
+           17, Loop parallelized across threads
+     12, Generating update to(A[k*lower:k*length])
+         Generating implicit map(from:C[:]) 
+         Generating implicit map(to:B[:],A[:]) 
+     19, Loop is parallelizable
+     22, Loop carried scalar dependence for l at line 24,25,27
+         Generated vector simd code for the loop containing reductions
+     26, FMA (fused multiply-add) instruction(s) generated
+     33, Generating update from(C[n*lower:n*length])
+     36, Taskwait
+         Generating target exit data(release: C[:m*n],B[:k*n],A[:m*k])
+nvc++ -g -fast -Msafeptr -Minfo -mp=gpu -gpu=mem:separate:pinnedalloc -gpu=lineinfo -gpu=cc90 -cuda -mp=noautopar -cudalib=cublas -fpic -shared   -DBLK=150  -o libmatmult.so mkn_mnk_offload.o matmult_cublas.o matmult_mkn_omp.o blk_offload.o matmult_asy_offload.o -lopenblas
+NVCOMPILER_OMP_CUDA_GRID=1024,128 nsys profile --trace=cuda --stats=true -o blk_offload_23878852_150 ./matmult_f.nvc++ blk_offload 2048 2048 2048
+WARNING: CPU IP/backtrace sampling not supported, disabling.
+Try the 'nsys status --environment' command to learn more.
+
+WARNING: CPU context switch tracing not supported, disabling.
+Try the 'nsys status --environment' command to learn more.
+
+   98304.000 495152.774 # matmult_blk_offload
+Collecting data...
+Generating '/tmp/23878852.tmpdir/nsys-report-9af1.qdstrm'
+[1/6] [0%                          ] blk_offload_23878852_150.nsys-rep[1/6] [0%                          ] blk_offload_23878852_150.nsys-rep[1/6] [=========43%                ] blk_offload_23878852_150.nsys-rep[1/6] [================69%         ] blk_offload_23878852_150.nsys-rep[1/6] [=======================96%  ] blk_offload_23878852_150.nsys-rep[1/6] [========================97% ] blk_offload_23878852_150.nsys-rep[1/6] [========================98% ] blk_offload_23878852_150.nsys-rep[1/6] [========================100%] blk_offload_23878852_150.nsys-rep[1/6] [========================100%] blk_offload_23878852_150.nsys-rep
+[2/6] [0%                          ] blk_offload_23878852_150.sqlite[2/6] [1%                          ] blk_offload_23878852_150.sqlite[2/6] [2%                          ] blk_offload_23878852_150.sqlite[2/6] [3%                          ] blk_offload_23878852_150.sqlite[2/6] [4%                          ] blk_offload_23878852_150.sqlite[2/6] [5%                          ] blk_offload_23878852_150.sqlite[2/6] [6%                          ] blk_offload_23878852_150.sqlite[2/6] [7%                          ] blk_offload_23878852_150.sqlite[2/6] [8%                          ] blk_offload_23878852_150.sqlite[2/6] [9%                          ] blk_offload_23878852_150.sqlite[2/6] [10%                         ] blk_offload_23878852_150.sqlite[2/6] [11%                         ] blk_offload_23878852_150.sqlite[2/6] [12%                         ] blk_offload_23878852_150.sqlite[2/6] [13%                         ] blk_offload_23878852_150.sqlite[2/6] [14%                         ] blk_offload_23878852_150.sqlite[2/6] [=15%                        ] blk_offload_23878852_150.sqlite[2/6] [=16%                        ] blk_offload_23878852_150.sqlite[2/6] [=17%                        ] blk_offload_23878852_150.sqlite[2/6] [==18%                       ] blk_offload_23878852_150.sqlite[2/6] [==19%                       ] blk_offload_23878852_150.sqlite[2/6] [==20%                       ] blk_offload_23878852_150.sqlite[2/6] [==21%                       ] blk_offload_23878852_150.sqlite[2/6] [===22%                      ] blk_offload_23878852_150.sqlite[2/6] [===23%                      ] blk_offload_23878852_150.sqlite[2/6] [===24%                      ] blk_offload_23878852_150.sqlite[2/6] [====25%                     ] blk_offload_23878852_150.sqlite[2/6] [====26%                     ] blk_offload_23878852_150.sqlite[2/6] [====27%                     ] blk_offload_23878852_150.sqlite[2/6] [====28%                     ] blk_offload_23878852_150.sqlite[2/6] [=====29%                    ] blk_offload_23878852_150.sqlite[2/6] [=====30%                    ] blk_offload_23878852_150.sqlite[2/6] [=====31%                    ] blk_offload_23878852_150.sqlite[2/6] [=====32%                    ] blk_offload_23878852_150.sqlite[2/6] [======33%                   ] blk_offload_23878852_150.sqlite[2/6] [======34%                   ] blk_offload_23878852_150.sqlite[2/6] [======35%                   ] blk_offload_23878852_150.sqlite[2/6] [=======36%                  ] blk_offload_23878852_150.sqlite[2/6] [=======37%                  ] blk_offload_23878852_150.sqlite[2/6] [=======38%                  ] blk_offload_23878852_150.sqlite[2/6] [=======39%                  ] blk_offload_23878852_150.sqlite[2/6] [========40%                 ] blk_offload_23878852_150.sqlite[2/6] [========41%                 ] blk_offload_23878852_150.sqlite[2/6] [========42%                 ] blk_offload_23878852_150.sqlite[2/6] [=========43%                ] blk_offload_23878852_150.sqlite[2/6] [=========44%                ] blk_offload_23878852_150.sqlite[2/6] [=========45%                ] blk_offload_23878852_150.sqlite[2/6] [=========46%                ] blk_offload_23878852_150.sqlite[2/6] [==========47%               ] blk_offload_23878852_150.sqlite[2/6] [==========48%               ] blk_offload_23878852_150.sqlite[2/6] [==========49%               ] blk_offload_23878852_150.sqlite[2/6] [===========50%              ] blk_offload_23878852_150.sqlite[2/6] [===========51%              ] blk_offload_23878852_150.sqlite[2/6] [===========52%              ] blk_offload_23878852_150.sqlite[2/6] [===========53%              ] blk_offload_23878852_150.sqlite[2/6] [============54%             ] blk_offload_23878852_150.sqlite[2/6] [============55%             ] blk_offload_23878852_150.sqlite[2/6] [============56%             ] blk_offload_23878852_150.sqlite[2/6] [============57%             ] blk_offload_23878852_150.sqlite[2/6] [=============58%            ] blk_offload_23878852_150.sqlite[2/6] [=============59%            ] blk_offload_23878852_150.sqlite[2/6] [=============60%            ] blk_offload_23878852_150.sqlite[2/6] [==============61%           ] blk_offload_23878852_150.sqlite[2/6] [==============62%           ] blk_offload_23878852_150.sqlite[2/6] [==============63%           ] blk_offload_23878852_150.sqlite[2/6] [==============64%           ] blk_offload_23878852_150.sqlite[2/6] [===============65%          ] blk_offload_23878852_150.sqlite[2/6] [===============66%          ] blk_offload_23878852_150.sqlite[2/6] [===============67%          ] blk_offload_23878852_150.sqlite[2/6] [================68%         ] blk_offload_23878852_150.sqlite[2/6] [================69%         ] blk_offload_23878852_150.sqlite[2/6] [================70%         ] blk_offload_23878852_150.sqlite[2/6] [================71%         ] blk_offload_23878852_150.sqlite[2/6] [=================72%        ] blk_offload_23878852_150.sqlite[2/6] [=================73%        ] blk_offload_23878852_150.sqlite[2/6] [=================74%        ] blk_offload_23878852_150.sqlite[2/6] [==================75%       ] blk_offload_23878852_150.sqlite[2/6] [==================76%       ] blk_offload_23878852_150.sqlite[2/6] [==================77%       ] blk_offload_23878852_150.sqlite[2/6] [==================78%       ] blk_offload_23878852_150.sqlite[2/6] [===================79%      ] blk_offload_23878852_150.sqlite[2/6] [===================80%      ] blk_offload_23878852_150.sqlite[2/6] [===================81%      ] blk_offload_23878852_150.sqlite[2/6] [===================82%      ] blk_offload_23878852_150.sqlite[2/6] [====================83%     ] blk_offload_23878852_150.sqlite[2/6] [====================84%     ] blk_offload_23878852_150.sqlite[2/6] [====================85%     ] blk_offload_23878852_150.sqlite[2/6] [=====================86%    ] blk_offload_23878852_150.sqlite[2/6] [=====================87%    ] blk_offload_23878852_150.sqlite[2/6] [=====================88%    ] blk_offload_23878852_150.sqlite[2/6] [=====================89%    ] blk_offload_23878852_150.sqlite[2/6] [======================90%   ] blk_offload_23878852_150.sqlite[2/6] [======================91%   ] blk_offload_23878852_150.sqlite[2/6] [======================92%   ] blk_offload_23878852_150.sqlite[2/6] [=======================93%  ] blk_offload_23878852_150.sqlite[2/6] [=======================94%  ] blk_offload_23878852_150.sqlite[2/6] [=======================95%  ] blk_offload_23878852_150.sqlite[2/6] [=======================96%  ] blk_offload_23878852_150.sqlite[2/6] [========================97% ] blk_offload_23878852_150.sqlite[2/6] [========================98% ] blk_offload_23878852_150.sqlite[2/6] [========================99% ] blk_offload_23878852_150.sqlite[2/6] [========================100%] blk_offload_23878852_150.sqlite[2/6] [========================100%] blk_offload_23878852_150.sqlite
+[3/6] Executing 'cuda_api_sum' stats report
+
+ Time (%)  Total Time (ns)  Num Calls   Avg (ns)     Med (ns)    Min (ns)   Max (ns)   StdDev (ns)                        Name                      
+ --------  ---------------  ---------  -----------  -----------  ---------  ---------  -----------  ------------------------------------------------
+     76.9        559446589          1  559446589.0  559446589.0  559446589  559446589          0.0  cuMemHostAlloc                                  
+     11.0         79855578          3   26618526.0   27339947.0   25167502   27348129    1256630.3  cudaMallocHost                                  
+      4.7         33887650          3   11295883.3   11305341.0   11064060   11518249     227242.2  cudaFreeHost                                    
+      2.8         20373950          1   20373950.0   20373950.0   20373950   20373950          0.0  cuMemAllocManaged                               
+      1.8         12738994          3    4246331.3       6430.0       2534   12730030    7347098.8  cudaMalloc                                      
+      1.6         11271840          2    5635920.0    5635920.0       4136   11267704    7964545.3  cuStreamSynchronize                             
+      0.5          3446139          4     861534.8     666796.5       3785    2108761    1039558.8  cudaFree                                        
+      0.3          2157954          1    2157954.0    2157954.0    2157954    2157954          0.0  cudaGetFuncBySymbol_v11000                      
+      0.3          1877485          1    1877485.0    1877485.0    1877485    1877485          0.0  cuMemAllocHost_v2                               
+      0.2          1454433          6     242405.5     276067.0       4607     492336     200065.6  cuMemAlloc_v2                                   
+      0.0           304559       1222        249.2        210.0         80       5188        194.2  cuGetProcAddress_v2                             
+      0.0           258617          4      64654.3      18437.5       6901     214841     100564.4  cuMemcpyHtoDAsync_v2                            
+      0.0            36825          1      36825.0      36825.0      36825      36825          0.0  cuLaunchKernel                                  
+      0.0            30037         18       1668.7        275.5        240      12018       3055.0  cudaEventCreateWithFlags                        
+      0.0            11005         18        611.4        285.0        200       5729       1282.9  cudaEventDestroy                                
+      0.0            10876          4       2719.0       1702.5        901       6570       2648.9  cudaDeviceSynchronize                           
+      0.0            10145          1      10145.0      10145.0      10145      10145          0.0  cuMemcpyDtoHAsync_v2                            
+      0.0             9656          5       1931.2       2304.0       1282       2384        549.1  cuInit                                          
+      0.0             8002         18        444.6        315.5        291       2353        479.0  cudaOccupancyMaxActiveClusters_v11070           
+      0.0             3945          6        657.5        335.5         80       1912        737.9  cuCtxSetCurrent                                 
+      0.0             2274          1       2274.0       2274.0       2274       2274          0.0  cudaOccupancyAvailableDynamicSMemPerBlock_v10200
+      0.0              952          2        476.0        476.0        221        731        360.6  cudaGetDriverEntryPoint_v11030                  
+      0.0              560          1        560.0        560.0        560        560          0.0  cuFuncGetModule                                 
+      0.0              381          3        127.0        130.0        120        131          6.1  cuModuleGetLoadingMode                          
+
+[4/6] Executing 'cuda_gpu_kern_sum' stats report
+
+ Time (%)  Total Time (ns)  Instances  Avg (ns)   Med (ns)   Min (ns)  Max (ns)  StdDev (ns)                  Name                
+ --------  ---------------  ---------  ---------  ---------  --------  --------  -----------  ------------------------------------
+    100.0          9706085          1  9706085.0  9706085.0   9706085   9706085          0.0  nvkernel_matmult_blk_offload_F1L14_2
+
+[5/6] Executing 'cuda_gpu_mem_time_sum' stats report
+
+ Time (%)  Total Time (ns)  Count  Avg (ns)   Med (ns)   Min (ns)  Max (ns)  StdDev (ns)           Operation          
+ --------  ---------------  -----  ---------  ---------  --------  --------  -----------  ----------------------------
+     82.0          5605210      4  1401302.5   912793.5      1056   3778567    1642676.3  [CUDA memcpy Host-to-Device]
+     18.0          1230317      1  1230317.0  1230317.0   1230317   1230317          0.0  [CUDA memcpy Device-to-Host]
+
+[6/6] Executing 'cuda_gpu_mem_size_sum' stats report
+
+ Total (MB)  Count  Avg (MB)  Med (MB)  Min (MB)  Max (MB)  StdDev (MB)           Operation          
+ ----------  -----  --------  --------  --------  --------  -----------  ----------------------------
+    100.663      4    25.166    33.554     0.000    33.554       16.777  [CUDA memcpy Host-to-Device]
+     33.554      1    33.554    33.554    33.554    33.554        0.000  [CUDA memcpy Device-to-Host]
+
+Generated:
+    /zhome/3c/8/202539/hpc_assignments/assignment3/matmul/blk_offload_23878852_150.nsys-rep
+    /zhome/3c/8/202539/hpc_assignments/assignment3/matmul/blk_offload_23878852_150.sqlite
+nvc++ -g -fast -Msafeptr -Minfo -mp=gpu -gpu=mem:separate:pinnedalloc -gpu=lineinfo -gpu=cc90 -cuda -mp=noautopar -cudalib=cublas -fpic -shared   -DSPLITS=2    -c -o mkn_mnk_offload.o mkn_mnk_offload.cpp
+matmult_mkn_offload:
+      7, #omp target teams distribute parallel for num_teams(m) thread_limit(32)
+          7, Generating "nvkernel_matmult_mkn_offload_F1L7_2" GPU kernel
+          9, Loop parallelized across teams and threads(128), schedule(static)
+      7, Generating map(tofrom:C[:m*n]) 
+      9, Loop not vectorized/parallelized: not countable
+     11, #omp target teams distribute parallel for num_teams(m) thread_limit(32)
+         11, Generating "nvkernel_matmult_mkn_offload_F1L11_4" GPU kernel
+         14, Loop parallelized across teams and threads(128), schedule(static)
+     11, Generating map(to:A[:m*k]) 
+         Generating map(tofrom:C[:m*n]) 
+         Generating map(to:B[:n*k]) 
+     14, Loop not vectorized/parallelized: not countable
+     16, Generated vector simd code for the loop
+matmult_mnk_offload:
+     23, #omp target teams distribute parallel for
+         23, Generating "nvkernel_matmult_mnk_offload_F1L23_10" GPU kernel
+         25, Loop parallelized across teams and threads(128), schedule(static)
+     23, Generating map(to:A[:k*m],B[:k*n]) 
+         Generating map(tofrom:C[:m*n]) 
+     25, Loop not vectorized/parallelized: not countable
+     28, Generated vector simd code for the loop containing reductions
+     29, FMA (fused multiply-add) instruction(s) generated
+nvc++ -g -fast -Msafeptr -Minfo -mp=gpu -gpu=mem:separate:pinnedalloc -gpu=lineinfo -gpu=cc90 -cuda -mp=noautopar -cudalib=cublas -fpic -shared   -DSPLITS=2    -c -o matmult_cublas.o matmult_cublas.cpp
+nvc++ -g -fast -Msafeptr -Minfo -mp=gpu -gpu=mem:separate:pinnedalloc -gpu=lineinfo -gpu=cc90 -cuda -mp=noautopar -cudalib=cublas -fpic -shared   -DSPLITS=2    -c -o matmult_mkn_omp.o matmult_mkn_omp.cpp
+matmult_mkn_omp:
+     21, #omp parallel
+         25, Barrier
+         41, Barrier
+     23, Recognized memory zero idiom
+     33, Generated vector simd code for the loop
+nvc++ -g -fast -Msafeptr -Minfo -mp=gpu -gpu=mem:separate:pinnedalloc -gpu=lineinfo -gpu=cc90 -cuda -mp=noautopar -cudalib=cublas -fpic -shared   -DSPLITS=2    -c -o blk_offload.o blk_offload.cpp
+matmult_blk_offload:
+     14, #omp target teams distribute parallel for num_teams(m) thread_limit(64)
+         14, Generating "nvkernel_matmult_blk_offload_F1L14_2" GPU kernel
+         20, Loop parallelized across teams and threads(128), schedule(static)
+     14, Generating map(to:A[:m*k],B[:k*n]) 
+         Generating map(tofrom:C[:m*n]) 
+     21, Loop not vectorized/parallelized: not countable
+     25, Generated vector simd code for the loop
+     29, Loop not vectorized: unprofitable for target
+         Loop unrolled 8 times
+     35, Generated vector simd code for the loop containing reductions
+     36, FMA (fused multiply-add) instruction(s) generated
+nvc++ -g -fast -Msafeptr -Minfo -mp=gpu -gpu=mem:separate:pinnedalloc -gpu=lineinfo -gpu=cc90 -cuda -mp=noautopar -cudalib=cublas -fpic -shared   -DSPLITS=2    -c -o matmult_asy_offload.o matmult_asy_offload.cpp
+matmult_asy_offload:
+      8, Generating target enter data map(create: C[:m*n],B[:k*n],A[:m*k])
+         Generating update to(B[:k*n])
+     11, Loop not vectorized/parallelized: too deeply nested
+     12, #omp target teams loop num_teams(length) thread_limit(32)
+         12, Generating "nvkernel_matmult_asy_offload_F1L12_2" GPU kernel
+             Generating NVIDIA GPU code
+           17, Loop parallelized across teams(length) /* blockIdx.x */
+           19, Loop parallelized across threads(32) /* threadIdx.x */
+           22, Loop run sequentially 
+               Generating implicit reduction(+:sum)
+         12, Generating Multicore code
+           17, Loop parallelized across threads
+     12, Generating update to(A[k*lower:k*length])
+         Generating implicit map(from:C[:]) 
+         Generating implicit map(to:B[:],A[:]) 
+     19, Loop is parallelizable
+     22, Loop carried scalar dependence for l at line 24,25,27
+         Generated vector simd code for the loop containing reductions
+     26, FMA (fused multiply-add) instruction(s) generated
+     33, Generating update from(C[n*lower:n*length])
+     36, Taskwait
+         Generating target exit data(release: C[:m*n],B[:k*n],A[:m*k])
+nvc++ -g -fast -Msafeptr -Minfo -mp=gpu -gpu=mem:separate:pinnedalloc -gpu=lineinfo -gpu=cc90 -cuda -mp=noautopar -cudalib=cublas -fpic -shared   -DSPLITS=2  -o libmatmult.so mkn_mnk_offload.o matmult_cublas.o matmult_mkn_omp.o blk_offload.o matmult_asy_offload.o -lopenblas
+nsys profile --trace=cuda --stats=true -o asy_offload_23878852_2 ./matmult_f.nvc++ asy_offload 2048 2048 2048
+WARNING: CPU IP/backtrace sampling not supported, disabling.
+Try the 'nsys status --environment' command to learn more.
+
+WARNING: CPU context switch tracing not supported, disabling.
+Try the 'nsys status --environment' command to learn more.
+
+   98304.000 420438.042 # matmult_asy_offload
+Collecting data...
+Generating '/tmp/23878852.tmpdir/nsys-report-1681.qdstrm'
+[1/6] [0%                          ] asy_offload_23878852_2.nsys-rep[1/6] [0%                          ] asy_offload_23878852_2.nsys-rep[1/6] [=========44%                ] asy_offload_23878852_2.nsys-rep[1/6] [================70%         ] asy_offload_23878852_2.nsys-rep[1/6] [=======================95%  ] asy_offload_23878852_2.nsys-rep[1/6] [=======================96%  ] asy_offload_23878852_2.nsys-rep[1/6] [========================97% ] asy_offload_23878852_2.nsys-rep[1/6] [========================98% ] asy_offload_23878852_2.nsys-rep[1/6] [========================100%] asy_offload_23878852_2.nsys-rep[1/6] [========================100%] asy_offload_23878852_2.nsys-rep
+[2/6] [0%                          ] asy_offload_23878852_2.sqlite[2/6] [1%                          ] asy_offload_23878852_2.sqlite[2/6] [2%                          ] asy_offload_23878852_2.sqlite[2/6] [3%                          ] asy_offload_23878852_2.sqlite[2/6] [4%                          ] asy_offload_23878852_2.sqlite[2/6] [5%                          ] asy_offload_23878852_2.sqlite[2/6] [6%                          ] asy_offload_23878852_2.sqlite[2/6] [7%                          ] asy_offload_23878852_2.sqlite[2/6] [8%                          ] asy_offload_23878852_2.sqlite[2/6] [9%                          ] asy_offload_23878852_2.sqlite[2/6] [10%                         ] asy_offload_23878852_2.sqlite[2/6] [11%                         ] asy_offload_23878852_2.sqlite[2/6] [12%                         ] asy_offload_23878852_2.sqlite[2/6] [13%                         ] asy_offload_23878852_2.sqlite[2/6] [14%                         ] asy_offload_23878852_2.sqlite[2/6] [=15%                        ] asy_offload_23878852_2.sqlite[2/6] [=16%                        ] asy_offload_23878852_2.sqlite[2/6] [=17%                        ] asy_offload_23878852_2.sqlite[2/6] [==18%                       ] asy_offload_23878852_2.sqlite[2/6] [==19%                       ] asy_offload_23878852_2.sqlite[2/6] [==20%                       ] asy_offload_23878852_2.sqlite[2/6] [==21%                       ] asy_offload_23878852_2.sqlite[2/6] [===22%                      ] asy_offload_23878852_2.sqlite[2/6] [===23%                      ] asy_offload_23878852_2.sqlite[2/6] [===24%                      ] asy_offload_23878852_2.sqlite[2/6] [====25%                     ] asy_offload_23878852_2.sqlite[2/6] [====26%                     ] asy_offload_23878852_2.sqlite[2/6] [====27%                     ] asy_offload_23878852_2.sqlite[2/6] [====28%                     ] asy_offload_23878852_2.sqlite[2/6] [=====29%                    ] asy_offload_23878852_2.sqlite[2/6] [=====30%                    ] asy_offload_23878852_2.sqlite[2/6] [=====31%                    ] asy_offload_23878852_2.sqlite[2/6] [=====32%                    ] asy_offload_23878852_2.sqlite[2/6] [======33%                   ] asy_offload_23878852_2.sqlite[2/6] [======34%                   ] asy_offload_23878852_2.sqlite[2/6] [======35%                   ] asy_offload_23878852_2.sqlite[2/6] [=======36%                  ] asy_offload_23878852_2.sqlite[2/6] [=======37%                  ] asy_offload_23878852_2.sqlite[2/6] [=======38%                  ] asy_offload_23878852_2.sqlite[2/6] [=======39%                  ] asy_offload_23878852_2.sqlite[2/6] [========40%                 ] asy_offload_23878852_2.sqlite[2/6] [========41%                 ] asy_offload_23878852_2.sqlite[2/6] [========42%                 ] asy_offload_23878852_2.sqlite[2/6] [=========43%                ] asy_offload_23878852_2.sqlite[2/6] [=========44%                ] asy_offload_23878852_2.sqlite[2/6] [=========45%                ] asy_offload_23878852_2.sqlite[2/6] [=========46%                ] asy_offload_23878852_2.sqlite[2/6] [==========47%               ] asy_offload_23878852_2.sqlite[2/6] [==========48%               ] asy_offload_23878852_2.sqlite[2/6] [==========49%               ] asy_offload_23878852_2.sqlite[2/6] [===========50%              ] asy_offload_23878852_2.sqlite[2/6] [===========51%              ] asy_offload_23878852_2.sqlite[2/6] [===========52%              ] asy_offload_23878852_2.sqlite[2/6] [===========53%              ] asy_offload_23878852_2.sqlite[2/6] [============54%             ] asy_offload_23878852_2.sqlite[2/6] [============55%             ] asy_offload_23878852_2.sqlite[2/6] [============56%             ] asy_offload_23878852_2.sqlite[2/6] [============57%             ] asy_offload_23878852_2.sqlite[2/6] [=============58%            ] asy_offload_23878852_2.sqlite[2/6] [=============59%            ] asy_offload_23878852_2.sqlite[2/6] [=============60%            ] asy_offload_23878852_2.sqlite[2/6] [==============61%           ] asy_offload_23878852_2.sqlite[2/6] [==============62%           ] asy_offload_23878852_2.sqlite[2/6] [==============63%           ] asy_offload_23878852_2.sqlite[2/6] [==============64%           ] asy_offload_23878852_2.sqlite[2/6] [===============65%          ] asy_offload_23878852_2.sqlite[2/6] [===============66%          ] asy_offload_23878852_2.sqlite[2/6] [===============67%          ] asy_offload_23878852_2.sqlite[2/6] [================68%         ] asy_offload_23878852_2.sqlite[2/6] [================69%         ] asy_offload_23878852_2.sqlite[2/6] [================70%         ] asy_offload_23878852_2.sqlite[2/6] [================71%         ] asy_offload_23878852_2.sqlite[2/6] [=================72%        ] asy_offload_23878852_2.sqlite[2/6] [=================73%        ] asy_offload_23878852_2.sqlite[2/6] [=================74%        ] asy_offload_23878852_2.sqlite[2/6] [==================75%       ] asy_offload_23878852_2.sqlite[2/6] [==================76%       ] asy_offload_23878852_2.sqlite[2/6] [==================77%       ] asy_offload_23878852_2.sqlite[2/6] [==================78%       ] asy_offload_23878852_2.sqlite[2/6] [===================79%      ] asy_offload_23878852_2.sqlite[2/6] [===================80%      ] asy_offload_23878852_2.sqlite[2/6] [===================81%      ] asy_offload_23878852_2.sqlite[2/6] [===================82%      ] asy_offload_23878852_2.sqlite[2/6] [====================83%     ] asy_offload_23878852_2.sqlite[2/6] [====================84%     ] asy_offload_23878852_2.sqlite[2/6] [====================85%     ] asy_offload_23878852_2.sqlite[2/6] [=====================86%    ] asy_offload_23878852_2.sqlite[2/6] [=====================87%    ] asy_offload_23878852_2.sqlite[2/6] [=====================88%    ] asy_offload_23878852_2.sqlite[2/6] [=====================89%    ] asy_offload_23878852_2.sqlite[2/6] [======================90%   ] asy_offload_23878852_2.sqlite[2/6] [======================91%   ] asy_offload_23878852_2.sqlite[2/6] [======================92%   ] asy_offload_23878852_2.sqlite[2/6] [=======================93%  ] asy_offload_23878852_2.sqlite[2/6] [=======================94%  ] asy_offload_23878852_2.sqlite[2/6] [=======================95%  ] asy_offload_23878852_2.sqlite[2/6] [=======================96%  ] asy_offload_23878852_2.sqlite[2/6] [========================97% ] asy_offload_23878852_2.sqlite[2/6] [========================98% ] asy_offload_23878852_2.sqlite[2/6] [========================99% ] asy_offload_23878852_2.sqlite[2/6] [========================100%] asy_offload_23878852_2.sqlite[2/6] [========================100%] asy_offload_23878852_2.sqlite
+[3/6] Executing 'cuda_api_sum' stats report
+
+ Time (%)  Total Time (ns)  Num Calls   Avg (ns)     Med (ns)    Min (ns)   Max (ns)   StdDev (ns)                        Name                      
+ --------  ---------------  ---------  -----------  -----------  ---------  ---------  -----------  ------------------------------------------------
+     73.4        574766594          1  574766594.0  574766594.0  574766594  574766594          0.0  cuMemHostAlloc                                  
+     13.2        103214686          3   34404895.3   31208637.0   29221628   42784421    7324574.3  cudaMallocHost                                  
+      5.7         44509599          3   14836533.0   13796773.0   12010784   18702042    3464687.4  cudaFreeHost                                    
+      2.6         20440399          1   20440399.0   20440399.0   20440399   20440399          0.0  cuMemAllocManaged                               
+      1.6         12655537          3    4218512.3       6610.0       2944   12645983    7298403.9  cudaMalloc                                      
+      0.8          6369166          8     796145.8     442561.5       7030    2415910     925842.6  cuMemAlloc_v2                                   
+      0.8          5993564          3    1997854.7    2066527.0       8482    3918555    1955940.9  cuMemAllocHost_v2                               
+      0.7          5740826          9     637869.6     432907.0       2003    3908149    1245779.1  cuStreamSynchronize                             
+      0.6          4836336          2    2418168.0    2418168.0       3075    4833261    3415457.3  cuEventSynchronize                              
+      0.4          3290746          4     822686.5     589070.0       3295    2109311    1019558.4  cudaFree                                        
+      0.1           550232          1     550232.0     550232.0     550232     550232          0.0  cudaGetFuncBySymbol_v11000                      
+      0.1           502621          4     125655.3      26925.5       8262     440508     210238.1  cuMemcpyHtoDAsync_v2                            
+      0.0           312574       1222        255.8        230.0         80       1392        149.8  cuGetProcAddress_v2                             
+      0.0            65648          2      32824.0      32824.0      18998      46650      19552.9  cuLaunchKernel                                  
+      0.0            31427          2      15713.5      15713.5       7131      24296      12137.5  cuStreamCreate                                  
+      0.0            24197         18       1344.3        280.5        240       8453       2364.3  cudaEventCreateWithFlags                        
+      0.0            22284          2      11142.0      11142.0       8123      14161       4269.5  cuMemcpyDtoHAsync_v2                            
+      0.0            12129          4       3032.3       1643.0        911       7932       3321.1  cudaDeviceSynchronize                           
+      0.0            11228         18        623.8        275.0        200       5739       1282.0  cudaEventDestroy                                
+      0.0             8443          5       1688.6       1863.0       1152       2053        371.8  cuInit                                          
+      0.0             7774         18        431.9        320.5        290       2233        450.5  cudaOccupancyMaxActiveClusters_v11070           
+      0.0             3866          2       1933.0       1933.0       1202       2664       1033.8  cuEventRecord                                   
+      0.0             3607          4        901.8        776.5        381       1673        549.5  cuEventCreate                                   
+      0.0             2664          6        444.0        260.5         80       1422        510.4  cuCtxSetCurrent                                 
+      0.0             2234          1       2234.0       2234.0       2234       2234          0.0  cudaOccupancyAvailableDynamicSMemPerBlock_v10200
+      0.0              942          2        471.0        471.0        341        601        183.8  cudaGetDriverEntryPoint_v11030                  
+      0.0              531          1        531.0        531.0        531        531          0.0  cuFuncGetModule                                 
+      0.0              500          3        166.7        180.0        110        210         51.3  cuModuleGetLoadingMode                          
+
+[4/6] Executing 'cuda_gpu_kern_sum' stats report
+
+ Time (%)  Total Time (ns)  Instances  Avg (ns)   Med (ns)   Min (ns)  Max (ns)  StdDev (ns)                  Name                
+ --------  ---------------  ---------  ---------  ---------  --------  --------  -----------  ------------------------------------
+    100.0         10552077          2  5276038.5  5276038.5   5255830   5296247      28579.1  nvkernel_matmult_asy_offload_F1L12_2
+
+[5/6] Executing 'cuda_gpu_mem_time_sum' stats report
+
+ Time (%)  Total Time (ns)  Count  Avg (ns)   Med (ns)  Min (ns)  Max (ns)  StdDev (ns)           Operation          
+ --------  ---------------  -----  ---------  --------  --------  --------  -----------  ----------------------------
+     84.6          4798770      4  1199692.5  446453.0      1023   3904841    1815676.0  [CUDA memcpy Host-to-Device]
+     15.4           874057      2   437028.5  437028.5    436004    438053       1448.9  [CUDA memcpy Device-to-Host]
+
+[6/6] Executing 'cuda_gpu_mem_size_sum' stats report
+
+ Total (MB)  Count  Avg (MB)  Med (MB)  Min (MB)  Max (MB)  StdDev (MB)           Operation          
+ ----------  -----  --------  --------  --------  --------  -----------  ----------------------------
+     67.109      4    16.777    16.777     0.000    33.554       13.699  [CUDA memcpy Host-to-Device]
+     33.554      2    16.777    16.777    16.777    16.777        0.000  [CUDA memcpy Device-to-Host]
+
+Generated:
+    /zhome/3c/8/202539/hpc_assignments/assignment3/matmul/asy_offload_23878852_2.nsys-rep
+    /zhome/3c/8/202539/hpc_assignments/assignment3/matmul/asy_offload_23878852_2.sqlite
+nvc++ -g -fast -Msafeptr -Minfo -mp=gpu -gpu=mem:separate:pinnedalloc -gpu=lineinfo -gpu=cc90 -cuda -mp=noautopar -cudalib=cublas -fpic -shared   -DSPLITS=5    -c -o mkn_mnk_offload.o mkn_mnk_offload.cpp
+matmult_mkn_offload:
+      7, #omp target teams distribute parallel for num_teams(m) thread_limit(32)
+          7, Generating "nvkernel_matmult_mkn_offload_F1L7_2" GPU kernel
+          9, Loop parallelized across teams and threads(128), schedule(static)
+      7, Generating map(tofrom:C[:m*n]) 
+      9, Loop not vectorized/parallelized: not countable
+     11, #omp target teams distribute parallel for num_teams(m) thread_limit(32)
+         11, Generating "nvkernel_matmult_mkn_offload_F1L11_4" GPU kernel
+         14, Loop parallelized across teams and threads(128), schedule(static)
+     11, Generating map(to:A[:m*k]) 
+         Generating map(tofrom:C[:m*n]) 
+         Generating map(to:B[:n*k]) 
+     14, Loop not vectorized/parallelized: not countable
+     16, Generated vector simd code for the loop
+matmult_mnk_offload:
+     23, #omp target teams distribute parallel for
+         23, Generating "nvkernel_matmult_mnk_offload_F1L23_10" GPU kernel
+         25, Loop parallelized across teams and threads(128), schedule(static)
+     23, Generating map(to:A[:k*m],B[:k*n]) 
+         Generating map(tofrom:C[:m*n]) 
+     25, Loop not vectorized/parallelized: not countable
+     28, Generated vector simd code for the loop containing reductions
+     29, FMA (fused multiply-add) instruction(s) generated
+nvc++ -g -fast -Msafeptr -Minfo -mp=gpu -gpu=mem:separate:pinnedalloc -gpu=lineinfo -gpu=cc90 -cuda -mp=noautopar -cudalib=cublas -fpic -shared   -DSPLITS=5    -c -o matmult_cublas.o matmult_cublas.cpp
+nvc++ -g -fast -Msafeptr -Minfo -mp=gpu -gpu=mem:separate:pinnedalloc -gpu=lineinfo -gpu=cc90 -cuda -mp=noautopar -cudalib=cublas -fpic -shared   -DSPLITS=5    -c -o matmult_mkn_omp.o matmult_mkn_omp.cpp
+matmult_mkn_omp:
+     21, #omp parallel
+         25, Barrier
+         41, Barrier
+     23, Recognized memory zero idiom
+     33, Generated vector simd code for the loop
+nvc++ -g -fast -Msafeptr -Minfo -mp=gpu -gpu=mem:separate:pinnedalloc -gpu=lineinfo -gpu=cc90 -cuda -mp=noautopar -cudalib=cublas -fpic -shared   -DSPLITS=5    -c -o blk_offload.o blk_offload.cpp
+matmult_blk_offload:
+     14, #omp target teams distribute parallel for num_teams(m) thread_limit(64)
+         14, Generating "nvkernel_matmult_blk_offload_F1L14_2" GPU kernel
+         20, Loop parallelized across teams and threads(128), schedule(static)
+     14, Generating map(to:A[:m*k],B[:k*n]) 
+         Generating map(tofrom:C[:m*n]) 
+     21, Loop not vectorized/parallelized: not countable
+     25, Generated vector simd code for the loop
+     29, Loop not vectorized: unprofitable for target
+         Loop unrolled 8 times
+     35, Generated vector simd code for the loop containing reductions
+     36, FMA (fused multiply-add) instruction(s) generated
+nvc++ -g -fast -Msafeptr -Minfo -mp=gpu -gpu=mem:separate:pinnedalloc -gpu=lineinfo -gpu=cc90 -cuda -mp=noautopar -cudalib=cublas -fpic -shared   -DSPLITS=5    -c -o matmult_asy_offload.o matmult_asy_offload.cpp
+matmult_asy_offload:
+      8, Generating target enter data map(create: C[:m*n],B[:k*n],A[:m*k])
+         Generating update to(B[:k*n])
+     11, Loop not vectorized/parallelized: too deeply nested
+     12, #omp target teams loop num_teams(length) thread_limit(32)
+         12, Generating "nvkernel_matmult_asy_offload_F1L12_2" GPU kernel
+             Generating NVIDIA GPU code
+           17, Loop parallelized across teams(length) /* blockIdx.x */
+           19, Loop parallelized across threads(32) /* threadIdx.x */
+           22, Loop run sequentially 
+               Generating implicit reduction(+:sum)
+         12, Generating Multicore code
+           17, Loop parallelized across threads
+     12, Generating update to(A[k*lower:k*length])
+         Generating implicit map(from:C[:]) 
+         Generating implicit map(to:B[:],A[:]) 
+     19, Loop is parallelizable
+     22, Loop carried scalar dependence for l at line 24,25,27
+         Generated vector simd code for the loop containing reductions
+     26, FMA (fused multiply-add) instruction(s) generated
+     33, Generating update from(C[n*lower:n*length])
+     36, Taskwait
+         Generating target exit data(release: C[:m*n],B[:k*n],A[:m*k])
+nvc++ -g -fast -Msafeptr -Minfo -mp=gpu -gpu=mem:separate:pinnedalloc -gpu=lineinfo -gpu=cc90 -cuda -mp=noautopar -cudalib=cublas -fpic -shared   -DSPLITS=5  -o libmatmult.so mkn_mnk_offload.o matmult_cublas.o matmult_mkn_omp.o blk_offload.o matmult_asy_offload.o -lopenblas
+nsys profile --trace=cuda --stats=true -o asy_offload_23878852_5 ./matmult_f.nvc++ asy_offload 2048 2048 2048
+WARNING: CPU IP/backtrace sampling not supported, disabling.
+Try the 'nsys status --environment' command to learn more.
+
+WARNING: CPU context switch tracing not supported, disabling.
+Try the 'nsys status --environment' command to learn more.
+
+   98304.000 312565.512 # matmult_asy_offload
+Collecting data...
+Generating '/tmp/23878852.tmpdir/nsys-report-f8b6.qdstrm'
+[1/6] [0%                          ] asy_offload_23878852_5.nsys-rep[1/6] [0%                          ] asy_offload_23878852_5.nsys-rep[1/6] [=========45%                ] asy_offload_23878852_5.nsys-rep[1/6] [================70%         ] asy_offload_23878852_5.nsys-rep[1/6] [=======================96%  ] asy_offload_23878852_5.nsys-rep[1/6] [========================97% ] asy_offload_23878852_5.nsys-rep[1/6] [========================98% ] asy_offload_23878852_5.nsys-rep[1/6] [========================100%] asy_offload_23878852_5.nsys-rep[1/6] [========================100%] asy_offload_23878852_5.nsys-rep
+[2/6] [0%                          ] asy_offload_23878852_5.sqlite[2/6] [1%                          ] asy_offload_23878852_5.sqlite[2/6] [2%                          ] asy_offload_23878852_5.sqlite[2/6] [3%                          ] asy_offload_23878852_5.sqlite[2/6] [4%                          ] asy_offload_23878852_5.sqlite[2/6] [5%                          ] asy_offload_23878852_5.sqlite[2/6] [6%                          ] asy_offload_23878852_5.sqlite[2/6] [7%                          ] asy_offload_23878852_5.sqlite[2/6] [8%                          ] asy_offload_23878852_5.sqlite[2/6] [9%                          ] asy_offload_23878852_5.sqlite[2/6] [10%                         ] asy_offload_23878852_5.sqlite[2/6] [11%                         ] asy_offload_23878852_5.sqlite[2/6] [12%                         ] asy_offload_23878852_5.sqlite[2/6] [13%                         ] asy_offload_23878852_5.sqlite[2/6] [14%                         ] asy_offload_23878852_5.sqlite[2/6] [=15%                        ] asy_offload_23878852_5.sqlite[2/6] [=16%                        ] asy_offload_23878852_5.sqlite[2/6] [=17%                        ] asy_offload_23878852_5.sqlite[2/6] [==18%                       ] asy_offload_23878852_5.sqlite[2/6] [==19%                       ] asy_offload_23878852_5.sqlite[2/6] [==20%                       ] asy_offload_23878852_5.sqlite[2/6] [==21%                       ] asy_offload_23878852_5.sqlite[2/6] [===22%                      ] asy_offload_23878852_5.sqlite[2/6] [===23%                      ] asy_offload_23878852_5.sqlite[2/6] [===24%                      ] asy_offload_23878852_5.sqlite[2/6] [====25%                     ] asy_offload_23878852_5.sqlite[2/6] [====26%                     ] asy_offload_23878852_5.sqlite[2/6] [====27%                     ] asy_offload_23878852_5.sqlite[2/6] [====28%                     ] asy_offload_23878852_5.sqlite[2/6] [=====29%                    ] asy_offload_23878852_5.sqlite[2/6] [=====30%                    ] asy_offload_23878852_5.sqlite[2/6] [=====31%                    ] asy_offload_23878852_5.sqlite[2/6] [=====32%                    ] asy_offload_23878852_5.sqlite[2/6] [======33%                   ] asy_offload_23878852_5.sqlite[2/6] [======34%                   ] asy_offload_23878852_5.sqlite[2/6] [======35%                   ] asy_offload_23878852_5.sqlite[2/6] [=======36%                  ] asy_offload_23878852_5.sqlite[2/6] [=======37%                  ] asy_offload_23878852_5.sqlite[2/6] [=======38%                  ] asy_offload_23878852_5.sqlite[2/6] [=======39%                  ] asy_offload_23878852_5.sqlite[2/6] [========40%                 ] asy_offload_23878852_5.sqlite[2/6] [========41%                 ] asy_offload_23878852_5.sqlite[2/6] [========42%                 ] asy_offload_23878852_5.sqlite[2/6] [=========43%                ] asy_offload_23878852_5.sqlite[2/6] [=========44%                ] asy_offload_23878852_5.sqlite[2/6] [=========45%                ] asy_offload_23878852_5.sqlite[2/6] [=========46%                ] asy_offload_23878852_5.sqlite[2/6] [==========47%               ] asy_offload_23878852_5.sqlite[2/6] [==========48%               ] asy_offload_23878852_5.sqlite[2/6] [==========49%               ] asy_offload_23878852_5.sqlite[2/6] [===========50%              ] asy_offload_23878852_5.sqlite[2/6] [===========51%              ] asy_offload_23878852_5.sqlite[2/6] [===========52%              ] asy_offload_23878852_5.sqlite[2/6] [===========53%              ] asy_offload_23878852_5.sqlite[2/6] [============54%             ] asy_offload_23878852_5.sqlite[2/6] [============55%             ] asy_offload_23878852_5.sqlite[2/6] [============56%             ] asy_offload_23878852_5.sqlite[2/6] [============57%             ] asy_offload_23878852_5.sqlite[2/6] [=============58%            ] asy_offload_23878852_5.sqlite[2/6] [=============59%            ] asy_offload_23878852_5.sqlite[2/6] [=============60%            ] asy_offload_23878852_5.sqlite[2/6] [==============61%           ] asy_offload_23878852_5.sqlite[2/6] [==============62%           ] asy_offload_23878852_5.sqlite[2/6] [==============63%           ] asy_offload_23878852_5.sqlite[2/6] [==============64%           ] asy_offload_23878852_5.sqlite[2/6] [===============65%          ] asy_offload_23878852_5.sqlite[2/6] [===============66%          ] asy_offload_23878852_5.sqlite[2/6] [===============67%          ] asy_offload_23878852_5.sqlite[2/6] [================68%         ] asy_offload_23878852_5.sqlite[2/6] [================69%         ] asy_offload_23878852_5.sqlite[2/6] [================70%         ] asy_offload_23878852_5.sqlite[2/6] [================71%         ] asy_offload_23878852_5.sqlite[2/6] [=================72%        ] asy_offload_23878852_5.sqlite[2/6] [=================73%        ] asy_offload_23878852_5.sqlite[2/6] [=================74%        ] asy_offload_23878852_5.sqlite[2/6] [==================75%       ] asy_offload_23878852_5.sqlite[2/6] [==================76%       ] asy_offload_23878852_5.sqlite[2/6] [==================77%       ] asy_offload_23878852_5.sqlite[2/6] [==================78%       ] asy_offload_23878852_5.sqlite[2/6] [===================79%      ] asy_offload_23878852_5.sqlite[2/6] [===================80%      ] asy_offload_23878852_5.sqlite[2/6] [===================81%      ] asy_offload_23878852_5.sqlite[2/6] [===================82%      ] asy_offload_23878852_5.sqlite[2/6] [====================83%     ] asy_offload_23878852_5.sqlite[2/6] [====================84%     ] asy_offload_23878852_5.sqlite[2/6] [====================85%     ] asy_offload_23878852_5.sqlite[2/6] [=====================86%    ] asy_offload_23878852_5.sqlite[2/6] [=====================87%    ] asy_offload_23878852_5.sqlite[2/6] [=====================88%    ] asy_offload_23878852_5.sqlite[2/6] [=====================89%    ] asy_offload_23878852_5.sqlite[2/6] [======================90%   ] asy_offload_23878852_5.sqlite[2/6] [======================91%   ] asy_offload_23878852_5.sqlite[2/6] [======================92%   ] asy_offload_23878852_5.sqlite[2/6] [=======================93%  ] asy_offload_23878852_5.sqlite[2/6] [=======================94%  ] asy_offload_23878852_5.sqlite[2/6] [=======================95%  ] asy_offload_23878852_5.sqlite[2/6] [=======================96%  ] asy_offload_23878852_5.sqlite[2/6] [========================97% ] asy_offload_23878852_5.sqlite[2/6] [========================98% ] asy_offload_23878852_5.sqlite[2/6] [========================99% ] asy_offload_23878852_5.sqlite[2/6] [========================100%] asy_offload_23878852_5.sqlite[2/6] [========================100%] asy_offload_23878852_5.sqlite
+[3/6] Executing 'cuda_api_sum' stats report
+
+ Time (%)  Total Time (ns)  Num Calls   Avg (ns)     Med (ns)    Min (ns)   Max (ns)   StdDev (ns)                        Name                      
+ --------  ---------------  ---------  -----------  -----------  ---------  ---------  -----------  ------------------------------------------------
+     75.3        557155162          1  557155162.0  557155162.0  557155162  557155162          0.0  cuMemHostAlloc                                  
+     10.7         79334539          3   26444846.3   25238418.0   25184747   28911374    2136244.2  cudaMallocHost                                  
+      4.8         35502031          3   11834010.3   10921156.0   10846025   13734850    1646604.0  cudaFreeHost                                    
+      2.8         20389233          1   20389233.0   20389233.0   20389233   20389233          0.0  cuMemAllocManaged                               
+      2.2         16061147         11    1460104.3     223454.0       3916   11675214    3460252.7  cuMemAlloc_v2                                   
+      1.4         10117616          6    1686269.3    1269246.0       3816    5030475    2053589.9  cuMemAllocHost_v2                               
+      0.8          5615481         18     311971.2     177069.5       1772    3773348     868267.7  cuStreamSynchronize                             
+      0.6          4749185          4    1187296.3    1063143.5       3415    2619483    1381417.3  cudaFree                                        
+      0.6          4303328          5     860665.6       1893.0       1792    4294946    1919821.2  cuEventSynchronize                              
+      0.6          4159915          3    1386638.3       6409.0       2384    4151122    2394113.9  cudaMalloc                                      
+      0.2          1213141          5     242628.2      13410.0       5728    1167254     516907.7  cuStreamCreate                                  
+      0.1           526437          1     526437.0     526437.0     526437     526437          0.0  cudaGetFuncBySymbol_v11000                      
+      0.0           306421       1222        250.8        200.0         80       7371        243.6  cuGetProcAddress_v2                             
+      0.0           276004          7      39429.1       7902.0       4236     218677      79347.2  cuMemcpyHtoDAsync_v2                            
+      0.0           154702          5      30940.4      22734.0      13660      59700      18186.5  cuLaunchKernel                                  
+      0.0            55532          5      11106.4       8913.0       6209      21352       5948.0  cuMemcpyDtoHAsync_v2                            
+      0.0            22573         18       1254.1        326.0        240       7020       2122.1  cudaEventCreateWithFlags                        
+      0.0            11006          4       2751.5       1967.5        941       6130       2419.7  cudaDeviceSynchronize                           
+      0.0            10918         18        606.6        265.0        200       5538       1238.1  cudaEventDestroy                                
+      0.0            10755         10       1075.5        711.0        260       5078       1425.7  cuEventCreate                                   
+      0.0             9874          5       1974.8       1882.0       1031       3285        870.9  cuInit                                          
+      0.0             8333         18        462.9        330.5        291       2544        521.4  cudaOccupancyMaxActiveClusters_v11070           
+      0.0             7832          5       1566.4       1442.0        811       2454        623.4  cuEventRecord                                   
+      0.0             2554          1       2554.0       2554.0       2554       2554          0.0  cudaOccupancyAvailableDynamicSMemPerBlock_v10200
+      0.0             2484          6        414.0        325.0         91       1052        362.5  cuCtxSetCurrent                                 
+      0.0             1093          2        546.5        546.5        271        822        389.6  cudaGetDriverEntryPoint_v11030                  
+      0.0              581          1        581.0        581.0        581        581          0.0  cuFuncGetModule                                 
+      0.0              471          3        157.0        170.0        130        171         23.4  cuModuleGetLoadingMode                          
+
+[4/6] Executing 'cuda_gpu_kern_sum' stats report
+
+ Time (%)  Total Time (ns)  Instances  Avg (ns)   Med (ns)   Min (ns)  Max (ns)  StdDev (ns)                  Name                
+ --------  ---------------  ---------  ---------  ---------  --------  --------  -----------  ------------------------------------
+    100.0         24955428          5  4991085.6  5159190.0   4495983   5194902     294520.1  nvkernel_matmult_asy_offload_F1L12_2
+
+[5/6] Executing 'cuda_gpu_mem_time_sum' stats report
+
+ Time (%)  Total Time (ns)  Count  Avg (ns)  Med (ns)  Min (ns)  Max (ns)  StdDev (ns)           Operation          
+ --------  ---------------  -----  --------  --------  --------  --------  -----------  ----------------------------
+     84.5          4664496      7  666356.6  173474.0      1024   3768743    1369667.9  [CUDA memcpy Host-to-Device]
+     15.5           855977      5  171195.4  171138.0    168513    175330       2609.3  [CUDA memcpy Device-to-Host]
+
+[6/6] Executing 'cuda_gpu_mem_size_sum' stats report
+
+ Total (MB)  Count  Avg (MB)  Med (MB)  Min (MB)  Max (MB)  StdDev (MB)           Operation          
+ ----------  -----  --------  --------  --------  --------  -----------  ----------------------------
+     67.060      7     9.580     6.701     0.000    33.554       10.863  [CUDA memcpy Host-to-Device]
+     33.505      5     6.701     6.701     6.701     6.701        0.000  [CUDA memcpy Device-to-Host]
+
+Generated:
+    /zhome/3c/8/202539/hpc_assignments/assignment3/matmul/asy_offload_23878852_5.nsys-rep
+    /zhome/3c/8/202539/hpc_assignments/assignment3/matmul/asy_offload_23878852_5.sqlite
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@hpc.dtu.dk>
+Subject: Job 23878852: <ncu_prof> in cluster <dcc> Done
+
+Job <ncu_prof> was submitted from host <n-62-30-3> by user <s232496> in cluster <dcc> at Fri Jan 24 12:51:51 2025
+Job was executed on host(s) <32*n-62-12-89>, in queue <hpcintrogpu>, as user <s232496> in cluster <dcc> at Fri Jan 24 13:06:30 2025
+</zhome/3c/8/202539> was used as the home directory.
+</zhome/3c/8/202539/matmul> was used as the working directory.
+Started at Fri Jan 24 13:06:30 2025
+Terminated at Fri Jan 24 13:07:27 2025
+Results reported at Fri Jan 24 13:07:27 2025
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+# 02614 - High-Performance Computing, January 2024
+# 
+# batch script to run matmult on a dedicated GPU server in the hpcintrogpu
+# queue
+#
+# Author: Bernd Dammann <bd@cc.dtu.dk>
+#         Hans Henrik Brandenborg Sørensen <hhbs@dtu.dk>
+#
+#BSUB -J ncu_prof
+#BSUB -o ncu_prof_%J.out
+#BSUB -q hpcintrogpu
+#BSUB -n 32
+#BSUB -R "rusage[mem=2048]"
+#BSUB -W 15
+#BSUB -R "span[hosts=1]"
+#BSUB -gpu "num=1:mode=exclusive_process"
+
+export MFLOPS_MAX_IT=1
+export MATMULT_COMPARE=0
+export TMPDIR=$__LSF_JOB_TMPDIR__
+
+module load nvhpc/24.11
+module load gprofng
+
+EXECUTABLE=matmult_f.nvc++
+SIZE="2048"
+
+HWCOUNT="-h dch,on,dcm,on,l2h,on,l2m,on"
+JID=$(date "+%s.%N")
+EXPOUT="GPROFNG.${JID}.er"
+OMP_NUM_THREADS=32 gprofng collect app -o $EXPOUT $HWCOUNT ./$EXECUTABLE mkn_omp $SIZE $SIZE $SIZE
+gprofng display text --functions $EXPOUT
+
+
+TYPE="mnk_offload"
+nsys profile --trace=cuda --stats=true -o "${TYPE}_${LSB_JOBID}" ./$EXECUTABLE $TYPE $SIZE $SIZE $SIZE
+
+
+TYPE="mkn_offload"
+NVCOMPILER_OMP_CUDA_GRID=456,32 nsys profile --trace=cuda --stats=true -o "${TYPE}_${LSB_JOBID}" ./$EXECUTABLE $TYPE $SIZE $SIZE $SIZE
+
+
+TYPE="blk_offload"
+BLK_SIZES="30 150"
+for BLK_SIZE in $BLK_SIZES
+do
+  make clean && make PARA=-DBLK=${BLK_SIZE}
+  echo NVCOMPILER_OMP_CUDA_GRID=1024,128 nsys profile --trace=cuda --stats=true -o "${TYPE}_${LSB_JOBID}_${BLK_SIZE}" ./$EXECUTABLE $TYPE $SIZE $SIZE $SIZE
+  NVCOMPILER_OMP_CUDA_GRID=1024,128 nsys profile --trace=cuda --stats=true -o "${TYPE}_${LSB_JOBID}_${BLK_SIZE}" ./$EXECUTABLE $TYPE $SIZE $SIZE $SIZE
+
+(... more ...)
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   58.00 sec.
+    Max Memory :                                 687 MB
+    Average Memory :                             241.00 MB
+    Total Requested Memory :                     65536.00 MB
+    Delta Memory :                               64849.00 MB
+    Max Swap :                                   -
+    Max Processes :                              8
+    Max Threads :                                32
+    Run time :                                   58 sec.
+    Turnaround time :                            936 sec.
+
+The output (if any) is above this job summary.
+
