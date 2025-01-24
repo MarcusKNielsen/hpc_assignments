@@ -30,6 +30,6 @@ do
 done
 
 EXECUTABLE=poisson7
-CUDA_VISIBLE_DEVICES=0,1 OMP_NUM_THREADS=6 nsys profile --trace=cuda --stats=true -o "${EXECUTABLE}_${LSB_JOBID}" $EXECUTABLE 500 50 0.01 0
+CUDA_VISIBLE_DEVICES=0,1 OMP_NUM_THREADS=6 nsys profile --trace=cuda --stats=true -o "prof_nsys_${EXECUTABLE}_${LSB_JOBID}" $EXECUTABLE 500 50 0.01 0
 CUDA_VISIBLE_DEVICES=0,1 OMP_NUM_THREADS=6 $NSIGHT --config-file off --set basic --section MemoryWorkloadAnalysis --section MemoryWorkloadAnalysis_Chart --section ComputeWorkloadAnalysis --export "prof_ncu_${EXECUTABLE}_${LSB_JOBID}" --force-overwrite $EXECUTABLE 500 50 0.01 0
 
