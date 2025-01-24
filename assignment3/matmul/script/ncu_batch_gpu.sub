@@ -29,8 +29,8 @@ SIZE="2048"
 HWCOUNT="-h dch,on,dcm,on,l2h,on,l2m,on"
 JID=$(date "+%s.%N")
 EXPOUT="GPROFNG.${JID}.er"
-OMP_NUM_THREADS=32 gprofng collect app -o $EXPOUT $HWCOUNT ./$EXECUTABLE mkn_omp $SIZE $SIZE $SIZE
-gprofng display text --functions $EXPOUT
+OMP_NUM_THREADS=32 gprofng collect app -o GPROFNG.mkn.er -h dch,on,dcm,on,l2h,on,l2m,on ./matmult_f.nvc++ mkn_omp 2048 2048 2048
+gprofng display text --functions GPROFNG.mkn.er
 
 
 TYPE="mnk_offload"
