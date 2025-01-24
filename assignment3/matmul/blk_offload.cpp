@@ -1,12 +1,5 @@
 #include "blk_offload.h"
 
-#define min(a, b)            \
-({                           \
-    __typeof__ (a) _a = (a); \
-    __typeof__ (b) _b = (b); \
-    _a < _b ? _a : _b;       \
-})
-
 #ifndef BLK
 #define BLK 35
 #endif
