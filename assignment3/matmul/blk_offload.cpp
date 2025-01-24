@@ -6,7 +6,7 @@
 
 void matmult_blk_offload(int m, int n, int k, double *A, double *B, double *C) {
 
-#pragma omp target teams num_teams(m) thread_limit(64) \
+#pragma omp target teams \
     distribute parallel for \
     map(to: A[0:m*k], B[0:k*n]) map(tofrom: C[0:m*n]) \
     collapse(2)
