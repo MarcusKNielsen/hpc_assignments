@@ -21,17 +21,15 @@ export TMPDIR=$__LSF_JOB_TMPDIR__
 module load nvhpc/24.11
 
 NSIGHT="/appl9/nvhpc/2024_2411/Linux_x86_64/24.11/profilers/Nsight_Compute/target/linux-desktop-glibc_2_11_3-x64/ncu"
-NSIGHT_OPTIONS="--set basic --section MemoryWorkloadAnalysis --section MemoryWorkloadAnalysis_Chart --section ComputeWorkloadAnalysis"
-
 
 for EXECUTABLE in poisson6.1 poisson6.2 poisson8;
 do
   nsys profile --trace=cuda --stats=true -o "prof_nsys_${EXECUTABLE}_${LSB_JOBID}" $EXECUTABLE 500 50 0.01 0
 
-  $NSIGHT --config-file off "$NSIGHT_OPTIONS" --export "prof_ncu_${EXECUTABLE}_${LSB_JOBID}" --force-overwrite $EXECUTABLE 500 50 0.01 0
+  $NSIGHT --config-file off --set basic --section MemoryWorkloadAnalysis --section MemoryWorkloadAnalysis_Chart --section ComputeWorkloadAnalysis --export "prof_ncu_${EXECUTABLE}_${LSB_JOBID}" --force-overwrite $EXECUTABLE 500 50 0.01 0
 done
 
 EXECUTABLE=poisson7
 CUDA_VISIBLE_DEVICES=0,1 OMP_NUM_THREADS=6 nsys profile --trace=cuda --stats=true -o "${EXECUTABLE}_${LSB_JOBID}" $EXECUTABLE 500 50 0.01 0
-CUDA_VISIBLE_DEVICES=0,1 OMP_NUM_THREADS=6 $NSIGHT --config-file off "$NSIGHT_OPTIONS" --export "prof_ncu_${EXECUTABLE}_${LSB_JOBID}" --force-overwrite $EXECUTABLE 500 50 0.01 0
+CUDA_VISIBLE_DEVICES=0,1 OMP_NUM_THREADS=6 $NSIGHT --config-file off --set basic --section MemoryWorkloadAnalysis --section MemoryWorkloadAnalysis_Chart --section ComputeWorkloadAnalysis --export "prof_ncu_${EXECUTABLE}_${LSB_JOBID}" --force-overwrite $EXECUTABLE 500 50 0.01 0
 
