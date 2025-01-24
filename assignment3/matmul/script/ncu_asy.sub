@@ -9,14 +9,48 @@
 #
 #BSUB -J ncu_prof
 #BSUB -o ncu_prof_%J.out
-#BSUB -e ncu_prof_%J.err
 #BSUB -q hpcintrogpu
-#BSUB -n 16
+#BSUB -n 32
 #BSUB -R "rusage[mem=2048]"
 #BSUB -W 15
 #BSUB -R "span[hosts=1]"
 #BSUB -gpu "num=1:mode=exclusive_process"
 
+# define the driver name to use
+# valid values: matmult_c.nvc++, matmult_f.nvc++
+#
+EXECUTABLE=matmult_c.nvc++
+
+# define the mkn values in the MKN variable
+#
+SIZE="1000"
+
+# define the method type in TYPE
+#
+TYPE="asy_offload"
+
+# you have exclusive access to the GPU and only need 1 iteration from
+# the driver for ncu to collect metrics with high accuary
+#
+export MFLOPS_MAX_IT=1
+export MATMULT_COMPARE=0
+
+# set tmp dir for profiler lock
+#
+export TMPDIR=$__LSF_JOB_TMPDIR__
+
+# experiment name 
+#
+JID=${LSB_JOBID}
+EXPOUT="${LSB_JOBNAME}_${JID}"
+
+# load module for shared cuda libraries
 module load nvhpc/24.11
 
-/appl9/nvhpc/2024_2411/Linux_x86_64/24.11/profilers/Nsight_Compute/target/linux-desktop-glibc_2_11_3-x64/ncu --config-file off --export "/zhome/57/d/202545/Documents/NVIDIA Nsight Compute/prof_asy_5" --force-overwrite /zhome/57/d/202545/Desktop/hpc/hpc_assignments/assignment3/matmul/matmult_f.nvc++ asy_offload 500 500 500
+# start the collect command with the above settings
+ncu -o $EXPOUT \
+    --set basic \
+    --section MemoryWorkloadAnalysis \
+    --section MemoryWorkloadAnalysis_Chart \
+    --section ComputeWorkloadAnalysis \
+    ./$EXECUTABLE $TYPE $SIZE $SIZE $SIZE
